@@ -1,13 +1,17 @@
 # App name
 
+Brick Manager
+
 ## Description
 
-This is a project developed by XXX and YYY as the project for the second module at Ironhack. The application...
+This is a project developed by Dani Pérez and Guillem Baracco as the project for the second module at Ironhack. 
+
+With Brick Manager the user can check the information about each brick or Lego Set in the house (prev added). If the user has been registered in the app, may be add, modify or delete the information.
 
 ---
 
 ## Wireframes
-![](docs/wireframes.png)
+![](docs/wireframe-brick-manager.png)
 
 ---
 
@@ -68,15 +72,96 @@ const userSchema = new Schema(
       lowercase: true,
       trim: true
     },
+    usertype: {
+        type: String,
+        requiered: true,
+    }
+    profilepicture: {
+        type: String,
+        requiered: true,
+    }
     hashedPassword: {
       type: String,
       required: [true, 'Password is required.']
     }
-  },
-  {
-    timestamps: true
   }
 );
+
+const brick = new Schema(
+  {
+    brickname: {
+      type: String,
+      trim: true,
+      required: [true, 'brick name is required.'],
+      unique: true
+    },
+    quantity: {
+      type: Number,
+      required: [true, 'Quantity is required.'],
+      
+    },
+    picture: {
+      type: String   
+    },
+    color: {
+       type: String,
+       required: [true, 'Color is required.'], 
+    },
+    setId: {
+        type: String
+    }
+    ,
+    status: {
+        status: String,
+        required: [true, 'Color is required.']
+    },
+    boxId: {
+        status: String,
+        required: [true, 'box ID is required.']
+    }
+    
+}
+);  
+
+const set = new Schema(
+  {
+    setname: {
+      type: String,
+      trim: true,
+      required: [true, 'brick name is required.'],
+      unique: true
+    },
+    quantity: {
+      type: Number,
+      required: [true, 'Quantity is required.'],
+      
+    },
+    picture: {
+      type: String   
+    },
+    brickId: {
+        type: String
+    }  
+}  
+);
+
+const box = new Schema(
+  {
+    boxname: {
+      type: String,
+      trim: true,
+      required: [true, 'brick name is required.'],
+      unique: true
+    },
+    brickId: {
+        type: String
+    }
+    picture: {
+      type: String   
+    }    
+  }
+);
+
 ```
 
 ---
@@ -95,11 +180,28 @@ const userSchema = new Schema(
 
 ---
 
+| Name  | Method | Endpoint    | Protected | Req.body            | Redirects |
+|-------|--------|-------------|------|---------------------|-----------|
+| Home  | GET   | /           | No   |                     |           |
+| Login | GET    | /auth/login | No |                      |           |
+| Login | POST | /auth/login   | No | { email, password }  | /         |
+| Signup | GET    | /auth/signup | No |                      |           |
+| Signup | POST | /auth/signup   | No | { username, email, password }  | /auth/login  |
+| New brick  | GET    | /bricks/new | Yes |                      |           |
+| New brick | POST | /bricks/new   | Yes | { title, cast, genre }  | /bricks/:brickId   |
+| New set  | GET    | /sets/new | Yes |                      |           |
+| New set | POST | /sets/new   | Yes | { title, cast, genre }  | /sets/:setId   |
+| New box  | GET    | /sets/new | Yes |                      |           |
+| New box | POST | /sets/new   | Yes | { title, cast, genre }  | /box/:boxId   |
+​
+
+
+
+
 ## Useful links
 
 - [Github Repo](https://github.com/alebausa/module2-boilerplate)
 - [Deployed version]()
 - [Presentation slides](https://www.slides.com)
-
 
 
