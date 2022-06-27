@@ -7,6 +7,7 @@ This is a project developed by XXX and YYY as the project for the second module 
 ---
 
 ## Wireframes
+> Substitute this image with an image of your own app wireframes or designs
 ![](docs/wireframes.png)
 
 ---
