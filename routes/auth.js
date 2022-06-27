@@ -50,7 +50,7 @@ router.post("/signup" , async(req,res,next)=>{
     }   
     catch{
         res.render("auth/signup", {error: 'The username or email is already in use'})
-        res.render("auth/signup") 
+        res.render("auth/signup")  
     }
 })
 
