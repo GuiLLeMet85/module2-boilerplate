@@ -1,5 +1,17 @@
-<h1>Home page</h1>
-<h1>{{user.username}}</h1>
 
-<a href="/auth/signup">Signup</a>  
-<a href="/auth/login">Login</a>   
+<div>
+    <h1>Home page</h1>
+    <br>
+    <h2>{{user.username}}</h2>
+    <br>
+
+    <h3><a href="/auth/signup">Signup</a>  </h3>
+    <br>
+    <h3><a href="/auth/login">Login</a>   </h3>
+    <br>
+    <form action="/auth/logout" method="post">
+    <button type="submit">Logout</button>
+</form>
+</div>
+
+

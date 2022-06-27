@@ -93,14 +93,14 @@ router.post("/login" , async(req,res,next)=>{
 // @desc    Destroy user session and log out
 // @route   POST /auth/logout
 // @access  Private
-router.post('/logout', isLoggedIn, (req, res, next) => {
-  req.session.destroy((err) => {
-    if (err) {
-      next(err)
-    } else {
-      res.redirect('/auth/login');
-    }
-  });
+router.post("/logout" ,(req, res,next)=>{
+    req.session.destroy((err)=>{
+        if(err){
+            next(err)
+        }else{
+            res.redirect("/")
+        }
+    })
 })
 
 module.exports = router;
