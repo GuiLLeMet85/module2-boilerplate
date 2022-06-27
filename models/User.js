@@ -6,7 +6,7 @@ const userSchema = new Schema(
     username: {
       type: String,
       trim: true,
-      required: [true, 'Username is required.'],
+      required: [true, 'Username is required.'], 
       unique: true
     },
     email: {
@@ -16,7 +16,7 @@ const userSchema = new Schema(
       lowercase: true,
       trim: true
     },
-    hashedPassword: {
+    codeHash: {
       type: String,
       required: [true, 'Password is required.']
     }
