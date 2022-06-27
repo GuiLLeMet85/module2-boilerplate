@@ -58,27 +58,36 @@ router.post("/signup" , async(req,res,next)=>{
 // @desc    Sends user auth data to database to authenticate user
 // @route   POST /auth/login
 // @access  Public
-router.post('/login', async (req, res, next) => {
-  const { email, password } = req.body;
-  // ⚠️ Add more validations!
-  try {
-    // Remember to assign user to session cookie:
-    const user = await User.findOne({ email: email });
-    if (!user) {
-      res.render('auth/login', { error: "User not found" });
-      return;
-    } else {
-      const match = await bcrypt.compare(password, user.hashedPassword);
-      if (match) {
-        req.session.currentUser = user;
-        res.redirect('/');
-      } else {
-        res.render('auth/login', { error: "Unable to authenticate user" });
-      }
+router.post("/login" , async(req,res,next)=>{
+    const {email, password} =req.body
+     if(!email || !password){
+         res.render("auth/login", {error: 'Fields cannot be empty'})
+         return
+     }    
+    try{
+        const user = await User.findOne({email:email})       
+        //si el usuario no se encuentra en la db
+        if(!user){
+            res.render("auth/login", {error: "Data not found"})
+            return
+        }else{
+            //comparamos el campo de password introducido, con el password hasheado de la base de datos => (user.codeHash)           
+            const passCompare =  bcrypt.compare(password, user.codeHash)//devuleve true o false
+            console.log(password)
+            console.log(user.codeHash)
+            console.log(passCompare)
+            if(passCompare){
+                 req.session.currentUser = user
+                 res.render("index",{user})
+            }else{
+                res.render("auth/login", {error: "Data not found"})
+                return
+            }            
+        }       
+    }   
+    catch{
+        res.render("auth/login")
     }
-  } catch (error) {
-    next(error);
-  }
 })
 
 // @desc    Destroy user session and log out
