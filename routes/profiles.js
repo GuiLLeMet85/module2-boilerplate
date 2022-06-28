@@ -6,10 +6,10 @@ const User = require('../models/User');
 router.get('/:id/userProfile', isLoggedIn, async (req, res, next) => {
     
      const { id }= req.params
-     console.log(id)
+    //  console.log(id)
     try{
         const user = await User.findById(id)
-        console.log(user)
+        // console.log(user)
         req.session.currentUser = user                
         res.render('profiles/userProfile', {user})
     }

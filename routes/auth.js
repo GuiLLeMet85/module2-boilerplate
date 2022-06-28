@@ -76,9 +76,9 @@ router.post("/login" , async(req,res,next)=>{
         }else{
             //comparamos el campo de password introducido, con el password hasheado de la base de datos => (user.codeHash)           
             const passCompare =  bcrypt.compare(password, user.codeHash)//devuleve true o false
-            console.log(password)
-            console.log(user.codeHash)
-            console.log(passCompare)
+            // console.log(password)
+            // console.log(user.codeHash)
+            // console.log(passCompare)
             if(passCompare){
                  req.session.currentUser = user
                  res.render("index",{user})
@@ -91,6 +91,20 @@ router.post("/login" , async(req,res,next)=>{
     catch{
         res.render("auth/login")
     }
+})
+
+router.get("/:id/update" , async (req, res, next)=>{
+    const {id}= req.params
+   
+    try{
+         const user=  await User.findById(id)
+         res.render("auth/update", user)
+    console.log(user)
+    }
+    catch(err){
+        next(err)
+    }
+   
 })
 
 // @desc    Destroy user session and log out
