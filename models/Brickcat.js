@@ -1,8 +1,8 @@
 const { Schema, model } = require('mongoose');
 
-const brickCatSchema = new Schema(
+const brickCategorySchema = new Schema(
     {
-      brickCatname: {
+      brickCatName: {
         type: String,
         trim: true,
         required: [true, 'brick name is required.'],
@@ -17,7 +17,8 @@ const brickCatSchema = new Schema(
         required: [true, 'Quantity is required.'],
       },
       picture: {
-        type: String   
+        type: String,
+        default: "/pictures/bricks-img/image.jpg"   
       },
       color: {
          type: String,
@@ -28,11 +29,14 @@ const brickCatSchema = new Schema(
           required: [true, 'Color is required.']
       },
       storageId: {
-          type: [String],
-          required: [true, 'box ID is required.']
-      }
+          type: [Schema.Types.ObjectId],
+          required: [true, 'box ID is required.'] //
+      },
+      setId: {
+        type: [String]
+    }
   }
   );  
-  const BrickCat = model('BrickCat', userSchema);
+  const BrickCategory = model('BrickCategory', userSchema);
   
   module.exports = BrickCat;
