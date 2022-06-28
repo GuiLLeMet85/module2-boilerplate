@@ -1,17 +1,21 @@
 
-<div>
+<div class="cardAuth" >
     <h1>Home page</h1>
     <br>
     <h2>
         {{#if user}}
         {{user.username}}
+
         {{/if}}
         </h2>
     <br>
+    {{#unless user}}
     <h3><a href="/auth/signup">Signup</a>  </h3>
     <br>
     <h3><a href="/auth/login">Login</a>   </h3>
     <br>
+    {{/unless}}
+   
     <form action="/auth/logout" method="post">
     <button type="submit">Logout</button>
    

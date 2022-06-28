@@ -15,6 +15,9 @@ const userSchema = new Schema(
       unique: true,
       lowercase: true,
       trim: true
+    },    
+      image:{
+        type:String
     },
     userType:{
       type:String,      

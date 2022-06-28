@@ -15,9 +15,7 @@ router.get('/:id/userProfile', isLoggedIn, async (req, res, next) => {
     }
     catch(err){
         next(err)
-    }
-  
+    }  
 })
-
 module.exports = router
 
