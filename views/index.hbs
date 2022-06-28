@@ -2,16 +2,24 @@
 <div>
     <h1>Home page</h1>
     <br>
-    <h2>{{user.username}}</h2>
+    <h2>
+        {{#if user}}
+        {{user.username}}
+        {{/if}}
+        </h2>
     <br>
-
     <h3><a href="/auth/signup">Signup</a>  </h3>
     <br>
     <h3><a href="/auth/login">Login</a>   </h3>
     <br>
     <form action="/auth/logout" method="post">
     <button type="submit">Logout</button>
+   
 </form>
+ {{#if user}}{{!--si el usuario tiene la sesión iniciada se mostrará el enlace --}}
+    <h3><a href="/profiles/{{user._id}}/userProfile">User Profile</a></h3>
+ {{/if}}
+
 </div>
 
 

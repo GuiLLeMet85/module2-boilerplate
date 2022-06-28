@@ -4,7 +4,8 @@ const router = require('express').Router();
 // @route   GET /
 // @access  Public
 router.get('/', (req, res, next) => {
-  res.render('index');
+  user = req.session.currentUser
+  res.render('index', {user});
 });
 
 module.exports = router;

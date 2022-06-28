@@ -16,6 +16,9 @@ const userSchema = new Schema(
       lowercase: true,
       trim: true
     },
+    userType:{
+      type:String,      
+    },
     codeHash: {
       type: String,
       required: [true, 'Password is required.']

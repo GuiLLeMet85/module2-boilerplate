@@ -12,10 +12,12 @@ router.get('/signup', async (req, res, next) => {
   res.render('auth/signup');
 })
 
+
 // @desc    Displays form view to log in
 // @route   GET /auth/login
 // @access  Public
 router.get('/login', async (req, res, next) => {
+    
   res.render('auth/login');
 })
 
@@ -43,10 +45,11 @@ router.post("/signup" , async(req,res,next)=>{
            return
      }
     try{
+            req.session.currentUser = user
         const salt = await bcrypt.genSalt(saltRounds)
         const codeHash = await bcrypt.hash(password, salt) //encriptamos el password con el metodo hash 
         const user = await User.create({username, email, codeHash})// Creamos el usuario encriptado
-        res.redirect("/")
+        res.redirect("/",{user})
     }   
     catch{
         res.render("auth/signup", {error: 'The username or email is already in use'})
