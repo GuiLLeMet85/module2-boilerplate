@@ -28,7 +28,7 @@ const MONGO_URI = process.env.MONGODB_URI
       console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
     });
     
-    .then()
+    // .then()
     BrickCat.create(brickcat)
       .then(brickcatFromDB => {
         console.log(`Created bricks`);
