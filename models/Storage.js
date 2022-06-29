@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const storageSchema = new Schema(
+const storageSchema = new Schema( 
     {
       boxname: {
         type: String,
