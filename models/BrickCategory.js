@@ -2,13 +2,13 @@ const { Schema, model } = require('mongoose');
 
 const brickCategorySchema = new Schema(
     {
-      brickCatName: {
+      brickCategoryName: {
         type: String,
         trim: true,
         required: [true, 'brick name is required.'],
         unique: true
       },
-      brickCatLegoId: {
+      brickCategoryLegoId: {
         type: String,
         unique: true
       },
@@ -18,7 +18,7 @@ const brickCategorySchema = new Schema(
       },
       picture: {
         type: String,
-        default: "/pictures/bricks-img/image.jpg"   
+        default: "/pictures/bricks-img/default-brick.jpg"   
       },
       color: {
          type: String,
@@ -30,13 +30,14 @@ const brickCategorySchema = new Schema(
       },
       storageId: {
           type: [Schema.Types.ObjectId],
-          required: [true, 'box ID is required.'] //
+          ref: "Storage"
       },
       setId: {
-        type: [String]
+         type: [Schema.Types.ObjectId]
+         // ref: "Storage",
     }
   }
   );  
   const BrickCategory = model('BrickCategory', userSchema);
   
-  module.exports = BrickCat;
+  module.exports = BrickCategory;
