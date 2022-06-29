@@ -22,10 +22,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(multer({
-  dest: path.join(__dirname, 'public/img')
-}).single("image"))
-
 // For deployment
 app.set('trust proxy', 1);
 app.use(

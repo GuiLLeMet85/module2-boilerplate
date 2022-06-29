@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
  
-const userSchema = new Schema( 
-  // Add whichever fields you need for your app
+
+const userSchema = new Schema(
   {
     username: {
       type: String,
@@ -19,14 +19,20 @@ const userSchema = new Schema(
       image:{
         type:String
     },
-    userType:{
-      type:String,      
+    usertype: {
+        type: String,
+        // requiered: true,
     },
-    codeHash: {
+    profilepicture: {
+        type: String,
+        // requiered: true,
+    },
+    hashedPassword: {
       type: String,
       required: [true, 'Password is required.']
-    }
-  },
+   }
+  }
+  ,
   {
     timestamps: true
   }

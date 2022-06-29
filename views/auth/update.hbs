@@ -1,7 +1,6 @@
 
-{{user}}
 
- <form class="cardAuth" action="/auth/login" method="POST">
+ <form class="cardAuth" action="/auth/{{id}}/update" method="POST">
     <h1>User update</h1>
 
     <label>Name</label>
@@ -11,7 +10,7 @@
     <input type="email" name="email" value="{{email}}" />
     
     <label>Password</label>
-    <input type="password" name="password" placeholder="*****" />
+    <input type="password" name="password" value={{password}}/>
     <label>Choose profile picture</label>
     <input type="file" name="image">
     
