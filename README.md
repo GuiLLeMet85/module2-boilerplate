@@ -14,6 +14,7 @@ With Brick Manager the user can check the information about each brick or Lego S
 ![](docs/wireframe-brick-manager.png)
 
 ---
+Hello Marina
 
 ## Instructions
 
