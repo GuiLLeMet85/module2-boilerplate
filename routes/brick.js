@@ -41,22 +41,17 @@ router.post("/bricks/create", async(req, res, next) => {
 
 
 
-/*
-
-
-
-
-router.get("/bricks/:id/edit", async(req, res, next) => {
+router.get("/:id/edit", async(req, res, next) => {
     // Iteration #4: Update the Brick
     const { id } = req.params;
     try {
-        const Brick = await Brick.findById(id);
-        res.render("bricks/update-form", Brick);
+        const brick = await Brick.findById(id);
+        res.render("bricks/update-form", brick);
     } catch (error) {
         next(error);
     }
 });
-
+/*
 router.post("/bricks/:id/edit", async(req, res, next) => {
     // Iteration #4: Update the Brick
     const { id } = req.params;

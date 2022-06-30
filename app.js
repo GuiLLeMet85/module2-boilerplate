@@ -51,7 +51,7 @@ app.set('view engine', 'hbs');
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/profiles', profilesRouter);
-app.use('/brick', brickRouter);
+app.use('/bricks', brickRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
