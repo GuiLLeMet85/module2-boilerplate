@@ -1,0 +1,30 @@
+<h2>Edit a brick part</h2>
+
+<div id="edit-form"></div>
+<form method="POST" action="/bricks/u">
+
+  <label>Name</label>
+  <input type="text" name="brickCategoryName" value='{{brickCategoryName}}'/>
+
+  <label>Lego ID</label>
+  <input type="number" name="brickCategoryLegoId" value='{{brickCategoryLegoId}}'/>
+
+  <label>Quantity</label>
+  <input type="number" name="quantity"  value='{{quantity}}'/>
+
+  <label>Color:</label>
+  <input type="text" name="color" value='{{color}}'/>
+  <label>Picture:</label>
+  <input type="number" name="picture" value='{{picture}}'/>
+
+  <label>Choose the status:</label>
+  <select name="status" id="status" form="creation-form">
+    <option value="Using in a set">Using in a set</option>
+    <option value="Stored in a box">Stored in a box</option>
+    <option value="Unlocated">Unlocated</option>
+  </select>
+
+  <button type="submit">Brick updated</button>
+
+</form>
+</div>
