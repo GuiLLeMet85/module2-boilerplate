@@ -3,17 +3,18 @@ const router = express.Router();
 // require the Brick model here
 const Brick = require("../models/BrickCategory");
 
-router.get("/bricks", async(req, res, next) => {
+router.get("/list", async(req, res, next) => {
 
     try {
-        const bricks = await Brick.find({});
-        res.render("bricks/list", { bricks });
+        const brick = await Brick.find({});
+        res.render("bricks/list", { brick })
     } catch (err) {
         next(err);
     }
 });
 
-router.get("/bricks/create", (req, res, next) => {
+
+router.get("/create", (req, res, next) => {
     res.render("bricks/create-form");
 });
 
@@ -37,6 +38,8 @@ router.post("/bricks/create", async(req, res, next) => {
         res.render("bricks/create-form");
     }
 });
+
+
 
 /*
 

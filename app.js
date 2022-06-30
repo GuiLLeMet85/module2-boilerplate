@@ -13,6 +13,7 @@ const multer =require("multer")
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 const profilesRouter = require('./routes/profiles');
+const brickRouter = require('./routes/brick');
 
 const app = express();
 
@@ -50,6 +51,7 @@ app.set('view engine', 'hbs');
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/profiles', profilesRouter);
+app.use('/brick', brickRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
