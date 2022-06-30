@@ -38,6 +38,6 @@ const brickCategorySchema = new Schema(
     }
   }
   );  
-  const BrickCategory = model('BrickCategory', userSchema);
+  const BrickCategory = model('BrickCategory', brickCategorySchema);
   
   module.exports = BrickCategory;

@@ -3,6 +3,7 @@ const router = express.Router();
 const isLoggedIn = require('../middlewares');
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
+const { json } = require('express');
 const saltRounds = 10;
 
 // @desc    Displays form view to sign up
@@ -31,6 +32,21 @@ router.post("/signup" , async(req,res,next)=>{
          res.render("auth/signup", {error: 'Fields cannot be empty'})
          return
      }
+     const userName = await User.findOne({username} || null)
+     if(userName !== null){
+      
+       res.render("auth/signup", {error:"Usuario ya existente"})
+           
+     }
+         const userEmail = await User.findOne({email} || null)
+     if(userEmail !== null){
+      
+       return   res.render("auth/signup", {error:"Email ya existente"})
+           
+     }
+    
+     
+     
       const regex1 =/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/
      //si email cumple las condiciones de regex
      if(!regex1.test(email)){
@@ -48,12 +64,13 @@ router.post("/signup" , async(req,res,next)=>{
         const salt = await bcrypt.genSalt(saltRounds)
         const hashedPassword = await bcrypt.hash(password, salt) //encriptamos el password con el metodo hash 
         const user = await User.create({username, email, hashedPassword})// Creamos el usuario encriptado
-        res.redirect("/",{user})
-         req.session.currentUser = user
+       
+        res.render("index")
+        
     }   
     catch{
-        res.render("auth/signup", {error: 'The username or email is already in use'})
-        res.render("auth/signup")  
+        res.render("auth/signup")
+
     }
 })
 
@@ -105,35 +122,24 @@ router.get("/:id/update" , async (req, res, next)=>{
         next(err)
     }   
 })
-router.post("/:id/update", async (req,res,next)=>{
+
+
+ router.post('/:id/update', async (req, res, next) => {
     const {id} =req.params
     const {username, email, password} = req.body
-        if(!username || !email || !password){
-        res.render("auth/update",{err:"cocoloco"})
-       
-  
-    }
-    //    const regex1 =/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/
-    //  //si email cumple las condiciones de regex
-    //  if(!regex1.test(email)){
-    //        res.render(`auth/${id}/update`, {error: 'The Email is not valid'})
-    //        return
-    //  }
-    //  //requisitos password carácteres
-    //  const regex =/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/
-    //  //si password cumple las condiciones de regex... test() devuelve true o false 
-    //  if(!regex.test(password)){
-    //        res.render(`auth/${id}/update`, {error: 'The password field must have uppercase, lowercase, numbers and a special character'})   
-    //             return
-    //  }            
-    try{
-        const user = await User.findByIdAndUpdate(id, { username, email , password})
-          res.redirect("/")
-    }
-    catch(err){
-        next(err)
-    }
-})
+       if(!username ||!email || !password){
+         res.render(`auth/update`, {error: 'Fields cannot be empty'})
+        return
+     } 
+    try{ 
+      const user =await User.findByIdAndUpdate(id, {username, email, password})
+      res.render("index", user)
+      return
+   }
+   catch(err) { 
+       res.render(`auth/update`)
+   }
+ })
 // @desc    Destroy user session and log out
 // @route   POST /auth/logout
 // @access  Private

@@ -1,9 +1,10 @@
 <div class="cardAuth" >
     <h1>Name: {{user.username}}</h1>
     <h1>Email: {{user.email}}</h1>
-    <img {{user.image}}>
     <a href="/",{{user}}>Home</a>
-
-    <a href="/auth/{{user._id}}/update">Update user</a>
-  
+    <a href="/auth/{{user._id}}/update">Update user</a>  
+       <form action="/auth/logout" method="post">
+    <button type="submit">Logout</button>
+   
+</form>
 </div>

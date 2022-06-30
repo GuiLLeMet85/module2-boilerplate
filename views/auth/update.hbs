@@ -1,21 +1,25 @@
 
 
- <form class="cardAuth" action="/auth/{{id}}/update" method="POST">
-    <h1>User update</h1>
 
-    <label>Name</label>
-    <input type="text" name="username" value="{{username}}" />
+<div class="cardAuth" >
+<h1>User update</h1>
+
+  <form  class="cardAuth" action="/auth/{{id}}/update" method="POST">
+ 
+    <label>Username</label>
+      <input type="text" name="username" value="{{username}}" />
  
     <label>Email</label>
-    <input type="email" name="email" value="{{email}}" />
+      <input type="email" name="email" value="{{email}}" />
     
     <label>Password</label>
-    <input type="password" name="password" value={{password}}/>
-    <label>Choose profile picture</label>
-    <input type="file" name="image">
-    
-    {{#if error}}
-    <p style="color:rgb(218, 90, 90)">{{ error }}</p>
-    {{/if}}    
+      <input type="password" name="password" value="{{password}}" />
+
+      {{#if error}}
+      <p style="color: red;">{{error}}</p>
+      {{/if}}
+ 
     <button type="submit">Update</button>
+ 
   </form>
+</div>

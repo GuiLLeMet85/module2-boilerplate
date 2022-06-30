@@ -17,7 +17,9 @@
     {{/unless}}
    
     <form action="/auth/logout" method="post">
+    {{#if user}}
     <button type="submit">Logout</button>
+    {{/if}}
    
 </form>
  {{#if user}}{{!--si el usuario tiene la sesión iniciada se mostrará el enlace --}}
