@@ -15,6 +15,7 @@ With Brick Manager the user can check the information about each brick or Lego S
 
 ---
 Hello Marina
+good bie Marina
 
 ## Instructions
 
