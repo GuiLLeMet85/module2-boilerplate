@@ -2,7 +2,8 @@
   "name": "myapp",
   "version": "0.0.0",
   "private": true,
-  "scripts": {
+
+  "scripts": {    
     "seedBrickCategory": "node ./seed/brickcategory",
     "seedStorage": "node ./seed/storage",
     "dev": "nodemon ./bin/www",

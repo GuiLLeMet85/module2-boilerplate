@@ -14,10 +14,12 @@ const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 const profilesRouter = require('./routes/profiles');
 const brickRouter = require('./routes/brick');
+const storageRouter = require('./routes/storage');
 
 const app = express();
 
 // cookies and loggers
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -52,6 +54,7 @@ app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/profiles', profilesRouter);
 app.use('/brick', brickRouter);
+app.use('/storage', storageRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

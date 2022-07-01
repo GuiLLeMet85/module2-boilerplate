@@ -1,0 +1,18 @@
+
+<div class="cardBrick">
+    <h1>Storages</h1>
+
+  <div class="brick-card">
+    
+    <p><strong>Boxname:</strong> {{boxname}}</p>
+    <p><strong>BrickCategoryId:</strong> {{brickCategoryId}}</p>
+    <p><strong> picture:</strong> {{picture}}</p>
+    
+    <a class="action-btn" href="/bricks/{{this._id}}/edit"><h3>Edit</h3></a>
+    <form method="POST" action="/bricks/{{this._id}}/delete">
+      <button type="submit">Delete</button>
+    </form>
+   
+  </div>
+
+</div>
