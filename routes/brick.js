@@ -31,7 +31,7 @@ router.post("/create", async(req, res, next) => {
             color,
             status
         });
-        res.redirect("/list");
+        res.redirect(`/bricks/list`);
     } catch (error) {
         console.error("ERROR!!!", error);
         res.render("bricks/create-form");
@@ -59,7 +59,7 @@ router.post("/:id/edit", async(req, res, next) => {
             id, { brickCategoryName, brickCategoryLegoId, quantity, picture, color, status }, { new: true }
         );
         console.log("Just updated:", updatedBrick);
-        res.redirect(`/list`);
+        res.redirect(`/bricks/list`);
     } catch (error) {
         console.error("ERROR!!!", error);
         res.redirect(`/${id}/edit`);
