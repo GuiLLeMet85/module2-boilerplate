@@ -1,17 +1,19 @@
 
 <div class="cardBrick">
     <h1>Storages</h1>
-
   <div class="brick-card">
+    {{#each storage}}
     
-    <p><strong>Boxname:</strong> {{boxname}}</p>
+    <p>{{this.boxname}}</p>
+    {{/each}}
+    {{!-- <p><strong>Boxname:</strong> {{this.boxname}}</p>
     <p><strong>BrickCategoryId:</strong> {{brickCategoryId}}</p>
     <p><strong> picture:</strong> {{picture}}</p>
     
     <a class="action-btn" href="/bricks/{{this._id}}/edit"><h3>Edit</h3></a>
     <form method="POST" action="/bricks/{{this._id}}/delete">
       <button type="submit">Delete</button>
-    </form>
+    </form> --}}
    
   </div>
 
