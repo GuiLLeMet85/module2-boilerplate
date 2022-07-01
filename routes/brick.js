@@ -13,13 +13,12 @@ router.get("/list", async(req, res, next) => {
     }
 });
 
-
 router.get("/create", (req, res, next) => {
     res.render("bricks/create-form");
 });
 
-router.post("/bricks/create", async(req, res, next) => {
-    const { brickCategoryName, brickCategoryLegoId, quantity, picture, color, status, } = req.body;
+router.post("/create", async(req, res, next) => {
+    const { brickCategoryName, brickCategoryLegoId, quantity, picture, color, status } = req.body;
     const intBrickCategoryLegoId = parseInt(brickCategoryLegoId);
     const intQuantity = parseInt(quantity);
 
@@ -32,17 +31,14 @@ router.post("/bricks/create", async(req, res, next) => {
             color,
             status
         });
-        res.redirect("/list");
+        res.redirect(`/bricks/list`);
     } catch (error) {
         console.error("ERROR!!!", error);
         res.render("bricks/create-form");
     }
 });
 
-
-
 router.get("/:id/edit", async(req, res, next) => {
-    // Iteration #4: Update the Brick
     const { id } = req.params;
     try {
         const brick = await Brick.findById(id);
@@ -51,36 +47,35 @@ router.get("/:id/edit", async(req, res, next) => {
         next(error);
     }
 });
-/*
-router.post("/bricks/:id/edit", async(req, res, next) => {
-    // Iteration #4: Update the Brick
-    const { id } = req.params;
-    const { name, propellers, maxSpeed } = req.body;
-    const intPropellers = parseInt(propellers);
-    const intMaxSpeed = parseInt(maxSpeed);
 
+router.post("/:id/edit", async(req, res, next) => {
+    
+    const { id } = req.params;
+    const { brickCategoryName, brickCategoryLegoId, quantity, picture, color, status } = req.body;
+    const intBrickCategoryLegoId = parseInt(brickCategoryLegoId);
+    const intQuantity = parseInt(quantity);
     try {
         const updatedBrick = await Brick.findByIdAndUpdate(
-            id, { name, propellers: intPropellers, maxSpeed: intMaxSpeed }, { new: true }
+            id, { brickCategoryName, brickCategoryLegoId, quantity, picture, color, status }, { new: true }
         );
         console.log("Just updated:", updatedBrick);
-        res.redirect(`/bricks`);
+        res.redirect(`/bricks/list`);
     } catch (error) {
         console.error("ERROR!!!", error);
-        res.redirect(`/bricks/${id}/edit`);
+        res.redirect(`/${id}/edit`);
     }
 });
 
-router.post("/bricks/:id/delete", async(req, res, next) => {
-    // Iteration #5: Delete the Brick
+router.post("/:id/delete", async(req, res, next) => {
+   
     const { id } = req.params;
     try {
         await Brick.findByIdAndDelete(id);
-        res.redirect(`/bricks`);
+        res.redirect(`/bricks/list`);
     } catch (error) {
         next(error);
     }
 });
 
-*/
+
 module.exports = router;
