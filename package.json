@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "seedBrickCategory": "node ./seed/brickcategory",
-    "seedStorage": "node ./seed/storage.js",
+    "seedStorage": "node ./seed/storage",
     "dev": "nodemon ./bin/www",
     "start": "node ./bin/www"
 },
