@@ -8,10 +8,6 @@ const storageSchema = new Schema(
         required: [true, 'Storage name is required.'],
         unique: true
       },
-      brickCategoryId: {
-        type: [Schema.Types.ObjectId],
-        ref: "BrickCategory"
-      },
       picture: {
         type: String,
         default: "/pictures/bricks-img/default-storage.jpg"      
