@@ -9,6 +9,9 @@ body {
 h2{
   margin: 20px auto ;
 }
+a{
+  margin: 10px auto 0 auto;
+}
 
 input{
   margin: 10px;
@@ -37,3 +40,20 @@ input[type="file"] {
   background-image: linear-gradient(rgb(216, 255, 216) , rgb(255, 255, 255));
   border-radius: 10px;
 }
+.brick-card{
+  width:30%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-image: linear-gradient(rgb(216, 255, 216) , rgb(255, 255, 255));
+  border-radius: 10px;
+  justify-content: center;
+  flex-direction: column;
+
+}
+.cardBrick{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
