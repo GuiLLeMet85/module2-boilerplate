@@ -17,10 +17,10 @@ const brickCategory = [
 //     { brickCategoryName: " ", brickCategoryLegoId: "", quantity: , picture: " ", color: "", status: "", storageId: ""},
 
 
-const MONGO_URI = process.env.MONGODB_URI 
+const MONGO_URL = process.env.MONGODB_URL 
 
   mongoose
-    .connect(MONGO_URI)
+    .connect(MONGO_URL)
     .then(x => {
       console.log(
         `Connected to Mongo! Database name: "${x.connections[0].name}"`
