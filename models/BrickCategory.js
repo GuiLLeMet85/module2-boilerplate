@@ -26,15 +26,14 @@ const brickCategorySchema = new Schema(
       },
       status: {
           type: String,
-          required: [true, 'Color is required.']
+          required: [true, 'Status is required.']
       },
       storageId: {
           type: [Schema.Types.ObjectId],
           ref: "Storage"
       },
       setId: {
-         type: [Schema.Types.ObjectId]
-         // ref: "Storage",
+        type: [String]
     }
   }
   );  

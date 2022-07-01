@@ -21,17 +21,22 @@ router.post("/create", async(req, res, next) => {
     const { brickCategoryName, brickCategoryLegoId, quantity, picture, color, status } = req.body;
     const intBrickCategoryLegoId = parseInt(brickCategoryLegoId);
     const intQuantity = parseInt(quantity);
+    let pictureTreated;
+    if (picture !== "") {
+        pictureTreated = picture;
+    }
 
     try {
         await Brick.create({
-            CategoryName,
-            brickCategoryName: intBrickCategoryLegoId,
+            brickCategoryName,
+            brickCategoryLegoId: intBrickCategoryLegoId,
             quantity: intQuantity,
-            picture,
-            color,
-            status
+            picture: pictureTreated,
+            color: "red",
+            status,
+            //storageid i setid
         });
-        res.redirect(`/bricks/list`);
+        res.redirect(`/brick/list`);
     } catch (error) {
         console.error("ERROR!!!", error);
         res.render("bricks/create-form");
@@ -59,10 +64,10 @@ router.post("/:id/edit", async(req, res, next) => {
             id, { brickCategoryName, brickCategoryLegoId, quantity, picture, color, status }, { new: true }
         );
         console.log("Just updated:", updatedBrick);
-        res.redirect(`/bricks/list`);
+        res.redirect('/brick/list');
     } catch (error) {
         console.error("ERROR!!!", error);
-        res.redirect(`/${id}/edit`);
+        res.redirect(`/brick/${id}/edit`);
     }
 });
 
@@ -71,7 +76,7 @@ router.post("/:id/delete", async(req, res, next) => {
     const { id } = req.params;
     try {
         await Brick.findByIdAndDelete(id);
-        res.redirect(`/bricks/list`);
+        res.redirect(`/brick/list`);
     } catch (error) {
         next(error);
     }
