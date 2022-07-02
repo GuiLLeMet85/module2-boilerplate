@@ -1,0 +1,17 @@
+    <h1>Storages</h1>   <br><br>
+<div class="pageList">
+
+     <a class="action-btn" href="/storage/create"><h3>Create new storage</h3></a>
+
+    {{#each storage}}
+        <div class="cardsStorage">
+        <p>Name box: {{boxname}}</p>
+          <p>BrickCategoryId:{{brickCategoryId}}</p>
+        <img src="{{picture}}  " alt="">  
+        <a class="action-btn" href="/storage/{{_id}}/edit"><h3>Edit</h3></a>
+          <form method="POST" action="/storage/{{_id}}/delete">
+            <button type="submit">Delete</button>
+          </form> 
+        </div>
+    {{/each}}
+</div>
