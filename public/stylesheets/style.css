@@ -12,6 +12,10 @@ img{
   border-radius: 10px;  
   box-shadow: 0 0 10px rgb(21, 21, 21);
 }
+h3{
+  width: 300px;
+  margin: 0 auto 0 auto;
+}
 label{
   margin: 10px;
 }
