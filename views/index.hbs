@@ -1,32 +1,13 @@
+<div class="cardUser">
+     <h1 class="title">Brick Manager</h1>
 
-<div class="cardAuth" >
-    <h1>Home page</h1>
-    <br>
-    <h2>
-        {{#if user}}
-             {{user.username}}
-        {{/if}}
-        </h2>
-    <br>
-    {{#unless user}}
-    <h3><a href="/auth/signup">Signup</a>  </h3>
-    <br>
-    <h3><a href="/auth/login">Login</a>   </h3>
-    <br>
-    {{/unless}}
-    <br>
-    <form action="/auth/logout" method="post">
-    {{#if user}}
-    <button type="submit">Logout</button>
-    {{/if}}
-       <h3><a href="/brick/list">Show brick list</a>   </h3>
-         <h3><a href="/storage/storages">Show storage</a>   </h3>
 
-</form>
- {{#if user}}{{!--si el usuario tiene la sesión iniciada se mostrará el enlace --}}
-    <h3><a href="/profiles/{{user._id}}/userProfile">User Profile</a></h3>
- {{/if}}
-
+      <h3><a href="/brick/list">Show brick list</a></h3>
+    {{!-- <h3><a href="/storage/storages">Show storage</a>   </h3> --}}
 </div>
+   
+   
+  
+
 
 

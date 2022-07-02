@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='/stylesheets/style.css' rel="stylesheet"/>
+  <title>Brick Manager</title>
+</head>
+<body>
+
   <header>
     <nav>
       <img class="logo" src="/img/LEGO_logo.svg.png" alt="img lego logo">
@@ -17,3 +28,13 @@
         {{/if}}
        
        
+       
+      
+        {{#if user}}{{!--si el usuario tiene la sesión iniciada se mostrará el enlace --}}
+            <h3><a href="/profiles/{{user._id}}/userProfile">User Profile</a></h3>
+        {{/if}}
+    </nav>
+  </header>
+    {{{ body }}}
+</body>
+</html>

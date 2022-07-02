@@ -1,13 +1,15 @@
 const express = require("express");
 const router = express.Router();
+const User = require('../models/User');
 // require the Brick model here
 const Brick = require("../models/BrickCategory");
 
 router.get("/list", async(req, res, next) => {
 
     try {
+          const user = await User.find({});
         const brick = await Brick.find({});
-        res.render("bricks/list", { brick })
+        res.render("bricks/list" , { brick , user})
     } catch (err) {
         next(err);
     }
