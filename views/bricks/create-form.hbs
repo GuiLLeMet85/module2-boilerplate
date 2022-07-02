@@ -1,7 +1,7 @@
 <h2>Add a new part to Brick Manager</h2>
 
 <div id="creation-form"></div>
-<form method="POST" action="/bricks/create">
+<form method="POST" action="/brick/create">
 
   <label>Name</label>
   <input type="text" name="brickCategoryName" id="brickCategoryName"/>
@@ -12,14 +12,14 @@
   <label>Quantity</label>
   <input type="number" name="quantity" id="quantity"/>
 
+  <label>Picture:</label>
+  <input type="text" name="picture" id="picture"/>
   <label>Color:</label>
   <input type="text" name="color" id="color"/>
-  <label>Picture:</label>
-  <input type="number" name="picture" id="picture"/>
 
   <label>Choose the status:</label>
 
-  <select name="status" id="status" form="creation-form">
+  <select name="status">
     <option value="Using in a set">Using in a set</option>
     <option value="Stored in a box">Stored in a box</option>
     <option value="Unlocated">Unlocated</option>

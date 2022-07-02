@@ -1,19 +1,16 @@
 
 
 
-<div class="cardAuth" >
+<div class="cards" >
 <h1>User update</h1>
 
-  <form  class="cardAuth" action="/auth/{{id}}/update" method="POST">
+  <form  class="cardsAuth" action="/auth/{{id}}/update" method="POST">
  
     <label>Username</label>
       <input type="text" name="username" value="{{username}}" />
  
     <label>Email</label>
       <input type="email" name="email" value="{{email}}" />
-    
-    <label>Password</label>
-      <input type="password" name="password" value="{{password}}" />
 
       {{#if error}}
       <p style="color: red;">{{error}}</p>
