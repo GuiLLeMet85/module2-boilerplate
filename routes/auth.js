@@ -3,7 +3,6 @@ const router = express.Router();
 const isLoggedIn = require('../middlewares');
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
-const { json } = require('express');
 const saltRounds = 10;
 
 // @desc    Displays form view to sign up

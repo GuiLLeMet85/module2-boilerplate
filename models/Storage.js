@@ -18,6 +18,6 @@ const storageSchema = new Schema(
       }    
     }
   );
-  const Storage = model('Storage', userSchema);
+  const Storage = model('Storage', storageSchema);
 
   module.exports = Storage;

@@ -3,8 +3,7 @@ const router = express.Router();
 // require the Brick model here
 const Brick = require("../models/BrickCategory");
 
-router.get("/bricks", async(req, res, next) => {
-
+router.get("/list", async(req, res, next) => {
     try {
         const bricks = await Brick.find({});
         res.render("bricks/list", { bricks });

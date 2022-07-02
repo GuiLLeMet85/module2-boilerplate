@@ -15,8 +15,11 @@
     <h3><a href="/auth/login">Login</a>   </h3>
     <br>
     {{/unless}}
+     <h3><a href="/storage/storage">Login</a>   </h3>
+    <br>
    
     <form action="/auth/logout" method="post">
+
     {{#if user}}
     <button type="submit">Logout</button>
     {{/if}}
