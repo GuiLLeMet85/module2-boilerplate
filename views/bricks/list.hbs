@@ -1,17 +1,24 @@
 
-<div class="cardBrick">
+<div class="pageList">
 {{#each brick}}
-  <div class="brick-card">
-
-    <img src={{this.picture}}>
-    <p><strong>Name:</strong> {{this.brickCategoryName}}</p>
-    <p><strong>Status:</strong> {{this.status}}</p>
-    <p><strong>Color:</strong> {{this.color}}</p>
-     <p><strong>Quantity:</strong> {{this.quantity}}</p> 
+  <div class="cardsBricks">
+    <div>
+      <img src={{this.picture}}>
+    </div>
+<div>   
+   <p>Name: {{this.brickCategoryName}}</p>
+    <p>Status: {{this.status}}</p>
+    <p>Color: {{this.color}}</p>
+     <p>Quantity: {{this.quantity}}</p> 
     <a class="action-btn" href="/brick/{{this._id}}/edit"><h3>Edit</h3></a>
     <form method="POST" action="/brick/{{this._id}}/delete">
       <button type="submit">Delete</button>
     </form>
+
+</div>
+   
+
+
    
   </div>
 {{/each}}
