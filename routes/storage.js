@@ -1,28 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const isLoggedIn = require('../middlewares');
-const User = require('../models/storage');
+const Storage = require('../models/Storage');
 
-router.get('/storage', async (req, res, next) => {
-    res.render('auth/storage');
-  })
-
-
-  
-  router.post("/storage" , async(req,res,next)=>{
-    const {    boxname,  brickCategoryId,  picture} =req.body  
-    try{   
-        res.render("auth/login", )
-        return   
-     }                       
-    catch{
-        res.render("auth/login")
+router.get('/storages', async (req, res, next) => {
+    
+     const { id }= req.params
+    //  console.log(id)
+    try{
+         const storage = await Storage.findById(id);
+        console.log(storage)     
+        res.render('storage/storages', storage)
     }
+    catch(err){
+        next(err)
+    }  
 })
-
-
-  
-
-
-
-  
+module.exports = router

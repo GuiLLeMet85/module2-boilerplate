@@ -42,20 +42,18 @@ router.post("/signup" , async(req,res,next)=>{
       
        return   res.render("auth/signup", {error:"Email ya existente"})
            
-     }
-    
+     }     
      
-     
-      const regex1 =/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/
+      const regEmail =/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/
      //si email cumple las condiciones de regex
-     if(!regex1.test(email)){
+     if(!regEmail.test(email)){
            res.render("auth/signup", {error: 'The Email is not valid'})
            return
      }
      //requisitos password carácteres
-     const regex =/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/
+     const regPass =/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/
      //si password cumple las condiciones de regex... test() devuelve true o false 
-     if(!regex.test(password)){
+     if(!regPass.test(password)){
            res.render("auth/signup", {error: 'The password field must have uppercase, lowercase, numbers and a special character'})         
            return
      }
@@ -125,18 +123,26 @@ router.get("/:id/update" , async (req, res, next)=>{
 
  router.post('/:id/update', async (req, res, next) => {
     const {id} =req.params
-    const {username, email, password} = req.body
-       if(!username ||!email || !password){
-         res.render(`auth/update`, {error: 'Fields cannot be empty'})
-        return
+    const {username, email} = req.body
+       if(!username ||!email ){
+          const user = await User.findById(id)
+         res.render("auth/update", {id, error: 'Fields cannot be empty'})
+         return
      } 
+      const regEmail =/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/
+     //si email cumple las condiciones de regex
+     if(!regEmail.test(email)){
+           res.render("auth/update", {error: 'The Email is not valid'})
+           return
+     }
     try{ 
-      const user =await User.findByIdAndUpdate(id, {username, email, password})
-      res.render("index", user)
+      const user =await User.findByIdAndUpdate(id, {username, email})
+      res.render("index", {user})
       return
    }
    catch(err) { 
-       res.render(`auth/update`)
+      const user =await User.findById(id)
+       res.render(`auth/update`, user)
    }
  })
 // @desc    Destroy user session and log out

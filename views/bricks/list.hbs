@@ -6,16 +6,20 @@
       <img src={{this.picture}}>
     </div>
 <div>   
-    <p>Name: {{this.brickCategoryName}}</p>
-      <p>Status: {{this.status}}</p>
-      <p>Color: {{this.color}}</p>
-      <p>Picture: {{this.picture}}</p>
-      <p>Quantity: {{this.quantity}}</p> 
-      <a class="action-btn" href="/brick/{{this._id}}/edit"><h3>Edit</h3></a>
-      <form method="POST" action="/brick/{{this._id}}/delete">
-        <button type="submit">Delete</button>
-      </form>
-</div>   
+   <p>Name: {{this.brickCategoryName}}</p>
+    <p>Status: {{this.status}}</p>
+    <p>Color: {{this.color}}</p>
+     <p>Quantity: {{this.quantity}}</p> 
+    <a class="action-btn" href="/brick/{{this._id}}/edit"><h3>Edit</h3></a>
+    <form method="POST" action="/brick/{{this._id}}/delete">
+      <button type="submit">Delete</button>
+    </form>
+
+</div>
+   
+
+
+   
   </div>
 {{/each}}
 </div>
