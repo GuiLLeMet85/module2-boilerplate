@@ -3,7 +3,7 @@
 <div class="cards" id="edit-form">
 
   <h2>Edit a brick part</h2>
-<form  class="cardsAuth" method="POST" action="/brick/{{_id}}/edit">
+  <form  class="cardsAuth" method="POST" action="/brick/{{_id}}/edit">
 
   <label>Name</label>
   <input type="text" name="brickCategoryName" value='{{brickCategoryName}}'/>
@@ -17,7 +17,7 @@
   <label>Color:</label>
   <input type="text" name="color" value='{{color}}'/>
   <label>Picture:</label>
-  <input type="number" name="picture" value='{{picture}}'/>
+  <input type="text" name="picture" value='{{picture}}'/>
 
   <label>Choose the status:</label>
   <select name="status" id="status" form="creation-form">

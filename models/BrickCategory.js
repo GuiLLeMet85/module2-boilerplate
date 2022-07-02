@@ -18,7 +18,6 @@ const brickCategorySchema = new Schema(
       },
       picture: {
         type: String,
-        default: "/pictures/default-brick.png"   
       },
       color: {
          type: String,

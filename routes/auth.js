@@ -136,7 +136,8 @@ router.get("/:id/update" , async (req, res, next)=>{
            return
      }
     try{ 
-      const user =await User.findByIdAndUpdate(id, {username, email})
+      const user =await User.findByIdAndUpdate(id, {username, email}, { new: true }
+        )
       res.render("index", {user})
       return
    }
