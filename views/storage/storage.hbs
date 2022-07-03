@@ -1,10 +1,11 @@
     <h1>Storages</h1>   <br><br>
+    <a class="action-btn" href="/storage/create"><h3>Create new storage</h3></a>
 <div class="pageList">
 
-     <a class="action-btn" href="/storage/create"><h3>Create new storage</h3></a>
+     
 
     {{#each storage}}
-        <div class="cardsStorage">
+        <div class="card">
         <p>Name box: {{boxname}}</p>
           <p>BrickCategoryId:{{brickCategoryId}}</p>
         <img src="{{picture}}  " alt="">  

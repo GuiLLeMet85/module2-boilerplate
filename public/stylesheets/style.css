@@ -32,3 +32,7 @@ img{
   flex-direction: column;
   flex-wrap: wrap;
 }
+.pageList{
+  display: flex;
+  flex-wrap: wrap;
+}
