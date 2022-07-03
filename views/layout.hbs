@@ -9,28 +9,9 @@
 </head>
 <body>
 
-  <header>
-    <nav>
-      <img class="logo" src="/img/LEGO_logo.svg.png" alt="img lego logo">
-      
-    <a href="/",{user}>Home</a>
-        {{#unless user}}
-        <h3><a href="/auth/signup">Signup</a>  </h3>
-        <h3><a href="/auth/login">Login</a>   </h3>
-        {{/unless}}
-         {{#if user}}
-             <h2> {{user.username}} </h2>     
-        {{/if}}
-        {{#if user}}
-          <form action="/auth/logout" method="post">       
-          <button type="submit">Logout</button>
-          </form>
-        {{/if}}     
-        {{#if user}}{{!--si el usuario tiene la sesión iniciada se mostrará el enlace --}}
-            <h3><a href="/profiles/{{user._id}}/userProfile">User Profile</a></h3>
-        {{/if}}
-    </nav>
-  </header>
+  <a href="/",{user}>Home</a>
+    
+  
     {{{ body }}}
 </body>
 </html>

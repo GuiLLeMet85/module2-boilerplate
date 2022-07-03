@@ -1,10 +1,33 @@
-<div class="cardUser">
+
      <h1 class="title">Brick Manager</h1>
+     <h2>App to inventory your lego bricks</h2>
+
+    
+      
+   <div class="card">
+        {{#unless user}}
+        <button class="bt1" onclick="window.location.href='/auth/signup'">Sign up</button>
+         <button class="bt1" onclick="window.location.href='/auth/login'">Log in</button>
+         <button class="bt1" onclick="window.location.href='/auth/pageFind'">Invited</button>
+
+        {{/unless}}
+         {{#if user}}
+             <h2> {{user.username}} </h2>     
+        {{/if}}
+        {{#if user}}
+          <form action="/auth/logout" method="post">       
+          <button type="submit">Logout</button>
+          </form>
+        {{/if}}     
+        {{#if user}}{{!--si el usuario tiene la sesión iniciada se mostrará el enlace --}}
+            <h3><a href="/profiles/{{user._id}}/userProfile">User Profile</a></h3>
+        {{/if}}
+      </div>
 
 
-      <h3><a href="/brick/list",{{user}}>Show brick list</a></h3>
-<h3><a href="/storage/storage">Show storage</a>   </h3> 
-</div>
+      {{!-- <h3><a href="/brick/list",{{user}}>Show brick list</a></h3>
+<h3><a href="/storage/storage">Show storage</a>   </h3>  --}}
+
    
    
   
