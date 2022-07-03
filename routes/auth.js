@@ -95,7 +95,7 @@ router.post("/login" , async(req,res,next)=>{
             // console.log(passCompare)
             if(passCompare){
                  req.session.currentUser = user
-                 res.render("index",{user})
+                 res.render("userAdmin/userAdmin",{user})
             }else{
                 res.render("auth/login", {error: "Data not found"})
                 return

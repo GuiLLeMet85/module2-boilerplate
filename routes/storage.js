@@ -10,18 +10,15 @@ router.get("/storage", async(req, res, next) => {
         next(err);
     }
 });
-
 router.get("/:id/edit", async(req, res, next) => {
     const{ id } =req.params
     try{
          const storage = await Storage.findById(id)
         res.render("storage/edit-storage" ,storage);
-
     }   
     catch(err){
         next (err)
-    } 
-   
+    }    
 });
 
 router.post("/:id/edit", async(req, res, next) => {
