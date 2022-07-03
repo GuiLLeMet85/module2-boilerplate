@@ -16,6 +16,8 @@ const profilesRouter = require('./routes/profiles');
 const brickRouter = require('./routes/brick');
 const storageRouter = require('./routes/storage');
 const pageAdminRouter = require('./routes/pageAdmin');
+const guestUserRouter = require('./routes/guestUser');
+
 const app = express();
 
 // cookies and loggers
@@ -56,6 +58,7 @@ app.use('/profiles', profilesRouter);
 app.use('/brick', brickRouter);
 app.use('/storage', storageRouter);
 app.use('/pageAdmin', pageAdminRouter);
+app.use('/guestUser', guestUserRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
