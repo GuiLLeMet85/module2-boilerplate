@@ -3,7 +3,10 @@
     <h2>Email: {{user.email}}</h2>
     <img src="" alt="img_user"><br>
          <button class="bt1" onclick="window.location.href='/auth/{{user._id}}/update'">Update user</button> 
-       <form action="/auth/logout" method="post">
-    <button type="submit">Logout</button>   
-</form>
+        <form action="/auth/logout" method="post">
+            <button type="submit">Logout</button>   
+        </form>
+        <form method="POST" action="/auth/{{user._id}}/removeAccount">
+            <button type="submit">Remove account</button>
+        </form>
 </div>

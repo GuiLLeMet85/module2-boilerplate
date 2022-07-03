@@ -159,4 +159,26 @@ router.post("/logout" ,(req, res,next)=>{
     })
 })
 
+router.post("/:id/removeAccount",async (req, res, next)=>{
+    const { id }=req.params
+
+    try{
+
+         await User.findByIdAndDelete(id,{new:true})
+         
+       req.session.destroy()
+
+
+            res.redirect("/")
+
+
+    }
+    catch(err){
+        next(err)
+    }
+
+
+
+})
+
 module.exports = router;
