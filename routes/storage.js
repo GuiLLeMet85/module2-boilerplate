@@ -58,9 +58,11 @@ router.post("/create", async(req, res, next) => {
 router.post("/:id/delete", async(req, res, next) => {
    
     const { id } = req.params;
+     req.session.currentUser = user
     try {
         await Storage.findByIdAndDelete(id);
-        res.redirect("/storage/storage");
+          
+        res.redirect("/storage/storage",user);
     } catch (error) {
         next(error);
     }

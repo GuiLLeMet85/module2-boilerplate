@@ -7,7 +7,7 @@ const Brick = require("../models/BrickCategory");
 router.get("/list", async(req, res, next) => {
 
     try {
-        const user = await User.find({});
+      const  user = req.session.currentUser
         const brick = await Brick.find({});
         res.render("bricks/list" , { brick , user})
     } catch (err) {

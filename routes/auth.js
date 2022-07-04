@@ -4,23 +4,18 @@ const isLoggedIn = require('../middlewares');
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-
 // @desc    Displays form view to sign up
 // @route   GET /auth/signup
 // @access  Public
 router.get('/signup', async (req, res, next) => {
   res.render('auth/signup');
 })
-
-
 // @desc    Displays form view to log in
 // @route   GET /auth/login
 // @access  Public
-router.get('/login', async (req, res, next) => {
-    
+router.get('/login', async (req, res, next) => {    
   res.render('auth/login');
 })
-
 // @desc    Sends user auth data to database to create a new user
 // @route   POST /auth/signup
 // @access  Public
@@ -32,18 +27,15 @@ router.post("/signup" , async(req,res,next)=>{
          return
      }
      const userName = await User.findOne({username} || null)
-     if(userName !== null){
-      
+     if(userName !== null){      
        res.render("auth/signup", {error:"Usuario ya existente"})
            
      }
          const userEmail = await User.findOne({email} || null)
-     if(userEmail !== null){
-      
+     if(userEmail !== null){      
        return   res.render("auth/signup", {error:"Email ya existente"})
            
-     }     
-     
+     }          
       const regEmail =/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/
      //si email cumple las condiciones de regex
      if(!regEmail.test(email)){
@@ -60,18 +52,13 @@ router.post("/signup" , async(req,res,next)=>{
     try{           
         const salt = await bcrypt.genSalt(saltRounds)
         const hashedPassword = await bcrypt.hash(password, salt) //encriptamos el password con el metodo hash 
-        const user = await User.create({username, email, hashedPassword})// Creamos el usuario encriptado
-       
-        res.render("index")
-        
+        const user = await User.create({username, email, hashedPassword})// Creamos el usuario encriptado       
+        res.render("index")        
     }   
     catch{
         res.render("auth/signup")
-
     }
 })
-
-
 // @desc    Sends user auth data to database to authenticate user
 // @route   POST /auth/login
 // @access  Public
@@ -106,10 +93,8 @@ router.post("/login" , async(req,res,next)=>{
         res.render("auth/login")
     }
 })
-
 router.get("/:id/update" , async (req, res, next)=>{
-    const {id}= req.params
-   
+    const {id}= req.params   
     try{
          const user=  await User.findById(id)
          res.render("auth/update", user)
@@ -119,8 +104,6 @@ router.get("/:id/update" , async (req, res, next)=>{
         next(err)
     }   
 })
-
-
  router.post('/:id/update', async (req, res, next) => {
     const {id} =req.params
     const {username, email} = req.body
@@ -135,6 +118,7 @@ router.get("/:id/update" , async (req, res, next)=>{
            res.render("auth/update", {error: 'The Email is not valid'})
            return
      }
+     
     try{ 
       const user =await User.findByIdAndUpdate(id, {username, email}, { new: true }
         )
@@ -156,29 +140,16 @@ router.post("/logout" ,(req, res,next)=>{
         }else{
             res.redirect("/")
         }
-    })
-})
-
+    })})
 router.post("/:id/removeAccount",async (req, res, next)=>{
     const { id }=req.params
-
     try{
-
-         await User.findByIdAndDelete(id,{new:true})
-         
+         await User.findByIdAndDelete(id,{new:true})         
        req.session.destroy()
-
-
             res.redirect("/")
-
-
     }
     catch(err){
         next(err)
     }
-
-
-
 })
-
 module.exports = router;

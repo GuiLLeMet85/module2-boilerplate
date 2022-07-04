@@ -4,24 +4,18 @@
 
     {{#each brick}}
       <div class="card">    
-
-
+        {{#if user}}
+ {{_id}}
+{{/if}}
         <div>
           <img src={{picture}}>
         </div>
-        <div>   
-
-       
+        <div>          
           <p>Name: {{brickCategoryName}}</p>
             <p>Status: {{status}}</p>
             <p>Color: {{color}}</p>
             <p>Quantity: {{quantity}}</p> 
-            {{#if user}}
-            <a class="action-btn" href="/brick/{{_id}}/edit"><h3>Edit</h3></a>
-            <form method="POST" action="/brick/{{_id}}/delete">
-              <button type="submit">Delete</button>
-            </form>
-            {{/if}}
+        
         </div>  
       </div>
     {{/each}}
