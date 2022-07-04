@@ -117,8 +117,7 @@ router.get("/:id/update" , async (req, res, next)=>{
      if(!regEmail.test(email)){
            res.render("auth/update", {error: 'The Email is not valid'})
            return
-     }
-     
+     }     
     try{ 
       const user =await User.findByIdAndUpdate(id, {username, email}, { new: true }
         )
