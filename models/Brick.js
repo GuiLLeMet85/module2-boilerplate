@@ -11,6 +11,10 @@ const brickSchema = new Schema(
     Quantity: {
         type: Number,
         required: [true, 'Quantity stock is required.'],
+    },
+    UserId: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
     }
 });
 
