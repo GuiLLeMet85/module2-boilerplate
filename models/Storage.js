@@ -11,10 +11,6 @@ const storageSchema = new Schema(
       picture: {
         type: String,
         default: "/pictures/bricks-img/default-storage.jpg"      
-      },
-      stored: {
-        type: String,
-        enum: ["BoxA", "BoxB", "BoxC"],
       }  
     }
   );

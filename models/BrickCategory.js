@@ -12,10 +12,6 @@ const brickCategorySchema = new Schema(
         type: String,
         unique: true
       },
-      quantity: {
-        type: Number,
-        required: [true, 'Quantity is required.'],
-      },
       picture: {
         type: String,
         default: "/pictures/default-brick.png"
@@ -28,19 +24,18 @@ const brickCategorySchema = new Schema(
           type: String,
           enum: ["Using", "Stored", "Lost"],
           required: [true, "Status is required"],
-
       },
       storageId: {
-          type: [Schema.Types.ObjectId],
+          type: Schema.Types.ObjectId,
           ref: "Storage"
       },
       setId: {
         type: [String]
-    },
+      },
       userId: {
         type: [Schema.Types.ObjectId],
         ref: "User"
-    }
+    },
   }
   );  
   const BrickCategory = model('BrickCategory', brickCategorySchema);
