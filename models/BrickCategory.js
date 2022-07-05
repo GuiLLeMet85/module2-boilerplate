@@ -18,7 +18,7 @@ const brickCategorySchema = new Schema(
       },
       picture: {
         type: String,
-        // default: "/pictures/default-brick.png"
+        default: "/pictures/default-brick.png"
       },
       color: {
          type: String,
@@ -26,7 +26,9 @@ const brickCategorySchema = new Schema(
       },
       status: {
           type: String,
-          required: [true, 'Status is required.']
+          enum: ["Using", "Stored", "Lost"],
+          required: [true, "Status is required"],
+
       },
       storageId: {
           type: [Schema.Types.ObjectId],
@@ -34,6 +36,10 @@ const brickCategorySchema = new Schema(
       },
       setId: {
         type: [String]
+    },
+      userId: {
+        type: [Schema.Types.ObjectId],
+        ref: "User"
     }
   }
   );  

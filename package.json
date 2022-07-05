@@ -2,15 +2,16 @@
   "name": "myapp",
   "version": "0.0.0",
   "private": true,
-
-  "scripts": {    
+  "scripts": {
     "seedBrickCategory": "node ./seed/brickcategory",
     "seedStorage": "node ./seed/storage",
     "dev": "nodemon ./bin/www",
     "start": "node ./bin/www"
-},
+  },
   "dependencies": {
+    "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
+    "brickset": "^0.3.1",
     "connect-mongo": "^4.6.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",

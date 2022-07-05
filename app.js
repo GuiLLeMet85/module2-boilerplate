@@ -7,7 +7,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
-const multer =require("multer")
+const multer =require('multer');
+const axios = require('axios')
 
 // Routers require
 const indexRouter = require('./routes/index');
@@ -20,8 +21,8 @@ const guestUserRouter = require('./routes/guestUser');
 
 const app = express();
 
-// cookies and loggers
 
+// cookies and loggers
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
