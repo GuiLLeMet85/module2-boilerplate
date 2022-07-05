@@ -15,22 +15,25 @@ const userSchema = new Schema(
       unique: true,
       lowercase: true,
       trim: true
-    },    
-      image:{
-        type:String
     },
+    userIsAdmin: {
+      type: Boolean,
+      default: false,
+      required: [true, 'Is required.']
+    },    
     usertype: {
         type: String,
         // requiered: true,
     },
     profilepicture: {
         type: String,
-        // requiered: true,
+        default: "/pictures/default-profile.png"
     },
     hashedPassword: {
       type: String,
       required: [true, 'Password is required.']
    }
+
   }
   ,
   {
