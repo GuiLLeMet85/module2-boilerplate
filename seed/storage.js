@@ -26,5 +26,5 @@ const MONGO_URL = process.env.MONGO_URL
     console.log(`An error occurred while getting bricks from the DB: ${err}`);
     })
     .finally(() => {
-      mongoose.disconnect();
+      mongoose.disconnect(); 
     });

@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-
 const brickCategorySchema = new Schema(
     {
       brickCategoryName: {

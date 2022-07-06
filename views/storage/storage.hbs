@@ -3,9 +3,6 @@
     <a class="action-btn" href="/storage/create"><h3>Create new storage</h3></a>
     {{/if}}
 <div class="pageList">
-
-     
-
     {{#each storage}}
         <div class="card">
         <p>Name box: {{boxname}}</p>
@@ -14,8 +11,7 @@
         <a class="action-btn" href="/storage/{{_id}}/edit"><h3>Edit</h3></a>
           <form method="POST" action="/storage/{{_id}}/delete">
             <button type="submit">Delete</button>
-          </form> 
-     
+          </form>      
         </div>
     {{/each}} 
 </div>
