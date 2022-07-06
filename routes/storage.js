@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const Storage = require('../models/Storage');
+
+const Brick = require("../models/BrickCategory");
 router.get("/storage", async(req, res, next) => {
 
     try {
-        const storage = await Storage.find({});
+        const storage = await Storage.find({})  ;
         res.render("storage/storage" , {storage})
     } catch (err) {
         next(err);
@@ -13,21 +15,20 @@ router.get("/storage", async(req, res, next) => {
 router.get("/:id/edit", async(req, res, next) => {
     const{ id } =req.params
     try{
-         const storage = await Storage.findById(id)
-        res.render("storage/edit-storage" ,storage);
+         const storage = await Storage.findById(id).populate("bricks")   
+            const brick = await Brick.find({})        
+        res.render("storage/edit-storage" ,{storage,brick} );
     }   
     catch(err){
         next (err)
     }    
 });
-
-router.post("/:id/edit", async(req, res, next) => {
-    
+router.post("/:id/edit", async(req, res, next) => {    
     const { id } = req.params;
-    const {boxname, picture } = req.body;
+    const {boxname, picture,brick } = req.body;
     try {
         const storage = await Storage.findByIdAndUpdate(
-            id, {boxname, picture}, { new: true }
+            id, {boxname, picture , brick}, { new: true }
         );
         res.redirect('/storage/storage');
         return

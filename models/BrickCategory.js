@@ -21,11 +21,11 @@ const brickCategorySchema = new Schema(
       },
       status: {
           type: String,
-          enum: ["Using", "Stored", "Lost"],
+          enum: ["Using", "Stored", "Lost", "stock"],
           required: [true, "Status is required"],
       },
-      storageId: {
-          type: Schema.Types.ObjectId,
+      storageName: {
+          type: String,
           ref: "Storage"
       },
       setId: {

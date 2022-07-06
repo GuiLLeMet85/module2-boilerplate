@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 const Storage = require('../models/Storage');
 
 const storage = [
-    { boxname: "Box A", picture: "https://m.media-amazon.com/images/I/51m5htTsG9L._AC_SY450_.jpg"},
-    { boxname: "Box B", picture: "https://m.media-amazon.com/images/I/51qM3FzC6FL._AC_SY450_.jpg"},
-    { boxname: "Box C", picture: "https://m.media-amazon.com/images/I/81+leGYdbgL._AC_SX425_.jpg"},
-    { boxname: "Box D", picture: "https://m.media-amazon.com/images/I/51Fjuh1ldNL._AC_SX425_.jpg"}
+    { boxname: "Box A", picture: "https://m.media-amazon.com/images/I/51m5htTsG9L._AC_SY450_.jpg",brickId:[]},
+    { boxname: "Box B", picture: "https://m.media-amazon.com/images/I/51qM3FzC6FL._AC_SY450_.jpg",brickId:[]},
+    { boxname: "Box C", picture: "https://m.media-amazon.com/images/I/81+leGYdbgL._AC_SX425_.jpg",brickId:[]},
+    { boxname: "Box D", picture: "https://m.media-amazon.com/images/I/51Fjuh1ldNL._AC_SX425_.jpg",brickId:[]}
 ];
 
 //     { boxname: " ", brickId: "", quantity: , picture: " ", color: "", status: "", storageId: ""},

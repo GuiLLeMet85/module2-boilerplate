@@ -1,19 +1,24 @@
 
 
-<div class="card" id="edit-form">
+<div class="card">
 
   <h2>Edit storage</h2>
-  <form  method="POST" action="/storage/{{_id}}/edit">
+  <form  method="POST" action="/storage/{{storage._id}}/edit">
 
   <label>Box name</label>
-  <input type="text" name="boxname" value='{{boxname}}'/>
+  <input type="text" name="boxname" value='{{storage.boxname}}'/>
 
   
-  <input type="text" name="picture" value='{{picture}}'/>
-
+ <p>Bricks</p>
+  <select name="bricks" multiple>
+                {{#each brick}}
+                    <option value="{{_id}}">{{brickCategoryName}}</option>
+                {{/each}}
+            </select> 
  
 
   <button type="submit">Storage updated</button>
+ 
 
 </form>
 </div>
