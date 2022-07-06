@@ -3,9 +3,7 @@ const User = require("../models/User");
 const mongoose = require('mongoose');
 const fileUploader = require('../config/cloudinary.config');
 
-// @desc    App home page
-// @route   GET /
-// @access  Public
+
 router.get('/', (req, res, next) => {
   user = req.session.currentUser
   res.render('index', {user});

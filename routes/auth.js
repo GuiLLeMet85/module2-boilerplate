@@ -108,7 +108,20 @@ router.get("/:id/update" , async (req, res, next)=>{
 })
  router.post('/:id/update', async (req, res, next) => {
     const {id} =req.params
-    const {username, email, profilePicture} = req.body
+    const {username, email, password, profilePicture} = req.body
+
+    let imageUrl;
+    if (req.file) {
+      imageUrl = req.file.path;
+    } else {
+      imageUrl = profilePicture;
+    }
+   
+    User.findByIdAndUpdate(id, { username, email, password, profilePicture}, { new: true })
+      .then(() => res.redirect(`/`))
+      .catch(error => console.log(`Error while updating a single movie: ${error}`));
+
+
        if(!username ||!email || !profilePicture ){
           const user = await User.findById(id)
          res.render("auth/update", {id, error: 'Fields cannot be empty'})
@@ -121,7 +134,7 @@ router.get("/:id/update" , async (req, res, next)=>{
            return
      }     
     try{ 
-      const user =await User.findByIdAndUpdate(id, {username, email}, { new: true }
+      const user =await User.findByIdAndUpdate(id, {username, email, profilePicture}, { new: true }
         )
       res.render("index", {user})
       return
@@ -131,9 +144,8 @@ router.get("/:id/update" , async (req, res, next)=>{
        res.render(`auth/update`, user)
    }
  })
-// @desc    Destroy user session and log out
-// @route   POST /auth/logout
-// @access  Private
+
+ 
 router.post("/logout" ,(req, res,next)=>{
     req.session.destroy((err)=>{
         if(err){

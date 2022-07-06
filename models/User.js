@@ -26,7 +26,8 @@ const userSchema = new Schema(
         // requiered: true,
     },
     profilePicture: {
-        type: String     
+        type: String,
+        default: "/pictures/default-profile.png"
     },
     hashedPassword: {
       type: String,
