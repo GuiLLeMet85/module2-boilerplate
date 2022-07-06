@@ -1,6 +1,3 @@
-
-
-
 <div class="cards" >
 <h1>User update</h1>
 
@@ -11,9 +8,10 @@
  
     <label>Email</label>
       <input type="email" name="email" value="{{email}}" />
-      <label>Picture</label>
-      <select name="" id=""></select>
-
+    
+    <label>Choose profile picture</label>
+    <input type="file" name="profilePicture" value="{{user.profilePicture}}">
+    
       {{#if error}}
       <p style="color: red;">{{error}}</p>
       {{/if}}

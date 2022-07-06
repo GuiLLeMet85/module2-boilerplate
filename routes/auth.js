@@ -2,8 +2,10 @@ const express = require('express');
 const router = express.Router();
 const isLoggedIn = require('../middlewares');
 const User = require('../models/User');
+const fileUploader = require('../config/cloudinary.config');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+
 // @desc    Displays form view to sign up
 // @route   GET /auth/signup
 // @access  Public
@@ -19,8 +21,8 @@ router.get('/login', async (req, res, next) => {
 // @desc    Sends user auth data to database to create a new user
 // @route   POST /auth/signup
 // @access  Public
-router.post("/signup" , async(req,res,next)=>{
-    const {username, email,password} =req.body
+router.post("/signup" , fileUploader.single('profilePicture'),async(req,res,next)=>{
+    const {username, email, password, profilePicture} =req.body
     // si los campos user o pasword están vacios
      if(!username || !email || !password){
          res.render("auth/signup", {error: 'Fields cannot be empty'})
@@ -28,12 +30,12 @@ router.post("/signup" , async(req,res,next)=>{
      }
      const userName = await User.findOne({username} || null)
      if(userName !== null){      
-       res.render("auth/signup", {error:"Usuario ya existente"})
+       res.render("auth/signup", {error:"User exist"})
            
      }
          const userEmail = await User.findOne({email} || null)
      if(userEmail !== null){      
-       return   res.render("auth/signup", {error:"Email ya existente"})
+       return   res.render("auth/signup", {error:"eMails exist"})
            
      }          
       const regEmail =/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/
@@ -106,8 +108,8 @@ router.get("/:id/update" , async (req, res, next)=>{
 })
  router.post('/:id/update', async (req, res, next) => {
     const {id} =req.params
-    const {username, email} = req.body
-       if(!username ||!email ){
+    const {username, email, profilePicture} = req.body
+       if(!username ||!email || !profilePicture ){
           const user = await User.findById(id)
          res.render("auth/update", {id, error: 'Fields cannot be empty'})
          return

@@ -1,16 +1,9 @@
 
      <h1 class="title">Brick Manager</h1>
-<<<<<<< HEAD
+
      <h2>App to inventory your lego bricks</h2> 
-=======
-     <h2>App to inventory your lego bricks</h2>
-<<<<<<< HEAD
->>>>>>> 9a4fea198e705fd26308f704e58c8b6f81b55ecb
-=======
 
    
->>>>>>> update-models
-      
    <div class="card">
         {{#unless user}}
         <button class="bt1" onclick="window.location.href='/auth/signup'">Sign up</button>
@@ -19,7 +12,8 @@
 
         {{/unless}}
          {{#if user}}
-             <h2> {{user.username}} </h2>     
+             <h2> {{user.username}} </h2>  
+                
       
           <form action="/auth/logout" method="post">       
           <button type="submit">Logout</button>
