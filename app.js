@@ -8,7 +8,6 @@ const logger = require('morgan');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const multer =require('multer');
-const axios = require('axios')
 
 // Routers require
 const indexRouter = require('./routes/index');
