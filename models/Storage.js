@@ -11,7 +11,7 @@ const storageSchema = new Schema(
       picture: {
         type: String,
         default: "/pictures/bricks-img/default-storage.jpg"      
-      }    
+      }  
     }
   );
   const Storage = model('Storage', storageSchema);

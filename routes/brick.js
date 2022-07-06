@@ -32,7 +32,7 @@ router.post("/create", async(req, res, next) => {
         await Brick.create({
             brickCategoryName,
             brickCategoryLegoId: intBrickCategoryLegoId,
-            quantity: intQuantity,
+            //quantity: intQuantity,
             picture: pictureTreated,
             color: "red",
             status,
