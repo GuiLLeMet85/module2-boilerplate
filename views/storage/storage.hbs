@@ -11,12 +11,11 @@
         <p>Name box: {{boxname}}</p>
           <p>BrickCategoryId:{{brickCategoryId}}</p>
         <img src="{{picture}}  " alt="">  
-        {{#if user}}
         <a class="action-btn" href="/storage/{{_id}}/edit"><h3>Edit</h3></a>
           <form method="POST" action="/storage/{{_id}}/delete">
             <button type="submit">Delete</button>
           </form> 
-          {{/if}}
+     
         </div>
     {{/each}} 
 </div>
