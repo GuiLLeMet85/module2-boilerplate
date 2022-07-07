@@ -13,6 +13,7 @@
         {{/unless}}
          {{#if user}}
              <h2> {{user.username}} </h2>  
+             <img src="{{user.imageUrl}}" alt="profile picture"><br>
                 
       
           <form action="/auth/logout" method="post">       

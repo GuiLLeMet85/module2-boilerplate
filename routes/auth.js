@@ -91,56 +91,43 @@ router.post("/login" , async(req,res,next)=>{
         res.render("auth/signup");
     }
 })
+
+
+
 router.get("/:id/update" , async (req, res, next)=>{
     const user = req.session.currentUser
-    try {
-        const userFromDB = await User.findById(user._id)
-        res.render('/:id/update', { userFromDB, user })
-    } catch (error) {
-        next(error)
+    const {id}= req.params
+    try{
+         const user=  await User.findById(id)
+         res.render("auth/update", user)
+    console.log(user)
     }
-
+    catch(err){
+        next(err)
+    }   
 })
 
-
 router.post("/:id/update", fileUploader.single('imageUrl'), async (req, res, next) => {
-    const {id} =req.params
-    const {username, email, password, existingImage} = req.body
+    const user = req.session.currentUser
+    const { username, email, existingImage } = req.body
 
     let imageUrl;
     if (req.file) {
         imageUrl = req.file.path;
     } else {
-        imageUrl = existingImage;
+        imageUrl = existingImage
     }
-   
-    User.findByIdAndUpdate(id, { username, email, password, existingImage}, { new: true })
-    .then(() => res.redirect(`/`))
-    .catch(error => console.log(`Error while updating a single movie: ${error}`));
+
+    try {
+        const userFound = await User.findByIdAndUpdate(user._id, { username, email, imageUrl }, { new: true })
+        req.session.currentUser = userFound
+        res.redirect('/')
+    } catch (error) {
+        next(error)
+    }
+}) 
 
 
-    if(!username ||!email || !existingImage ){
-          const user = await User.findById(id)
-          res.render("auth/update", {id, error: 'Fields cannot be empty'})
-          return
-      } 
-       const regEmail =/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/
-      //si email cumple las condiciones de regex
-      if(!regEmail.test(email)){
-            res.render("auth/update", {error: 'The Email is not valid'})
-           return
-     }     
-    try{ 
-      const userEdit =await User.findByIdAndUpdate(id, {username, email, imageUrl}, { new: true })
-      req.session.currentUser = userEdit
-      res.render("index")
-   }
-   catch(err) {
-    next(err)
-}   
- })
-
- 
 router.post("/logout" ,(req, res,next)=>{
     req.session.destroy((err)=>{
         if(err){
