@@ -7,7 +7,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
-const multer = require('multer');
+const multer =require('multer');
+
 
 // Routers require
 const indexRouter = require('./routes/index');
