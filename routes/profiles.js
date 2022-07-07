@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const isLoggedIn = require('../middlewares');
 const User = require('../models/User');
-const mongoose = require('mongoose');
-const fileUploader = require('../config/cloudinary.config');
+
+
 
 router.get('/:id/userProfile', isLoggedIn, async (req, res, next) => {
     

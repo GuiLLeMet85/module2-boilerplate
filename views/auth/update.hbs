@@ -1,7 +1,7 @@
 <div class="cards" >
 <h1>User update</h1>
 
-  <form  class="cardsAuth" action="/auth/{{id}}/update" method="POST">
+  <form  class="cardsAuth" action="/auth/{{id}}/update" method="POST" enctype="multipart/form-data">
  
     <label>Username</label>
       <input type="text" name="username" value="{{username}}" />
@@ -10,7 +10,8 @@
       <input type="email" name="email" value="{{email}}" />
     
     <label>Choose profile picture</label>
-    <input type="file" name="profilePicture" value="{{user.profilePicture}}">
+    <input type="file" name="imageUrl">
+    <input type="text" name="existingImage" hidden value="{{userFromDB.imageUrl}}">
     
       {{#if error}}
       <p style="color: red;">{{error}}</p>

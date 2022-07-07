@@ -1,7 +1,7 @@
 <div class="card" >
 <h2>¡Create a new account!</h2>
 
-  <form class="card" action="/auth/signup" method="POST">
+  <form class="card" action="/auth/signup" method="POST" enctype="multipart/form-data">
  
     <label>Username</label>
       <input type="text" name="username" placeholder="JohnDoe88" />
@@ -10,10 +10,11 @@
       <input type="email" name="email" placeholder="john@doe.com" />
     
     <label>Password</label>
-      <input type="password" name="password" placeholder="********" />
+      <input type="password" name="password" placeholder="Password" />
 
     <label>Choose profile picture</label>
-    <input type="file" name="profilePicture">
+    <input type="file" name="imageUrl">
+    <input type="text" name="existingImageSign" hidden value="/pictures/default-profile.png">
 
 
       {{#if error}}

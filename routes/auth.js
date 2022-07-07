@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const session = require('express-session');
 const isLoggedIn = require('../middlewares');
 const User = require('../models/User');
 const fileUploader = require('../config/cloudinary.config');
@@ -21,29 +22,22 @@ router.get('/login', async (req, res, next) => {
 // @desc    Sends user auth data to database to create a new user
 // @route   POST /auth/signup
 // @access  Public
-router.post("/signup" , fileUploader.single('profilePicture'),async(req,res,next)=>{
-    const {username, email, password, profilePicture} =req.body
-    // si los campos user o pasword están vacios
-     if(!username || !email || !password){
-         res.render("auth/signup", {error: 'Fields cannot be empty'})
-         return
-     }
-     const userName = await User.findOne({username} || null)
-     if(userName !== null){      
-       res.render("auth/signup", {error:"User exist"})
-           
-     }
-         const userEmail = await User.findOne({email} || null)
-     if(userEmail !== null){      
-       return   res.render("auth/signup", {error:"eMails exist"})
-           
-     }          
-      const regEmail =/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/
-     //si email cumple las condiciones de regex
-     if(!regEmail.test(email)){
-           res.render("auth/signup", {error: 'The Email is not valid'})
-           return
-     }
+router.post('/signup', fileUploader.single('imageUrl'), async (req, res, next) => {
+    const { email, password, username, existingImageSign } = req.body;
+    // Validations
+    if (!email || !password || !username) {
+      res.render('auth/signup', { error: 'All fields are mandatory, please fill them before submiting' })
+      return;
+    }
+  
+    let imageUrl;
+    if (req.file) {
+      imageUrl = req.file.path;
+    } else {
+      imageUrl = existingImageSign;
+    }
+
+
      //requisitos password carácteres
      const regPass =/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/
      //si password cumple las condiciones de regex... test() devuelve true o false 
@@ -54,7 +48,7 @@ router.post("/signup" , fileUploader.single('profilePicture'),async(req,res,next
     try{           
         const salt = await bcrypt.genSalt(saltRounds)
         const hashedPassword = await bcrypt.hash(password, salt) //encriptamos el password con el metodo hash 
-        const user = await User.create({username, email, hashedPassword})// Creamos el usuario encriptado       
+        const user = await User.create({username, email, profilePicture, hashedPassword})// Creamos el usuario encriptado       
         res.render("index")        
     }   
     catch{
@@ -96,53 +90,52 @@ router.post("/login" , async(req,res,next)=>{
     }
 })
 router.get("/:id/update" , async (req, res, next)=>{
-    const {id}= req.params   
-    try{
-         const user=  await User.findById(id)
-         res.render("auth/update", user)
-    console.log(user)
+    const user = req.session.currentUser
+    try {
+        const userFromDB = await User.findById(user._id)
+        res.render('user/edit-user', { userFromDB, user })
+    } catch (error) {
+        next(error)
     }
-    catch(err){
-        next(err)
-    }   
+
 })
- router.post('/:id/update', async (req, res, next) => {
+
+
+router.post("/:id/update", fileUploader.single('imageUrl'), async (req, res, next) => {
     const {id} =req.params
-    const {username, email, password, profilePicture} = req.body
+    const {username, email, password, existingImage} = req.body
 
     let imageUrl;
     if (req.file) {
-      imageUrl = req.file.path;
+        imageUrl = req.file.path;
     } else {
-      imageUrl = profilePicture;
+        imageUrl = existingImage;
     }
    
-    User.findByIdAndUpdate(id, { username, email, password, profilePicture}, { new: true })
-      .then(() => res.redirect(`/`))
-      .catch(error => console.log(`Error while updating a single movie: ${error}`));
+    // User.findByIdAndUpdate(id, { username, email, password, existingImage}, { new: true })
+    //   .then(() => res.redirect(`/`))
+    //   .catch(error => console.log(`Error while updating a single movie: ${error}`));
 
 
-       if(!username ||!email || !profilePicture ){
-          const user = await User.findById(id)
-         res.render("auth/update", {id, error: 'Fields cannot be empty'})
-         return
-     } 
-      const regEmail =/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/
-     //si email cumple las condiciones de regex
-     if(!regEmail.test(email)){
-           res.render("auth/update", {error: 'The Email is not valid'})
-           return
-     }     
+    //    if(!username ||!email || !existingImage ){
+    //       const user = await User.findById(id)
+    //      res.render("auth/update", {id, error: 'Fields cannot be empty'})
+    //      return
+    //  } 
+    //   const regEmail =/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/
+    //  //si email cumple las condiciones de regex
+    //  if(!regEmail.test(email)){
+    //        res.render("auth/update", {error: 'The Email is not valid'})
+    //        return
+    //  }     
     try{ 
-      const user =await User.findByIdAndUpdate(id, {username, email, profilePicture}, { new: true }
-        )
-      res.render("index", {user})
-      return
+      const userEdit =await User.findByIdAndUpdate(id, {username, email, imageUrl}, { new: true })
+      req.session.currentUser = userEdit
+      res.render("index")
    }
-   catch(err) { 
-      const user =await User.findById(id)
-       res.render(`auth/update`, user)
-   }
+   catch(err) {
+    next(err)
+}   
  })
 
  
