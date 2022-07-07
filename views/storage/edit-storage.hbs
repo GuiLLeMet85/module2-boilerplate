@@ -7,18 +7,13 @@
 
   <label>Box name</label>
   <input type="text" name="boxname" value='{{storage.boxname}}'/>
-
-  
+    
  <p>Bricks</p>
   <select name="bricks" multiple>
                 {{#each brick}}
                     <option value="{{_id}}">{{brickCategoryName}}</option>
                 {{/each}}
             </select> 
- 
-
   <button type="submit">Storage updated</button>
- 
-
 </form>
 </div>

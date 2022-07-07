@@ -8,9 +8,11 @@
         <p>Name box: {{boxname}}</p>
         
         <img src="{{picture}}  " alt="">  
+          <button class="bt1" onclick="window.location.href='/storage/{{_id}}/storagedetails'">Details</button>
         <a class="action-btn" href="/storage/{{_id}}/edit"><h3>Edit</h3></a>
           <form method="POST" action="/storage/{{_id}}/delete">
             <button type="submit">Delete</button>
+
           </form>      
         </div>
     {{/each}} 

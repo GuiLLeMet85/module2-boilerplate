@@ -12,6 +12,7 @@ router.get("/storage", async(req, res, next) => {
         next(err);
     }
 });
+
 router.get("/:id/edit", async(req, res, next) => {
     const{ id } =req.params
     try{
@@ -25,11 +26,11 @@ router.get("/:id/edit", async(req, res, next) => {
 });
 router.post("/:id/edit", async(req, res, next) => {    
     const { id } = req.params;
-    const {boxname, picture,brick } = req.body;
+   const {boxname, picture,bricks } = req.body;
     try {
-        const storage = await Storage.findByIdAndUpdate(
-            id, {boxname, picture , brick}, { new: true }
-        );
+         
+        await Storage.findByIdAndUpdate(id, {boxname, picture , bricks} );         
+       
         res.redirect('/storage/storage');
         return
     } catch (error) {
@@ -37,9 +38,25 @@ router.post("/:id/edit", async(req, res, next) => {
         res.redirect(`/storage/${id}/edit`);
     }
 });
+router.get('/:id/storagedetails', async (req, res, next) => {
+    const {id} =req.params
+    try{ 
+      const storage = await Storage.findById(id).populate("bricks")
+// console.log(storage)
+      res.render("storage/details",storage)
+  }
+  catch(err) { 
+      next(err)
+  }
+})
+
+
+
 router.get("/create", (req, res, next) => {
     res.render("storage/new-storage");
 });
+
+
 router.post("/create", async(req, res, next) => {
     const {boxname, picture } =req.body
     try{
@@ -53,6 +70,9 @@ router.post("/create", async(req, res, next) => {
     }
   
 });
+
+
+
 
 
 router.post("/:id/delete", async(req, res, next) => {
