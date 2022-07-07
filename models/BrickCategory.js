@@ -19,15 +19,6 @@ const brickCategorySchema = new Schema(
          type: String,
          required: [true, 'Color is required.'], 
       },
-      status: {
-          type: String,
-          enum: ["Using", "Stored", "Lost", "stock"],
-          required: [true, "Status is required"],
-      },
-      storageName: {
-          type: String,
-          ref: "Storage"
-      },
       setId: {
         type: [String]
       },

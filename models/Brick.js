@@ -15,7 +15,17 @@ const brickSchema = new Schema(
     UserId: {
         type: Schema.Types.ObjectId,
         ref: "User"
-    }
+    },
+    status: {
+        type: String,
+        enum: ["Using", "Stored", "Lost"],
+        required: [true, "Status is required"],
+    },
+    storageName: {
+        type: String,
+        ref: "Storage"
+    },
+
 });
 
 
