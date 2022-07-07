@@ -1,7 +1,7 @@
 <div class="cards" >
     <h2>Name: {{user.username}}</h2>
     <h2>Email: {{user.email}}</h2>
-     <img src="{{user.profilePicture}}" alt="profile picture"><br>
+     <img src="{{user.imageUrl}}" alt="profile picture"><br>
          <button class="bt1" onclick="window.location.href='/auth/{{user._id}}/update'">Update user</button> 
         <form action="/auth/logout" method="post">
             <button type="submit">Logout</button>   

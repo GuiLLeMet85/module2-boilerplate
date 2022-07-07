@@ -37,22 +37,23 @@ router.post('/signup', fileUploader.single('imageUrl'), async (req, res, next) =
       imageUrl = existingImageSign;
     }
 
-
      //requisitos password carácteres
      const regPass =/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/
      //si password cumple las condiciones de regex... test() devuelve true o false 
      if(!regPass.test(password)){
+        console.log(password)
            res.render("auth/signup", {error: 'The password field must have uppercase, lowercase, numbers and a special character'})         
            return
      }
     try{           
         const salt = await bcrypt.genSalt(saltRounds)
         const hashedPassword = await bcrypt.hash(password, salt) //encriptamos el password con el metodo hash 
-        const user = await User.create({username, email, profilePicture, hashedPassword})// Creamos el usuario encriptado       
+        const user = await User.create({username, email, imageUrl, hashedPassword})// Creamos el usuario encriptado       
         res.render("index")        
     }   
-    catch{
-        res.render("auth/signup")
+    catch (e) {
+    console.log(e) 
+    res.render("auth/signup");
     }
 })
 // @desc    Sends user auth data to database to authenticate user
@@ -85,15 +86,16 @@ router.post("/login" , async(req,res,next)=>{
             }            
         }       
     }   
-    catch{
-        res.render("auth/login")
+    catch (e) {
+        console.log(e) 
+        res.render("auth/signup");
     }
 })
 router.get("/:id/update" , async (req, res, next)=>{
     const user = req.session.currentUser
     try {
         const userFromDB = await User.findById(user._id)
-        res.render('user/edit-user', { userFromDB, user })
+        res.render('/:id/update', { userFromDB, user })
     } catch (error) {
         next(error)
     }
@@ -112,22 +114,22 @@ router.post("/:id/update", fileUploader.single('imageUrl'), async (req, res, nex
         imageUrl = existingImage;
     }
    
-    // User.findByIdAndUpdate(id, { username, email, password, existingImage}, { new: true })
-    //   .then(() => res.redirect(`/`))
-    //   .catch(error => console.log(`Error while updating a single movie: ${error}`));
+    User.findByIdAndUpdate(id, { username, email, password, existingImage}, { new: true })
+    .then(() => res.redirect(`/`))
+    .catch(error => console.log(`Error while updating a single movie: ${error}`));
 
 
-    //    if(!username ||!email || !existingImage ){
-    //       const user = await User.findById(id)
-    //      res.render("auth/update", {id, error: 'Fields cannot be empty'})
-    //      return
-    //  } 
-    //   const regEmail =/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/
-    //  //si email cumple las condiciones de regex
-    //  if(!regEmail.test(email)){
-    //        res.render("auth/update", {error: 'The Email is not valid'})
-    //        return
-    //  }     
+    if(!username ||!email || !existingImage ){
+          const user = await User.findById(id)
+          res.render("auth/update", {id, error: 'Fields cannot be empty'})
+          return
+      } 
+       const regEmail =/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/
+      //si email cumple las condiciones de regex
+      if(!regEmail.test(email)){
+            res.render("auth/update", {error: 'The Email is not valid'})
+           return
+     }     
     try{ 
       const userEdit =await User.findByIdAndUpdate(id, {username, email, imageUrl}, { new: true })
       req.session.currentUser = userEdit
