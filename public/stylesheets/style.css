@@ -76,7 +76,7 @@ details {
 
 *{
   font-family: 'Readex Pro', sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   margin: 0;
   list-style: none;
 }
@@ -97,16 +97,21 @@ p {
 
 h1 {
   font-size: 3rem;
-  margin-bottom: 5vw;
+  padding: 1vh 1vw 3vh;
   font-weight: 600;
   text-align: center;
+  font-family: 'Russo One', sans-serif;
+  line-height: 0.9;
 }
 
 h2 {
-  font-size: 2rem;
-  margin-top: 2vw;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 200;
   text-align: center;
+  font-family: 'Russo One', sans-serif;
+  color: blue;
+  margin-bottom: 0px;
+  z-index:1;
 }
 
 h3 {
@@ -121,12 +126,22 @@ h5 {
   font-size: 1.1rem;
 }
 
+button {
+  width: 200px;
+  padding: 1vh 1vw;
+  margin-top: 2vh;
+  border-radius: 10px;
+  border-style: solid 2px;
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+
 nav#menu {
   background-color:#FFED00;
   max-width: 1000%;
   position: fixed;
   width: 100%;
-  border-bottom: 5px solid #E3000B;
+  border-bottom: 4px solid #E3000B;
   
 }
 
@@ -186,7 +201,7 @@ img.img-lego {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
   font-size: 1.4rem;
-  margin-top: 0.6vh;
+  margin-top: 0.5vh;
 }
 
 
@@ -245,4 +260,59 @@ img.img-lego {
     color: #E3000B;
     font-size: 1rem !important;
     margin-left: 5vw;
+}
+
+ /* ------------------Home page------------------ */
+
+#home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5.5vh 2vw;
+}
+
+#home h1{
+    z-index: 1;
+} 
+
+.headers-intro {
+    max-width: 80%;
+    margin: 1vh auto;
+}
+
+.gif-intro {
+    padding: 0;
+    margin: 0;
+}
+
+.gif-intro img{
+    max-width: 100%;
+    margin-top: 0vh;
+    z-index: 999;
+}
+
+.sectionbt-intro {
+    display: flex;
+    flex-direction: column;
+    background-color: #222;
+    border-top: 4px solid #E3000B;
+    align-items: center;
+    padding: 2vh 2vw 5vh;
+}
+
+.bt1 {
+  background-color: blue;
+  color: white;
+  border: solid 2px #fff;
+}
+
+.bt2 {
+  color: white;
+  background-color: green;
+  border: solid 2px #fff;
+}
+
+.sectionbt-intro .fa-brands, .sectionbt-intro .fa-solid, .sectionbt-intro .fa-regular {
+  margin-left: 2vh;;
+
 }

@@ -1,16 +1,23 @@
 
-     {{!--
+  <div id = "home"></div>
      <div class="headers-intro">
         <h1 class="title">Easy brick Manager</h1>
+          <h2>The App to inventory your lego bricks</h2> 
+       </div>
+    <div>
 
-        <h2>App to inventory your lego bricks</h2> 
-     </div>
+    <div class ="gif-intro">
+      <img src ="/pictures/bricks.gif">
 
-    <div class="card">
+    </div> 
+
+<!-- bottons -->
+    
+    <div class="sectionbt-intro">
         {{#unless user}}
-        <button class="bt1" onclick="window.location.href='/auth/signup'">Sign up</button>
-         <button class="bt1" onclick="window.location.href='/auth/login'">Log in</button>
-         <button class="bt1" onclick="window.location.href='/guestUser/pageGuest'">Guest user</button>
+        <button class="bt1" onclick="window.location.href='/auth/signup'">Sign up  <i class="fa-solid fa-rocket"></i></button>
+        <button class="bt2" onclick="window.location.href='/auth/login'">Log in <i class="fa-solid fa-user-astronaut"></i></button><br>
+        <button class="bt3" onclick="window.location.href='/guestUser/pageGuest'">Guest user <i class="fa-solid fa-user-ninja"></i></button>
 
         {{/unless}}
          {{#if user}}
@@ -26,13 +33,8 @@
         {{/if}}
       </div>
 
---}}
-      {{!-- <h3><a href="/brick/list",{{user}}>Show brick list</a></h3>
-<h3><a href="/storage/storage">Show storage</a>   </h3>  --}}
+</div>
 
-   
-   
-  
 
 
 
