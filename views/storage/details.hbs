@@ -2,15 +2,22 @@
 <div>
     <h1>Name</h1>
 {{boxname}}
-<ul>
+{{#unless bricks}}
+<h1>No bricks in this box</h1>
+{{/unless}}
+<ul>  
      {{#each bricks}}
-                <li> <h1>  {{brickCategoryName}}</h1></li>
-
-                {{/each}}
+     {{storagename}}
+        <li> <h1>  {{brickCategoryName}}</h1></li>
+        <li> <img src="{{picture}}" alt="img"></li>
+    {{/each}}
 </ul>
-
-    
+    <button class="bt1" onclick="window.location.href='/storage/storage'">Show list all Storage</button>
+    <a class="action-btn" href="/storage/{{_id}}/edit"><h3>Edit storage</h3></a>
+     <a class="action-btn" href="/storage/{{_id}}/deleteBrickInStorage"><h3>Delete bricks</h3></a>
 </div>
+
+
       
              
   

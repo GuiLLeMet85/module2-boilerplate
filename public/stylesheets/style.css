@@ -1,45 +1,248 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+header,
+section,
+footer,
+article,
+details {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+
+
+/* Basic styles, change according to your style */
+
 *{
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
+  font-family: 'Readex Pro', sans-serif;
+  font-size: 18px;
   margin: 0;
+  list-style: none;
 }
+
 body{
-  width: 100vw;
-  height: 100vh;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 5vw;
+  font-weight: 600;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 2vw;
+  font-weight: 600;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+h5 {
+  font-size: 1.1rem;
+}
+
+nav#menu {
+  background-color:#FFED00;
+  max-width: 1000%;
+  position: fixed;
+  width: 100%;
+  border-bottom: 5px solid #E3000B;
+  
+}
+
+#menu .right {
+  float: right;
+}
+
+#menu .left {
+  float: left;
+}
+
+/* menu */
+
+#menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 1vh 1vw;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
-button{
-  width: 150px;
-  padding: 5px;
-  margin: 5px;
+
+ /* items del menu */
+ 
+ #menu ul li {
+  background-color:#FFED00;
+ }
+ 
+ /* enlaces del menu */
+ 
+ #menu ul a {
+  display:block;
+  color:#333;
+  text-decoration:none;
+  font-weight:400;
+  font-size:14px;
+  padding:10px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+ }
+ 
+ /* items del menu */
+ 
+ #menu ul li {
+  float: left;
+  margin: 0;
+  padding: 0vh 3vw;
 }
-input{
-   width: 100px;
-  padding: 5px;
-  margin: 5px;
+
+ /* menu img */
+
+img.img-lego {
+  width: 2rem;
 }
-img{
-  width: 50px;
-  height: 50px;
-  border-radius: 100px;
+
+#menu .fa-solid, .fas {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 1.4rem;
+  margin-top: 0.6vh;
 }
-.card{
-  width: 200px;
+
+
+ /* efecto al pasar el ratón por los items del menu */
+ 
+ #menu ul li:hover {
+  background-color: verde;
+  border-radius: 3px;
+
+ }
+
+ /* menu desplegable */
+
+#menu ul ul {
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  padding:0;
+  margin-top: 1vh;
+ }
+ 
+ /* items del menu desplegable */
+ 
+ #menu ul ul li {
+  float:none;
+  width:150px;
+  border-bottom: 1px solid #E3000B;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin: 10px;
-  background-image: linear-gradient(rgb(255, 228, 228),rgb(255, 255, 255));
-  border-radius: 10px;
-  padding: 10px;
+ }
+ 
+ /* enlaces de los items del menu desplegable */
+ 
+ #menu ul ul a {
+    line-height: 120%;
+    padding: 1vh 2vw;
+ }
+ 
+ /* items del menu desplegable al pasar el ratón */
+ 
+ #menu ul li:hover > ul {
+  display: block;
+  margin-top: 0.6vh;
 }
-.pageList{
-  margin-top: 200px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+
+
+.fa-rocket, .fa-user-astronaut, .fa-circle-xmark, .fa-puzzle-piece, .fa-box-archive, .fa-fort-awesome {
+    font-size: 1rem !important;
+  /*  margin-top: 0.7vh; */
+    
+}
+
+#menu ul ul li .fa-brands, #menu ul ul li .fa-solid, #menu ul ul li .fa-regular {
+    color: #E3000B;
+    font-size: 1rem !important;
+    margin-left: 5vw;
 }

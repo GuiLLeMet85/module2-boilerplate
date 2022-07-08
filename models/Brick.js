@@ -1,18 +1,18 @@
 
-const {Schema, model} = requiere('mongoose');
+const {Schema, model} = require('mongoose');
 
 const brickSchema = new Schema(
 {
-    BrickCategoryId: {
+    brickCategoryId: {
         type: Schema.Types.ObjectId,
         required: [true, 'BrickCategoryId name is required.'],
         ref: "BrickCategory"
     },
-    Quantity: {
+    quantity: {
         type: Number,
         required: [true, 'Quantity stock is required.'],
     },
-    UserId: {
+    userId: {
         type: Schema.Types.ObjectId,
         ref: "User"
     },
@@ -22,12 +22,12 @@ const brickSchema = new Schema(
         required: [true, "Status is required"],
     },
     storageName: {
-        type: String,
+        type: Schema.Types.ObjectId,
         ref: "Storage"
     },
-
 });
 
-
-
+  const Brick = model('Brick', brickSchema);
+  
+  module.exports = Brick;
 

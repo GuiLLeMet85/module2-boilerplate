@@ -1,0 +1,18 @@
+<form action="/brick/create-brick" method="post">
+    <select name="brickCategoryId">
+        {{#each brickCategoriesFromDB}}
+            <option value="{{_id}}">{{brickCategoryName}}</option>
+        {{/each}}
+        </select>
+    <input name="quantity" placeholder="quantity" />
+    <select name="status">
+        <option>Using</option>
+        <option>Stored</option>
+        <option>Lost</option>
+    </select>
+    <select name="storageName">
+        {{#each storagesFromDB}}
+            <option value="{{_id}}">{{boxname}}</option>
+        {{/each}}
+    </select>
+</form>
