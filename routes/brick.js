@@ -2,14 +2,14 @@ const express = require("express");
 const router = express.Router();
 const User = require('../models/User');
 const BrickCategory = require("../models/BrickCategory");
+const Brick = require("../models/Brick");
 const Storage = require('../models/Storage');
 
 router.get("/list", async(req, res, next) => {
 
     try {
       const  user = req.session.currentUser
-
-        const brick = await BrickCategory.find({})
+        const brick = await Brick.find({})
         res.render("bricks/list" , { brick , user })
     } catch (err) {
         next(err);
@@ -30,8 +30,21 @@ router.get('/create-brick', async (req, res, next) => {
     }
 })
 
-router.post('/create-brick', (req, res, next) => {
-   console.log(req.body)
+router.post('/create-brick',  async (req, res, next) => {  
+
+  const {brickCategoryId, quantity, status, storageName}=req.body
+ console.log(brickCategoryId, quantity, status, storageName)
+ try{
+   
+    const brick = await Brick.create({brickCategoryId, quantity, status, storageName});
+    res.redirect('/brick/list');
+ }
+ catch(e){  
+    console.log(e)
+ }
+
+   
+   
 })
 
 router.post("/create", async(req, res, next) => {
