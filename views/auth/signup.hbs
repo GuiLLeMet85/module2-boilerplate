@@ -1,27 +1,35 @@
-<div class="card" >
-<h2>¡Create a new account!</h2>
 
-  <form class="card" action="/auth/signup" method="POST" enctype="multipart/form-data">
- 
-    <label>Username</label>
-      <input type="text" name="username" placeholder="JohnDoe88" />
- 
-    <label>Email</label>
-      <input type="email" name="email" placeholder="john@doe.com" />
+
+<div id="signup" >
+
+  <div class="container-forms">
+    <h1>Easy Brick Manager</h1>
+    <h2>¡Create a new account!</h2>
+  
+      <form class="form-singup" action="/auth/signup" method="POST" enctype="multipart/form-data">
     
-    <label>Password</label>
-      <input type="password" name="password" placeholder="Password" />
+        <label>Username</label>
+          <input type="text" name="username" placeholder="JohnDoe88" />
+    
+        <label>Email</label>
+          <input type="email" name="email" placeholder="john@doe.com" />
+        
+        <label>Password</label>
+          <input type="password" name="password" placeholder="Password" />
 
-    <label>Choose profile picture</label>
-    <input type="file" name="imageUrl">
-    <input type="text" name="existingImageSign" hidden value="/pictures/default-profile.png">
+        <div class="upload-file">
+            <label>Choose profile picture</label>
+            <input type="file" name="imageUrl" ><br>
+            <input type="text" name="existingImageSign" hidden value="/pictures/default-profile.png">
+        </div>
 
+          {{#if error}}
+          <p style="color: red;">{{error}}</p>
+          {{/if}}
+    
+        <button type="submit" class="btn-green">Create account <i class="fa-solid fa-rocket"></i></button>
+    
+      </form>
 
-      {{#if error}}
-      <p style="color: red;">{{error}}</p>
-      {{/if}}
- 
-    <button type="submit">Create account</button>
- 
-  </form>
+  </div>
 </div>

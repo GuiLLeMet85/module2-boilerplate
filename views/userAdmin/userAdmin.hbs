@@ -1,14 +1,24 @@
+<div class="sign-login" >
 
-<h1>Welcome {{user.username}}</h1>
-<img src="{{user.imageUrl}}" alt="profile picture"><br>
+  <div class="container-forms">
+        <h1>Welcome<br> {{user.username}}</h1>
+       
 
-<h2>What do your want to do</h2>
+        <img src="{{user.imageUrl}}" alt="profile picture" class="picture-profile"><br>
 
-    <button class="bt1" onclick="window.location.href='/brick/list'">Show list all Bricks</button> 
-    <button class="bt1" onclick="window.location.href='/brick/create'">Create brick</button>     
-    <button class="bt1" onclick="window.location.href='/storage/storage'">Show list all Storage</button>
-    <button class="bt1" onclick="window.location.href='/storage/create'">Create storage</button>
-    <button class="bt1" onclick="window.location.href='/auth/pageFind'">Search</button> 
-    <button class="bt1" onclick="window.location.href='/profiles/{{user._id}}/userProfile'">User profile</button> 
+         <h2 class="login">¿Do you sort or create?</h2>
+        <div class="sect-options-bt">
+            <div class="column">
+                <button class="bt1" onclick="window.location.href='/brick/list'">Bricks list</button> 
+                <button class="bt2" onclick="window.location.href='/brick/create'">Create brick</button> 
+                <button class="bt4" onclick="window.location.href='/auth/pageFind'">Search</button> 
+            </div>
 
-
+             <div class="column">  
+                <button class="bt1" onclick="window.location.href='/storage/storage'">Storage list</button>
+                <button class="bt2" onclick="window.location.href='/storage/create'">Create storage</button>
+                <button class="bt3" onclick="window.location.href='/profiles/{{user._id}}/userProfile'">Admin profile</button> 
+            </div> 
+        </div>
+    </div>
+</div>

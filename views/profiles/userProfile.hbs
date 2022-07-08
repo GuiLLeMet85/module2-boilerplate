@@ -1,12 +1,24 @@
-<div class="cards" >
+<div id="signup" >
+
+  <div class="container-usprofile">
     <h2>Name: {{user.username}}</h2>
     <h2>Email: {{user.email}}</h2>
-     <img src="{{user.imageUrl}}" alt="profile picture"><br>
-         <button class="bt1" onclick="window.location.href='/auth/{{user._id}}/update'">Update user</button> 
-        <form action="/auth/logout" method="post">
-            <button type="submit">Logout</button>   
-        </form>
-        <form method="POST" action="/auth/{{user._id}}/removeAccount">
-            <button type="submit">Remove account</button>
-        </form>
+     <img src="{{user.imageUrl}}" alt="profile picture"class="picture-profile"><br>
+
+    <div class="bottom-section">
+         <div class="top-button">
+
+            <button class="bt1" onclick="window.location.href='/auth/{{user._id}}/update'">Update user</button> 
+         </div>
+
+       <div class="sectionbt-bottom">
+            <form action="/auth/logout" method="post">
+                    <button type="submit">Logout</button>   
+                </form>
+         
+            <form method="POST" action="/auth/{{user._id}}/removeAccount">
+                <button type="submit">Remove account</button>
+            </form>
+        </div>    
+    </div>   
 </div>

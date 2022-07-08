@@ -96,7 +96,7 @@ p {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 2.7rem;
   padding: 1vh 1vw 3vh;
   font-weight: 600;
   text-align: center;
@@ -116,6 +116,13 @@ h2 {
 
 h3 {
   font-size: 1.3rem;
+  font-weight: 200;
+  text-align: center;
+  font-family: 'Russo One', sans-serif;
+  color: #E3000B;
+  text-align: center;
+  margin-bottom: 0px;
+  z-index:1;
 }
 
 h4 {
@@ -127,21 +134,26 @@ h5 {
 }
 
 button {
-  width: 200px;
-  padding: 1vh 1vw;
+  width: 175px;
+  padding: 1.5vh 1vw;
   margin-top: 2vh;
   border-radius: 10px;
   border-style: solid 2px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 300;
 }
+.btn-green {
+  background-color: green ;
+  color: white;
+}
+
 
 nav#menu {
   background-color:#FFED00;
   max-width: 1000%;
-  position: fixed;
   width: 100%;
   border-bottom: 4px solid #E3000B;
+  position: fixed;
   
 }
 
@@ -246,7 +258,7 @@ img.img-lego {
  
  #menu ul li:hover > ul {
   display: block;
-  margin-top: 0.6vh;
+  margin-top: 0.5vh;
 }
 
 
@@ -268,7 +280,7 @@ img.img-lego {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5.5vh 2vw;
+    padding: 7vh 2vw;
 }
 
 #home h1{
@@ -276,13 +288,13 @@ img.img-lego {
 } 
 
 .headers-intro {
-    max-width: 80%;
+    max-width: 90%;
     margin: 1vh auto;
 }
 
 .gif-intro {
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
 }
 
 .gif-intro img{
@@ -292,12 +304,13 @@ img.img-lego {
 }
 
 .sectionbt-intro {
-    display: flex;
-    flex-direction: column;
-    background-color: #222;
     border-top: 4px solid #E3000B;
-    align-items: center;
-    padding: 2vh 2vw 5vh;
+    padding: 2vh 2vw 6vh;
+    background-color: #222;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .bt1 {
@@ -312,7 +325,145 @@ img.img-lego {
   border: solid 2px #fff;
 }
 
+.bt3 {
+  color: white;
+  background-color: #E3000B;
+  border: solid 2px #fff;
+}
+
+.bt4 {
+  color: #333;
+  background-color: #FFED00;
+  border: solid 2px #fff;
+}
 .sectionbt-intro .fa-brands, .sectionbt-intro .fa-solid, .sectionbt-intro .fa-regular {
   margin-left: 2vh;;
+}
+.logged-title {
+  padding: 1vh 0 3vh;
+}
 
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+ /* ------------------Sign up page------------------ */
+
+ .sign-login {
+  padding: 2.5vh 2vw;
+ }
+
+ .container-forms {
+  margin: 5vh auto 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4vh 1vw;
+ }
+
+ .form-singup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5vh 2vw;
+  font-family: 'Readex Pro', sans-serif;
+ }
+
+ .form-singup label  {
+  font-size: 1.2rem;
+  padding: 2.5vh 1vw;
+}
+
+.form-singup input {
+  font-size: 1.2rem;
+  padding: 1vh 1vw;
+}
+
+.form-singup  input[type="file"] {
+
+  font-size: 0.8rem;
+  margin: 0 15% 0 40%;
+  text-align: center;
+}
+
+.form-singup .upload-file{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sect-options-bt {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  border-top: 4px solid #E3000B;
+  padding: 4vh 2vw 4vh;
+  background-color: #222;
+}
+
+.sectionbt-intro-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2vh;
+}
+
+.sectionbt-intro button {
+  width: 175px;
+  margin: 0vh 2vw;
+}
+
+.bottom-signlogin {
+  padding: 6vh 1vh;
+}
+
+.picture-profile {
+  width: 250px;
+}
+
+.column {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+h2.login {
+  position: absolute;
+  bottom: 35vh;
+}
+
+.sectionbt-bottom {
+  position: abosulte;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.bottom-section {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  flex: d;
+}
+
+.top-button {
+  text-align: center;
+
+}
+
+.container-usprofile { 
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 15vh 1vw;
+}
+
+.container-usprofile .picture-profile {
+margin-top: 5vh;
 }
