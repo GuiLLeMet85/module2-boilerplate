@@ -150,8 +150,8 @@ button {
 
 nav#menu {
   background-color:#FFED00;
-  max-width: 1000%;
-  width: 100%;
+  max-width: 100%;
+  width: 680px;
   border-bottom: 4px solid #E3000B;
   position: fixed;
   
@@ -274,6 +274,13 @@ img.img-lego {
     margin-left: 5vw;
 }
 
+.return-bt {
+  margin-top: 2vh;
+  padding: 0;
+  margin: 0 auto;
+  width: auto;
+}
+
  /* ------------------Home page------------------ */
 
 #home {
@@ -305,10 +312,10 @@ img.img-lego {
 
 .sectionbt-intro {
     border-top: 4px solid #E3000B;
-    padding: 2vh 2vw 6vh;
+    padding: 2vh 2vw 8vh;
     background-color: #222;
     height: 100px;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
@@ -347,6 +354,7 @@ img.img-lego {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding-top: 2vh;
 }
 
  /* ------------------Sign up page------------------ */
@@ -356,11 +364,11 @@ img.img-lego {
  }
 
  .container-forms {
-  margin: 5vh auto 5vh;
+  margin: 0vh auto 5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 4vh 1vw;
+  padding: 9vh 1vw;
  }
 
  .form-singup {
@@ -379,6 +387,8 @@ img.img-lego {
 .form-singup input {
   font-size: 1.2rem;
   padding: 1vh 1vw;
+  width: 300px;
+;
 }
 
 .form-singup  input[type="file"] {
@@ -424,7 +434,8 @@ img.img-lego {
 }
 
 .picture-profile {
-  width: 250px;
+  width: 200px;
+  padding: 1vh 1vw 2vh;
 }
 
 .column {
@@ -439,31 +450,76 @@ h2.login {
 }
 
 .sectionbt-bottom {
-  position: abosulte;
   display: flex;
   flex-direction: row;
-
+  justify-content: space-around;
 }
 
 .bottom-section {
-  position: absolute;
   bottom: 0px;
   width: 100%;
-  flex: d;
+  background-color: #222;
+  bottom: 0px;
+  border-top: 4px solid #E3000B;
+  padding: 2vh 2vw 8vh;
+  background-color: #222;
+  height: 100px;
+  position: fixed;
+  bottom: 0;
+  
+  
 }
-
 .top-button {
-  text-align: center;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .container-usprofile { 
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 15vh 1vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3.5vh 1vw;
 }
 
 .container-usprofile .picture-profile {
-margin-top: 5vh;
+  margin-top: 5vh;
+}
+
+.data-use {
+  text-align: left;
+}
+
+.data-user strong {
+  color:blue;
+  font-size: 1.1rem;
+}
+
+.container-usprofile h3 {
+  position: absolute;
+  bottom: 25vh;
+}
+
+.container-update-user {
+  margin: 0vh auto 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14vh 1vw;
+}
+
+button.btn-green.width-300 {
+  width: 300px;
+}
+
+#create-brick {
+  padding-top: 4vh;
+}
+
+select {
+  width: 300px;
+  font-size: 1rem;
+  padding: 1vh 1vw;
+  margin-top: 1vh;
 }
