@@ -1,26 +1,34 @@
-<div class="sign-login" >
+<div id="pageadmin" >
 
   <div class="container-forms">
         <h1>Welcome<br> {{user.username}}</h1>
+<<<<<<< HEAD
        
 
 <h2>What do your want to do</h2>
 
 
 
+=======
+        <img src="{{user.imageUrl}}" alt="profile picture" class="picture-profile"><br>
+>>>>>>> 7fe39b8b867e87c4eddfd19cbf858d23b6eb6de4
          <h2 class="login">¿Do you sort or create?</h2>
         <div class="sect-options-bt">
             <div class="column">
                 <button class="bt1" onclick="window.location.href='/brick/list'">Bricks list</button> 
+<<<<<<< HEAD
                 <button class="bt2" onclick="window.location.href='/brick/create-brick'">Create brick</button> 
+=======
+                <button class="bt2" onclick="window.location.href='/brick/create-brick'">Add a brick</button> 
+>>>>>>> 7fe39b8b867e87c4eddfd19cbf858d23b6eb6de4
                 <button class="bt4" onclick="window.location.href='/auth/pageFind'">Search</button> 
             </div>
 
              <div class="column">  
                 <button class="bt1" onclick="window.location.href='/storage/storage'">Storage list</button>
-                <button class="bt2" onclick="window.location.href='/storage/create'">Create storage</button>
+                <button class="bt2" onclick="window.location.href='/storage/create'">Add a storage</button>
                 <button class="bt3" onclick="window.location.href='/profiles/{{user._id}}/userProfile'">Admin profile</button> 
             </div> 
         </div>
     </div>
-</div>
+

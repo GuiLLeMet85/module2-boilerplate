@@ -1,22 +1,32 @@
+<div id="list-bricks" >
 
-<h1>Bricks list</h1>
-<div class="pageList"> 
+  <div class="container-forms">
+    <h1>Bricks list</h1>
 
     {{#each brick}}
       <div class="card">    
         {{#if user}}
- {{_id}}
-{{/if}}
-        <div>
-          <img src={{picture}}>
+            {{_id}}
+        {{/if}}
+        <div class="pict-card">
+          <img src="{{picture}}">
         </div>
-        <div>          
-            <p>Name: {{brickCategoryName}}</p>
+        <div class="info-list">          
+            <h3> {{brickCategoryName}}</h3>
             <p>Category id: {{brickCategoryLegoId}}</p>
             <p>Status: {{status}}</p>
+<<<<<<< HEAD
             <p>Quantity: {{quantity}}</p> 
             <p>box {{storagename}}</p>       
         </div>  
+=======
+            <p>Color: {{color}}</p>
+            <p>Quantity: {{quantity}}</p>  
+            <button onclick="window.location.href='/brick/{{ _id }}/edit'" type="submit" class="bt1 more-inf">More info</button>
+        </div>
+
+>>>>>>> 7fe39b8b867e87c4eddfd19cbf858d23b6eb6de4
       </div>
     {{/each}}  
   </div>
+</div>
