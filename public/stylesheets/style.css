@@ -305,7 +305,7 @@ img.img-lego {
 
 .gif-intro img{
     max-width: 100%;
-    margin-top: 0vh;
+    margin-top: -4vh;
     z-index: 999;
 }
 
@@ -653,5 +653,17 @@ video.error-gif {
   flex-direction: column;
   align-items: center;
   padding: 0;
+}
+
+#list-storage {
+  padding: 14vh 2vw;
+}
+
+.container-storage {
+  margin: 0vh auto 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh 0vw;
 }
 
