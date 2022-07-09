@@ -17,13 +17,9 @@
             <p>Status: {{status}}</p>
             <p>Color: {{color}}</p>
             <p>Quantity: {{quantity}}</p>  
-            <button type="submit" class="bt1 more-inf">More info</button>
-       
+            <button onclick="window.location.href='/brick/{{ _id }}/edit'" type="submit" class="bt1 more-inf">More info</button>
         </div>
 
       </div>
     {{/each}}  
-
-
-    
   </div>

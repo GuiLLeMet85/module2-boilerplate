@@ -1,32 +1,38 @@
 
+<div id="edit-brick">
+<h1>Edit a Lego part</h1>
+<div class="container-forms">
 
-<div class="card">
+<div class="data-user">
 
-  <h2>Edit a brick part</h2>
-  <form  class="card" method="POST" action="/brick/{{_id}}/edit">
+      <form  class="form-singup" method="POST" action="/brick/{{_id}}/edit">
 
-  <label>Name</label>
-  <input type="text" name="brickCategoryName" value='{{brickCategoryName}}'/>
+      <label>Name</label>
+      <input type="text" name="brickCategoryName" value='{{brickCategoryName}}'/>
 
-  <label>Lego ID</label>
-  <input type="number" name="brickCategoryLegoId" value='{{brickCategoryLegoId}}'/>
+      <label>Lego ID</label>
+      <input type="number" name="brickCategoryLegoId" value='{{brickCategoryLegoId}}'/>
 
-  <label>Quantity</label>
-  <input type="number" name="quantity"  value='{{quantity}}'/>
+      <label>Quantity</label>
+      <input type="number" name="quantity"  value='{{quantity}}'/>
 
-  <label>Color:</label>
-  <input type="text" name="color" value='{{color}}'/>
-  <label>Picture:</label>
-  <input type="text" name="picture" value='{{picture}}'/>
+      <label>Color:</label>
+      <input type="text" name="color" value='{{color}}'/>
+      <label>Picture:</label>
+      <input type="text" name="picture" value='{{picture}}'/>
 
-  <label>Choose the status:</label>
-  <select name="status" id="status" form="creation-form">
-    <option value="Using in a set">Using in a set</option>
-    <option value="Stored in a box">Stored in a box</option>
-    <option value="Unlocated">Unlocated</option>
-  </select>
+      <label>Choose the status:</label>
+      <select name="status" id="status" form="creation-form">
+        <option value="Using in a set">Using in a set</option>
+        <option value="Stored in a box">Stored in a box</option>
+        <option value="Unlocated">Unlocated</option>
+      </select>
 
-  <button type="submit">Brick updated</button>
-
-</form>
+       <div class="bottom-signlogin">
+            <button type="submit" class="btn-green">Update <i class="fa-solid fa-rocket"></i></button>
+        </div>
+    </form>
+  </div>
+  
 </div>
+
