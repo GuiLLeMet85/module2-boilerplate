@@ -1,8 +1,8 @@
 
 <div id="list-storage">
-      <h1>Edit the Storaget</h1>
 
   <div class="container-forms">
+    <h1>Edit the Storaget</h1>
    <h3>{{boxname}}</h3>
 {{#unless bricks}}
 <h1>No bricks in this box</h1>
@@ -10,7 +10,7 @@
 <ul>  
      {{#each bricks}}
         <li> <h1>  {{brickCategoryId.brickCategoryName}}</h1></li>
-        <li> <img src="{{picture}}" alt="img"></li>
+        <li> <img src="{{brickCategoryId.picture}}" alt="img"></li>
     {{/each}}
 </ul>
     <button class="bt1" onclick="window.location.href='/storage/storage'">Show list all Storage</button>

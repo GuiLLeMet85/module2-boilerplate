@@ -20,7 +20,7 @@
             <option>Stored</option>
             <option>Lost</option>
         </select>
-<<<<<<< HEAD
+
         <p>Select their status:</p>  
         <select name="storageName">
             {{#each storagesFromDB}}
@@ -34,18 +34,3 @@
 </div>
 
 </div>
-=======
-    <input name="quantity" placeholder="quantity" />
-    <select name="status">
-        <option>Using</option>
-        <option>Stored</option>
-        <option>Lost</option>
-    </select>
-    <select name="storageName">
-        {{#each storagesFromDB}}
-            <option value="{{_id}}">{{boxname}}</option>
-        {{/each}}
-    </select>
-    <button type="submit">Add a new brick</button>
-</form>
->>>>>>> create_bricks
