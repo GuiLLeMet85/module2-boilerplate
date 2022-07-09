@@ -1,4 +1,7 @@
-    <h1>Storages</h1>   <br><br>
+<div id="list-storage">
+      <h1>Storage list</h1>
+
+  <div class="container-storage">
     {{#if user}}
     <a class="action-btn" href="/storage/create"><h3>Create new storage</h3></a>
     {{/if}}
@@ -9,12 +12,9 @@
         
         <img src="{{picture}}" alt="box">  
           <button class="bt1" onclick="window.location.href='/storage/{{_id}}/storagedetails'">Details</button>
-        <a class="action-btn" href="/storage/{{_id}}/edit"><h3>Edit</h3></a>
-          <form method="POST" action="/storage/{{_id}}/delete">
-            <button type="submit">Delete storage</button>
 
           </form>      
         </div>
     {{/each}} 
 </div>
-  
+</div>

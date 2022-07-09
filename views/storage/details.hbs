@@ -1,7 +1,9 @@
 
-<div>
-    <h1>Name</h1>
-{{storage.boxname}}
+<div id="list-storage">
+      <h1>Edit the Storaget</h1>
+
+  <div class="container-forms">
+   <h3>{{boxname}}</h3>
 {{#unless bricks}}
 <h1>No bricks in this box</h1>
 {{/unless}}
@@ -15,8 +17,5 @@
     <a class="action-btn" href="/storage/{{_id}}/edit"><h3>Edit storage</h3></a>
      <a class="action-btn" href="/storage/{{_id}}/deleteBrickInStorage"><h3>Delete bricks</h3></a>
 </div>
-
-
-      
              
   
