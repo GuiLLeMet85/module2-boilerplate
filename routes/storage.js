@@ -17,7 +17,7 @@ router.get("/:id/edit", async(req, res, next) => {
     const{ id } =req.params
 
     try{
-         const storage = await Storage.findById(id).populate("bricks")   
+         const storage = await Storage.findById(id) 
          
             const bricks = await Brick.find({}) 
             console.log(brick)
@@ -81,9 +81,10 @@ router.post("/:id/deleteBrickInStorage", async(req, res, next) => {
 router.get('/:id/storagedetails', async (req, res, next) => {
     const {id} =req.params
     try{ 
-      const storage = await Storage.findById(id).populate("bricks")
+      const storage = await Storage.findById(id)
+      const bricks = await Brick.find({storageName: id}).populate("brickCategoryId")
 // console.log(storage)
-      res.render("storage/details",storage)
+      res.render("storage/details",{storage, bricks})
   }
   catch(err) { 
       next(err)

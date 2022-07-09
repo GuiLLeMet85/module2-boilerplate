@@ -8,18 +8,18 @@
       <form  class="form-singup" method="POST" action="/brick/{{_id}}/edit">
 
       <label>Name</label>
-      <input type="text" name="brickCategoryName" value='{{brickCategoryName}}'/>
+      <input type="text" name="brickCategoryName" value='{{brickCategoryId.brickCategoryName}}'/>
 
       <label>Lego ID</label>
-      <input type="number" name="brickCategoryLegoId" value='{{brickCategoryLegoId}}'/>
+      <input type="number" name="brickCategoryLegoId" value='{{brickCategoryId.brickCategoryLegoId}}'/>
 
       <label>Quantity</label>
       <input type="number" name="quantity"  value='{{quantity}}'/>
 
       <label>Color:</label>
-      <input type="text" name="color" value='{{color}}'/>
+      <input type="text" name="color" value='{{brickCategoryId.color}}'/>
       <label>Picture:</label>
-      <input type="text" name="picture" value='{{picture}}'/>
+      <input type="text" name="picture" value='{{brickCategoryId.picture}}'/>
 
       <label>Choose the status:</label>
       <select name="status" id="status" form="creation-form">

@@ -1,14 +1,13 @@
 
 <div>
     <h1>Name</h1>
-{{boxname}}
+{{storage.boxname}}
 {{#unless bricks}}
 <h1>No bricks in this box</h1>
 {{/unless}}
 <ul>  
      {{#each bricks}}
-     {{storagename}}
-        <li> <h1>  {{brickCategoryName}}</h1></li>
+        <li> <h1>  {{brickCategoryId.brickCategoryName}}</h1></li>
         <li> <img src="{{picture}}" alt="img"></li>
     {{/each}}
 </ul>
