@@ -92,21 +92,27 @@ router.get('/:id/storagedetails', async (req, res, next) => {
 
 
 
-router.get("/create", (req, res, next) => {
-    res.render("storage/new-storage");
-});
+router.get('/create', async (req, res, next) => {
+    try{
+        const bricks =await Brick.find({});
+        res.render("storage/new-storage", bricks);
+    } catch(e){
 
+        console.log(e)
+    }
+})
 
 router.post("/create", async(req, res, next) => {
-    const {boxname, picture } =req.body
+    const {boxname, picture, bricks } =req.body
     try{
+      
             await Storage.create({
-                boxname, picture
+                boxname, picture,bricks
             })
           res.redirect("/storage/storage");
     }
     catch(err){
-        console.error("ERROR!!!", error);
+        console.error(err);
     }
   
 });

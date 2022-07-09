@@ -10,7 +10,7 @@ router.get("/list", async(req, res, next) => {
     try {
       const  user = req.session.currentUser
         const brick = await Brick.find({})
-        res.render("bricks/list" , { brick , user })
+        res.render("bricks/list" , { brick  })
     } catch (err) {
         next(err);
     }

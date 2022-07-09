@@ -15,27 +15,22 @@
     
     <div class="sectionbt-intro">
         {{#unless user}}
-        <div class="flex-row">
         <button class="bt1" onclick="window.location.href='/auth/signup'">Sign up  <i class="fa-solid fa-rocket"></i></button>
         <button class="bt2" onclick="window.location.href='/auth/login'">Log in <i class="fa-solid fa-user-astronaut"></i></button><br>
-        </div>
-      <div class="sectionbt-intro-bottom">
         <button class="bt3" onclick="window.location.href='/guestUser/pageGuest'">Guest user <i class="fa-solid fa-user-ninja"></i></button>
-      </div>
+
         {{/unless}}
          {{#if user}}
-         <div class="logged-title">
-             <h3>Logged {{user.username}} </h3>  
-        </div>
-        <div class="flex-row">
+             <h2> {{user.username}} </h2>  
+             <img src="{{user.imageUrl}}" alt="profile picture"><br>
+                
+      
           <form action="/auth/logout" method="post">       
-             <button type="submit">Logout</button>
+          <button type="submit">Logout</button>
           </form>
-            <button class="bt1" onclick="window.location.href='/pageAdmin/pageAdmin'">Page admin</button>
-          </div>
-    <!-- <button class="bt1" onclick="window.location.href='/profiles/{{user._id}}/userProfile'">User profile</button> -->
+    <button class="bt1" onclick="window.location.href='/pageAdmin/pageAdmin'">Page admin</button>
+    <button class="bt1" onclick="window.location.href='/profiles/{{user._id}}/userProfile'">User profile</button>
         {{/if}}
-
       </div>
 
 </div>
