@@ -1,66 +1,4 @@
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-font,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-sub,
-sup,
-tt,
-var,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-header,
-section,
-footer,
-article,
-details {
+* {
     margin: 0;
     padding: 0;
     border: 0;
@@ -305,7 +243,7 @@ img.img-lego {
 
 .gif-intro img{
     max-width: 100%;
-    margin-top: 0vh;
+    margin-top: -4vh;
     z-index: 999;
 }
 
@@ -654,7 +592,26 @@ video.error-gif {
   align-items: center;
   padding: 0;
 }
-<<<<<<< HEAD
-=======
+#list-storage {
+  padding: 14vh 2vw;
+}
 
->>>>>>> 7fe39b8b867e87c4eddfd19cbf858d23b6eb6de4
+.container-storage {
+  margin: 0vh auto 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh 0vw;
+}
+
+#list-storage {
+  padding: 14vh 2vw;
+}
+
+.container-storage {
+  margin: 0vh auto 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh 0vw;
+}
