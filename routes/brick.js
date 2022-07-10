@@ -9,8 +9,8 @@ router.get("/list", async(req, res, next) => {
 
     try {
       const  user = req.session.currentUser
-        const brick = await Brick.find({})
-        res.render("bricks/list" , { brick  })
+        const brick = await Brick.find({}).populate("brickCategoryId")
+        res.render("bricks/list" , { brick , user })
     } catch (err) {
         next(err);
     }
@@ -75,7 +75,8 @@ router.post("/create", async(req, res, next) => {
 router.get("/:id/edit", async(req, res, next) => {
     const { id } = req.params;
     try {
-        const brick = await BrickCategory.findById(id);
+        const brick = await Brick.findById(id).populate("brickCategoryId storageName");
+        console.log(brick)
         res.render("bricks/update-form", brick);
     } catch (error) {
         next(error);

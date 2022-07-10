@@ -9,11 +9,11 @@
             {{_id}}
         {{/if}}
         <div class="pict-card">
-          <img src="{{picture}}">
+          <img src="{{brickCategoryId.picture}}">
         </div>
         <div class="info-list">          
-            <h3> {{brickCategoryName}}</h3>
-            <p>Category id: {{brickCategoryLegoId}}</p>
+            <h3>Category: {{brickCategoryId.brickCategoryName}}</h3>
+            <p>Brick id: {{_id}}</p>
             <p>Status: {{status}}</p>
             <p>Quantity: {{quantity}}</p> 
             <p>box {{storagename}}</p>       

@@ -32,7 +32,6 @@ const brickSchema = new Schema(
     },
 });
 
-  const Brick = model('Brick', brickSchema);
-  
+  const Brick = model('Brick', brickSchema);  
   module.exports = Brick;
 

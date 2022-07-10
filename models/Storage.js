@@ -11,11 +11,7 @@ const storageSchema = new Schema(
       picture: {
         type: String,
         default: "/pictures/bricks-img/default-storage.jpg"      
-      },    
-        bricks:{
-        type: [Schema.Types.ObjectId],
-        ref:"BrickCategory"
-    }   
+      }
     }
   );
   const Storage = model('Storage', storageSchema);

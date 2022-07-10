@@ -615,3 +615,23 @@ video.error-gif {
   align-items: center;
   padding: 2vh 0vw;
 }
+
+.container-storage {
+  margin: 0vh auto 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh 0vw;
+}
+
+#list-storage {
+  padding: 14vh 2vw;
+}
+
+.container-storage {
+  margin: 0vh auto 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh 0vw;
+}
