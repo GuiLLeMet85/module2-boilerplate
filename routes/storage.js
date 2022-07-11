@@ -77,7 +77,6 @@ router.post("/:id/deleteBrickInStorage", async(req, res, next) => {
 });
 
 
-
 router.get('/:id/storagedetails', async (req, res, next) => {
     const {id} =req.params
     try{ 
@@ -90,7 +89,6 @@ router.get('/:id/storagedetails', async (req, res, next) => {
       next(err)
   }
 })
-
 
 
 router.get('/create', async (req, res, next) => {
@@ -117,9 +115,6 @@ router.post("/create", async(req, res, next) => {
     }
   
 });
-
-
-
 
 
 

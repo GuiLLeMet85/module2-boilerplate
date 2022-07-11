@@ -111,4 +111,23 @@ router.post("/:id/delete", async(req, res, next) => {
 });
 
 
+router.get('/:id/details-brick', async (req, res, next) => {
+    const {id} =req.params
+    try{ 
+      const storage = await Brick.findById(id)
+      const bricks = await Brick.find({storageName: id}).populate("brickCategoryId")
+     console.log(brick)
+      res.render("bricks/details-brick",{storage, bricks})
+  }
+  catch(err) { 
+      next(err)
+  }
+})
+
+
+
+
+
+
+
 module.exports = router;

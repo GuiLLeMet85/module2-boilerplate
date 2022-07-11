@@ -15,9 +15,11 @@
             <h3>Category: {{brickCategoryId.brickCategoryName}}</h3>
             <p>Brick id: {{_id}}</p>
             <p>Status: {{status}}</p>
-            <p>Quantity: {{quantity}}</p> 
-            <p>box {{storagename}}</p>       
-        </div>  
+            <p>Color: {{color}}</p>
+            <p>Quantity: {{quantity}}</p>  
+            <button class="bt1" onclick="window.location.href='/brick/{{_id}}/brickdetails'">More info</button>
+        </div>
+
       </div>
     {{/each}}  
   </div>

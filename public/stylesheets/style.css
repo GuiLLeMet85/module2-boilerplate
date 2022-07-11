@@ -383,7 +383,7 @@ img.img-lego {
 }
 
 .picture-profile {
-  width: 300px;
+  width: 250px;
   padding: 1vh 1vw 2vh;
 }
 
@@ -431,11 +431,11 @@ h2.login {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3.5vh 1vw;
+  padding: 1.5vh 1vw;
 }
 
 .container-usprofile .picture-profile {
-  margin-top: 5vh;
+  margin-top: 2vh;
 }
 
 .data-use {
@@ -560,10 +560,14 @@ video.error-gif {
 
 .video-section {
   margin-top: 10vh;
-  margin-bottom: -20vh;
+  margin-bottom: -35vh;
+  padding-bottom: 0vh;
 }
 .with-90 {
   width: 90%;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 .container-error {
