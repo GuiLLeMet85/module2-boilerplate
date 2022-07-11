@@ -314,6 +314,7 @@ img.img-lego {
   flex-direction: column;
   align-items: center;
   padding: 9vh 0vw;
+  width: 90%;
  }
 
  #signup .display, #pageadmin .display {
@@ -575,7 +576,7 @@ video.error-gif {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 9vh 0vw;
+  padding: 10vh 0vw;
 }
 
  /* ------------------Edit brick------------------ */
@@ -638,4 +639,12 @@ video.error-gif {
   flex-direction: column;
   align-items: center;
   padding: 2vh 0vw;
+}
+
+ /* ------------------brick details------------------ */
+
+div#details-bricks {
+  width: 90%;
+  padding: 1vh 0;
+  margin: 6vh auto;
 }
