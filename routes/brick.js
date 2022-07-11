@@ -9,7 +9,9 @@ router.get("/list", async(req, res, next) => {
 
     try {
       const  user = req.session.currentUser
-        const brick = await Brick.find({}).populate("brickCategoryId")
+        const brick = await Brick.find({}).populate("brickCategoryId storageName")
+        
+
         res.render("bricks/list" , { brick , user })
     } catch (err) {
         next(err);
