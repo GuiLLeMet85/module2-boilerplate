@@ -111,6 +111,7 @@ router.post("/:id/delete", async(req, res, next) => {
 });
 
 
+
 router.get('/:id/details-brick', async (req, res, next) => {
     const { id } = req.params
     
@@ -123,6 +124,8 @@ router.get('/:id/details-brick', async (req, res, next) => {
       next(err)
   }
 })
+
+
 
 
 
