@@ -317,7 +317,7 @@ img.img-lego {
   width: 90%;
  }
 
- #signup .display, #pageadmin .display {
+ #signup .display, #pageadmin .display, #details-storage .display, #details-bricks .display{
   display: none;
  } 
 
@@ -403,6 +403,7 @@ h2.login {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin: 0 5vw 0 0;
 }
 
 #pageadmin {
@@ -413,13 +414,11 @@ h2.login {
   bottom: 0px;
   width: 100%;
   background-color: #222;
-  bottom: 0px;
   border-top: 4px solid #E3000B;
   padding: 2vh 2vw 8vh;
-  background-color: #222;
   height: 100px;
   position: fixed;
-  bottom: 0;
+ 
 }
 .top-button {
   display: flex;
@@ -489,6 +488,7 @@ select {
     padding: 1vh 1vw;
     width: 288px;
     margin-top: 1vh;
+    border-radius: 5px;
 }
 
 .container-forms p {
@@ -556,7 +556,7 @@ div#error-page {
 }
 
 video.error-gif {
-  height: 230px;
+  height: 215px;
 }
 
 .video-section {
@@ -572,7 +572,7 @@ video.error-gif {
 }
 
 .container-error {
-  margin: 0;
+  margin: 0 auto 0 -5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -597,8 +597,21 @@ video.error-gif {
   align-items: center;
   padding: 0;
 }
-#list-storage {
-  padding: 14vh 2vw;
+
+.container-storage {
+  margin: 0vh auto 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh 0vw;
+}
+
+.container-storage {
+  margin: 0vh auto 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh 0vw;
 }
 
 .container-storage {
@@ -610,7 +623,8 @@ video.error-gif {
 }
 
 #list-storage {
-  padding: 14vh 2vw;
+  padding: 12vh 2vw;
+  margin: 4vh auto;
 }
 
 .container-storage {
@@ -621,30 +635,16 @@ video.error-gif {
   padding: 2vh 0vw;
 }
 
-.container-storage {
-  margin: 0vh auto 5vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2vh 0vw;
-}
-
-#list-storage {
-  padding: 14vh 2vw;
-}
-
-.container-storage {
-  margin: 0vh auto 5vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2vh 0vw;
+div#details-storage {
+  padding: 1vh 0;
+  margin: 6vh auto;
 }
 
  /* ------------------brick details------------------ */
 
 div#details-bricks {
-  width: 90%;
   padding: 1vh 0;
   margin: 6vh auto;
 }
+
+

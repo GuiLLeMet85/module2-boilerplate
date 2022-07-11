@@ -113,12 +113,12 @@ router.post("/:id/delete", async(req, res, next) => {
 
 
 router.get('/:id/details-brick', async (req, res, next) => {
-    const { id } = req.params
+    const { id } = req.params;
     
     try{ 
-        const brickpart = await Brick.find({storageName: id}).populate("brickCategoryId")
-
-      res.render("bricks/details-brick",{brickpart})
+        const brickpart = await Brick.findById(id).populate("brickCategoryId storageName");
+        res.render("bricks/details-brick",{brickpart})
+        console.error(brickpart);
   }
   catch(err) { 
       next(err)
