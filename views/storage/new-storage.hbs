@@ -8,6 +8,12 @@
 
   <label>Picture</label>
   <input type="text" name="picture" />
+    <label>Bricks</label>
+  <select name="bricks" multiple>
+      {{#each bricks}}                    
+          <option value="{{_id}}">{{brickCategoryName}}</option>                 
+      {{/each}}
+  </select>
 
   
 
