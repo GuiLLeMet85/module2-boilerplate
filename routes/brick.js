@@ -41,9 +41,7 @@ router.post('/create-brick',  async (req, res, next) => {
  }
  catch(e){  
     console.log(e)
- }
-
-   
+ }  
    
 })
 
@@ -110,7 +108,6 @@ router.post("/:id/delete", async(req, res, next) => {
     }
 });
 
-
 router.get('/:id/details-brick', async (req, res, next) => {
     const {id} =req.params
     try{ 
@@ -123,11 +120,5 @@ router.get('/:id/details-brick', async (req, res, next) => {
       next(err)
   }
 })
-
-
-
-
-
-
 
 module.exports = router;
