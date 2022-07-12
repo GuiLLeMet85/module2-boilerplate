@@ -24,9 +24,10 @@ router.get("/create", (req, res, next) => {
 });
 
 router.get('/create-brick', async (req, res, next) => {
+    const user = req.session.currentUser;
     try{
         const brickCategoriesFromDB =await BrickCategory.find({});
-        const storagesFromDB =await  Storage.find({});
+        const storagesFromDB =await  Storage.find({userId:user._id});
         res.render("bricks/create-brick", {brickCategoriesFromDB, storagesFromDB});
     } catch(e){
         console.log(e)
@@ -64,6 +65,7 @@ router.post("/create", async(req, res, next) => {
             picture: pictureTreated,
             color: "red",
             status,
+            storageName
             //storageid i setid
         });
         res.redirect(`/brick/list`);

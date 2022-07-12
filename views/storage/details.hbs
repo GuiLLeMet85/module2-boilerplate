@@ -12,6 +12,11 @@
         <div class="card">
           <p>Name box: {{storage.boxname}}</p>
           <img src="{{storage.picture}}">
+          {{#each bricks}}
+<img src="{{this.brickCategoryId.picture}}" />
+<p>{{this.brickCategoryId.brickCategoryName}}</p>
+<p>{{this.quantity}} units</p>
+{{/each}}
         </div>
 
     </div>
