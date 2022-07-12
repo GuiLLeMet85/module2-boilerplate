@@ -10,6 +10,10 @@ const storageSchema = new Schema(
         type: String,
         default: "/pictures/bricks-img/default-storage.jpg"      
       },
+      userId: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+      }
     }
   );
   const Storage = model('Storage', storageSchema);
