@@ -4,6 +4,7 @@ const User = require('../models/User');
 const BrickCategory = require("../models/BrickCategory");
 const Brick = require("../models/Brick");
 const Storage = require('../models/Storage');
+const session = require('express-session');
 
 router.get("/list", async(req, res, next) => {
 
@@ -32,19 +33,17 @@ router.get('/create-brick', async (req, res, next) => {
 
 router.post('/create-brick',  async (req, res, next) => {  
 
-  const {brickCategoryId, quantity, status, storageName}=req.body
- console.log(brickCategoryId, quantity, status, storageName)
- try{
+        const {brickCategoryId, quantity, status, storageName}=req.body
+        console.log(brickCategoryId, quantity, status, storageName)
+    try{
    
     const brick = await Brick.create({brickCategoryId, quantity, status, storageName});
     res.redirect('/brick/list');
  }
- catch(e){  
+    catch(e){  
     console.log(e)
  }
 
-   
-   
 })
 
 router.post("/create", async(req, res, next) => {
@@ -114,11 +113,13 @@ router.post("/:id/delete", async(req, res, next) => {
 
 router.get('/:id/details-brick', async (req, res, next) => {
     const { id } = req.params;
+    console.log(id);
     
     try{ 
-        const brickpart = await Brick.findById(id).populate("brickCategoryId storageName");
+        const brickpart = await Brick.findById(id).populate("brickCategoryId");
+        console.log(brickpart);
         res.render("bricks/details-brick",{brickpart})
-        console.error(brickpart);
+        
   }
   catch(err) { 
       next(err)

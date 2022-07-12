@@ -2,24 +2,28 @@
 
   <div class="container-forms">
     <h1>About your Lego part</h1>
-   <h3>{{boxname}}</h3>
+    
 {{#unless brickpart}}
-<h2>There isn't any brick to show</h2>
+    <h2>There isn't any brick to show</h2>
 {{/unless}}
-<ul>
+
      {{#each brickpart}}
+   
      <div class="pict-card">
           <img src="{{brickCategoryId.picture}}">
-        </div>
-        <div class="info-list">
-            <h3>Category: {{brickCategoryId.brickCategoryName}}</h3>
-            <p>Brick id: {{_id}}</p>
-            <p>Status: {{status}}</p>
-            <p>Color: {{color}}</p>
-            <p>Quantity: {{quantity}}</p>
-        </div>
+    </div>
+    <div class="info-list">
+            <h3>{{brickCategoryId.brickCategoryName}}</h3>
+            <p><strong>Brick ID: {{_id}}</p>
+            <p><strong>Status:</strong> {{status}}</p>
+            <p><strong>Color:</strong> {{color}}</p>
+            <p><strong>Quantity:</strong> {{quantity}}</p>
+            <p><strong>User ID:</strong> {{userId}}</p>
+            <p><strong>Storage name:</strong> {{storageName}}</p>
+    </div>
+ 
     {{/each}}
-</ul>
+
  {{#if user}}
   
   <div class="bottom-section">
