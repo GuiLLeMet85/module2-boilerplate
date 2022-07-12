@@ -112,24 +112,19 @@ router.post("/:id/delete", async(req, res, next) => {
 
 
 router.get('/:id/details-brick', async (req, res, next) => {
+    const user = req.session.currentUser;
     const { id } = req.params;
-    console.log(id);
     
     try{ 
         const brickpart = await Brick.findById(id).populate("brickCategoryId");
         console.log(brickpart);
-        res.render("bricks/details-brick",{brickpart})
+        res.render("bricks/details-brick",{brickpart, user})
         
   }
   catch(err) { 
       next(err)
   }
 })
-
-
-
-
-
 
 
 

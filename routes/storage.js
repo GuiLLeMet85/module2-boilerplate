@@ -61,7 +61,7 @@ router.get("/:id/deleteBrickInStorage", async(req, res, next) => {
 
 
 router.post("/:id/deleteBrickInStorage", async(req, res, next) => {
-      const { id } = req.params;
+    const { id } = req.params;
     const {bricks } = req.body;
     try {
          
@@ -78,12 +78,13 @@ router.post("/:id/deleteBrickInStorage", async(req, res, next) => {
 
 
 router.get('/:id/storagedetails', async (req, res, next) => {
+    const user = req.session.currentUser
     const {id} =req.params
     try{ 
       const storage = await Storage.findById(id)
       const bricks = await Brick.find({storageName: id}).populate("brickCategoryId")
 // console.log(storage)
-      res.render("storage/details",{storage, bricks})
+      res.render("storage/details",{storage, bricks, user})
   }
   catch(err) { 
       next(err)
