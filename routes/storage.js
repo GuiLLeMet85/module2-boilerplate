@@ -50,9 +50,7 @@ router.get("/:id/deleteBricks", async(req, res, next) => {
 
     try{
          const storage = await Storage.findById(id)
-            const brick = await Brick.find({storageName:id}) 
-           
-            
+            const brick = await Brick.find({storageName:id}).populate("brickCategoryId")           
         res.render("storage/deleteBricks" ,{storage,brick} );
     }   
     catch(err){
@@ -60,19 +58,18 @@ router.get("/:id/deleteBricks", async(req, res, next) => {
     }    
 });
 
-
 router.post("/:id/deleteBricks", async(req, res, next) => {
       const { id } = req.params;
     const {bricks } = req.body;
     try {
         
-        await Storage.findByIdAndDelete(id, {bricks} );         
+        await Brick.findOneAndRemove({storageName:id} ),{new:true};         
        
-        res.redirect(`/storage/${id}/storagedetails`);
+        res.redirect(`/storage/storage`);
         return
     } catch (error) {
         console.error("ERROR!!!", error);
-        res.redirect(`/storage/${id}/edit`);
+        res.redirect(`/storage/storage`);
     }
 
 });
