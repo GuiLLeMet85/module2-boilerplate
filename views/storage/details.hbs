@@ -3,14 +3,18 @@
 
   <div class="container-forms">
     <h1>Edit the Storage</h1>
+       <h2>Name box: {{storage.boxname}}</h2>
 {{#unless storage}}
 <h2>There isn't any box to show</h2>
 {{/unless}}
-<ul>  
+{{#unless bricks}}
+<h2>No bricks</h2>
+{{/unless}}
+
+  <h3></h3>
     <div class="pageList">
 
         <div class="card">
-          <p>Name box: {{storage.boxname}}</p>
           <img src="{{storage.picture}}">
           {{#each bricks}}
 <img src="{{this.brickCategoryId.picture}}" />
@@ -33,7 +37,12 @@
          </div>
 
        <div class="sectionbt-bottom">
-            <button class="bt3" onclick="window.location.href='/storage/{{storage._id}}/deleteBrickInStorage'">Delete this box</button>
+
+          <form  method="POST" action="/storage/{{storage._id}}/deleteBricks">
+            <button type="submit" >Delete brick</button>
+           </form>
+
+
             <button onclick="history.back()" class="bt1">Go back</button>  
         </div>    
   

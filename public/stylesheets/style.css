@@ -533,7 +533,6 @@ select {
 }
 
 .card {
-  border: solid 2px red;
   border-radius: 5px ;
   margin-top: 4vh;
   padding: 2vh 1vw;
