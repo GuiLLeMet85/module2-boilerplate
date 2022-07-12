@@ -96,14 +96,13 @@ router.get("/:id/edit", async(req, res, next) => {
 router.post("/:id/edit", async(req, res, next) => {
     
     const { id } = req.params;
-    const { brickCategoryName, brickCategoryLegoId, quantity, picture, color, status } = req.body;
-    const intBrickCategoryLegoId = parseInt(brickCategoryLegoId);
+    const { quantity, status } = req.body;
     const intQuantity = parseInt(quantity);
-    try {
-        const updatedBrick = await BrickCategory.findByIdAndUpdate(
-            id, { brickCategoryName, brickCategoryLegoId, quantity, picture, color, status }, { new: true }
+    try { 
+       const updatedbrick = await Brick.findByIdAndUpdate(
+            id, { quantity: intQuantity, status }, { new: true }
         );
-        console.log("Just updated:", updatedBrick);
+        console.log(updatedbrick)
         res.redirect('/brick/list');
     } catch (error) {
         console.error("ERROR!!!", error);
@@ -114,7 +113,7 @@ router.post("/:id/delete", async(req, res, next) => {
    
     const { id } = req.params;
     try {
-        await BrickCategory.findByIdAndDelete(id);
+        await Brick.findByIdAndDelete(id);
         res.redirect(`/brick/list`);
     } catch (error) {
         next(error);
