@@ -2,8 +2,8 @@
 <div id="list-storage">
 
   <div class="container-forms">
-    <h1>Edit the Storaget</h1>
-   <h3>{{boxname}}</h3>
+    <br><br><br>
+   <h3>{{storage.boxname}}</h3>
 {{#unless bricks}}
 <h1>No bricks in this box</h1>
 {{/unless}}
@@ -13,9 +13,9 @@
         <li> <img src="{{brickCategoryId.picture}}" alt="img"></li>
     {{/each}}
 </ul>
-    <button class="bt1" onclick="window.location.href='/storage/storage'">Show list all Storage</button>
-    <a class="action-btn" href="/storage/{{_id}}/edit"><h3>Edit storage</h3></a>
-     <a class="action-btn" href="/storage/{{_id}}/deleteBrickInStorage"><h3>Delete bricks</h3></a>
+    <button class="bt1" onclick="window.location.href='/storage/storage'">Show list  Storage</button>
+    <a class="action-btn" href="/storage/{{storage._id}}/edit"><h3>Edit storage</h3></a>
+     <a class="action-btn" href="/storage/{{storage._id}}/deleteBricks"><h3>Delete bricks</h3></a>
 </div>
              
   

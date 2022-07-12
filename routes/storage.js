@@ -6,6 +6,7 @@ const Brick = require("../models/Brick");
 router.get("/storage", async(req, res, next) => {
 
     try {
+        //  db.brickmanagerdb.dropIndexes()
         const storage = await Storage.find({})  ;
         res.render("storage/storage" , {storage})
     } catch (err) {
@@ -44,15 +45,15 @@ router.post("/:id/edit", async(req, res, next) => {
         res.redirect(`/storage/${id}/edit`);
     }
 });
-router.get("/:id/deleteBrickInStorage", async(req, res, next) => {
+router.get("/:id/deleteBricks", async(req, res, next) => {
     const{ id } =req.params
 
     try{
-         const storage = await Storage.findById(id).populate("bricks")   
-         
-            const brick = await Brick.findOne({}) 
+         const storage = await Storage.findById(id)
+            const brick = await Brick.find({storageName:id}) 
+           
             
-        res.render("storage/deleteBrickInStorage" ,{storage,brick} );
+        res.render("storage/deleteBricks" ,{storage,brick} );
     }   
     catch(err){
         next (err)
@@ -60,11 +61,11 @@ router.get("/:id/deleteBrickInStorage", async(req, res, next) => {
 });
 
 
-router.post("/:id/deleteBrickInStorage", async(req, res, next) => {
+router.post("/:id/deleteBricks", async(req, res, next) => {
       const { id } = req.params;
     const {bricks } = req.body;
     try {
-         
+        
         await Storage.findByIdAndDelete(id, {bricks} );         
        
         res.redirect(`/storage/${id}/storagedetails`);
