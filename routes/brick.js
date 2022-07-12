@@ -108,7 +108,7 @@ router.post("/:id/delete", async(req, res, next) => {
    
     const { id } = req.params;
     try {
-        await BrickCategory.findByIdAndDelete(id);
+        await Brick.findByIdAndDelete(id);
         res.redirect(`/brick/list`);
     } catch (error) {
         next(error);

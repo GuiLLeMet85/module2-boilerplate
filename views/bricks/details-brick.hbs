@@ -32,7 +32,10 @@
          </div>
 
        <div class="sectionbt-bottom">
-            <button class="bt3" onclick=window.location.href="/brick/{{brickpart._id}}/delete">Delete brick</button>
+           <form  method="POST" action="/brick/{{brickpart._id}}/delete">
+            <button type="submit" >Delete brick</button>
+           </form>
+        
             <button  onclick="window.location.href='/brick/list'">Bricks list</button>  
         </div>  
   </div>
