@@ -10,7 +10,7 @@ router.get("/list", async(req, res, next) => {
 
     try {
       const  user = req.session.currentUser
-        const brick = await Brick.find({}).populate("brickCategoryId storageName")
+        const brick = await Brick.find({userId: user}).populate("brickCategoryId storageName")
         
 
         res.render("bricks/list" , { brick , user })
@@ -36,10 +36,10 @@ router.get('/create-brick', async (req, res, next) => {
 router.post('/create-brick',  async (req, res, next) => {  
 
         const {brickCategoryId, quantity, status, storageName}=req.body
-        console.log(brickCategoryId, quantity, status, storageName)
+
     try{
-   
-    const brick = await Brick.create({brickCategoryId, quantity, status, storageName});
+   const user =req.session.currentUser._id;
+    const brick = await Brick.create({brickCategoryId, quantity, status, userId: user, storageName});
     res.redirect('/brick/list');
  }
     catch(e){  
