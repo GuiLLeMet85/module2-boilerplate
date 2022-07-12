@@ -11,9 +11,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&family=Russo+One&display=swap" rel="stylesheet">
   <title>Easy Brick Manager App</title>
 </head>
-
+<!--
 <header>
-
 
 <!-- start nav -->
     <nav id="menu">
@@ -38,31 +37,49 @@
         <!-- end menu desplegable -->
           </li>
         <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-        <li><a href="#"><img src="/pictures/user.png" alt="figure lego"  class="img-lego"></a>
+         {{#unless user}}
+          <li><a href="#"><img src="/pictures/user.png" alt="figure lego"  class="img-lego"></a>
+         {{/unless}}
+
+         {{#if user}}
+        <li><a href="#"><img src="/pictures/user-logged.png" alt="figure lego"  class="img-lego"></a>
+         {{/if}}
                 <ul class"sub-menu right">
                   {{#if user}}
                   <li><a href="/pageAdmin/pageAdmin">Pag Admin <i class="fa-solid fa-chess-king"></i></a></li>
                     {{/if}}
+
+                    {{#unless user}}
                   <li><a href="/auth/signup">Sign up <i class="fa-solid fa-rocket"></i></a></li>
                   <li><a href="/auth/login">Log in <i class="fa-solid fa-user-astronaut"></i></a></li>
-                  <li><a href="/auth/logout">Log out  <i class="fa-regular fa-circle-xmark"></i></a></li>
+                    {{/unless}}
+
+                     {{#if user}}
+                     <li>
+                       <form action="/auth/logout" method="post">       
+                          <button type="submit" class="logoutmenu">Logout <i class="fa-regular fa-circle-xmark"></i></button>
+                      </form></li>
+          
+                  {{/if}}
                 </ul>
             </li>
           </div>  
         </ul>
         <!-- end menu -->
     </nav>
+
     <!-- end nav -->
 
     </header>
 <body>
 
-    
-  
     {{{ body }}}
 
- <div class="bottom-section-bt display">
+   
+
+   <div class="bottom-section-bt display">
         <button onclick="history.back()" class="bt3"><i class="fa-solid fa-backward"></i></button>  
-      </div>
-</body>
+   </div>
+   
+ </body>
 </html>

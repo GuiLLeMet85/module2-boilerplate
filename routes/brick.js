@@ -4,6 +4,7 @@ const User = require('../models/User');
 const BrickCategory = require("../models/BrickCategory");
 const Brick = require("../models/Brick");
 const Storage = require('../models/Storage');
+const session = require('express-session');
 
 router.get("/list", async(req, res, next) => {
 
@@ -30,22 +31,21 @@ router.get('/create-brick', async (req, res, next) => {
     } catch(e){
         console.log(e)
     }
-})
+});
 
 router.post('/create-brick',  async (req, res, next) => {  
 
-  const {brickCategoryId, quantity, status, storageName}=req.body
- console.log(brickCategoryId, quantity, status, storageName)
- try{
+        const {brickCategoryId, quantity, status, storageName}=req.body
+        console.log(brickCategoryId, quantity, status, storageName)
+    try{
    
     const brick = await Brick.create({brickCategoryId, quantity, status, storageName});
     res.redirect('/brick/list');
  }
- catch(e){  
+    catch(e){  
     console.log(e)
- }  
-   
-})
+    }
+});
 
 router.post("/create", async(req, res, next) => {
     const { brickCategoryName, brickCategoryLegoId, quantity, picture, color, status } = req.body;
@@ -72,16 +72,20 @@ router.post("/create", async(req, res, next) => {
         res.render("bricks/create-form");
     }
 });
+
+
 router.get("/:id/edit", async(req, res, next) => {
+    const user = req.session.currentUser;
     const { id } = req.params;
     try {
-        const brick = await Brick.findById(id).populate("brickCategoryId storageName");
+        const brick = await Brick.findById(id).populate("brickCategoryId"); //removed storageName
         console.log(brick)
-        res.render("bricks/update-form", brick);
+        res.render("bricks/update-form",{brick, user});
     } catch (error) {
         next(error);
     }
 });
+
 router.post("/:id/edit", async(req, res, next) => {
     
     const { id } = req.params;
@@ -110,16 +114,18 @@ router.post("/:id/delete", async(req, res, next) => {
     }
 });
 
+
 router.get('/:id/details-brick', async (req, res, next) => {
-    const {id} =req.params
+    const user = req.session.currentUser;
+    const { id } = req.params;
+    
     try{ 
-      const storage = await Brick.findById(id)
-      const bricks = await Brick.find({storageName: id}).populate("brickCategoryId")
-     console.log(brick)
-      res.render("bricks/details-brick",{storage, bricks})
+        const brickpart = await Brick.findById(id).populate("brickCategoryId");
+        res.render("bricks/details-brick",{brickpart, user})     
   }
   catch(err) { 
       next(err)
+      console.error("ERROR!!!", error);
   }
 })
 

@@ -13,6 +13,15 @@
 
 /* Basic styles, change according to your style */
 
+
+:root {
+  --primary-yellow: #FFED00;
+  --primary-red: #E3000B;
+  --light-blue: blue;
+  --basic-green: green;
+
+}
+
 *{
   font-family: 'Readex Pro', sans-serif;
   font-size: 14px;
@@ -57,7 +66,7 @@ h3 {
   font-weight: 200;
   text-align: center;
   font-family: 'Russo One', sans-serif;
-  color: #E3000B;
+  color: var(--primary-red);
   text-align: center;
   margin-bottom: 0px;
 }
@@ -86,10 +95,10 @@ button {
 
 
 nav#menu {
-  background-color:#FFED00;
+  background-color:var(--primary-yellow);
   max-width: 100%;
   width: 680px;
-  border-bottom: 4px solid #E3000B;
+  border-bottom: 4px solid var(--primary-red);
   position: fixed;
   top: 0;
 }
@@ -116,7 +125,7 @@ nav#menu {
  /* items del menu */
  
  #menu ul li {
-  background-color:#FFED00;
+  background-color:var(--primary-yellow);
  }
  
  /* enlaces del menu */
@@ -178,7 +187,7 @@ img.img-lego {
  #menu ul ul li {
   float:none;
   width:150px;
-  border-bottom: 1px solid #E3000B;
+  border-bottom: 1px solid var(--primary-red);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -206,7 +215,7 @@ img.img-lego {
 }
 
 #menu ul ul li .fa-brands, #menu ul ul li .fa-solid, #menu ul ul li .fa-regular {
-    color: #E3000B;
+    color: var(--primary-red);
     font-size: 1rem !important;
     margin-left: 5vw;
 }
@@ -248,7 +257,7 @@ img.img-lego {
 }
 
 .sectionbt-intro {
-    border-top: 4px solid #E3000B;
+    border-top: 4px solid var(--primary-red);
     padding: 2vh 2vw 8vh;
     background-color: #222;
     height: 100px;
@@ -271,17 +280,17 @@ img.img-lego {
 
 .bt3 {
   color: white;
-  background-color: #E3000B;
+  background-color: var(--primary-red);
   border: solid 2px #fff;
 }
 
 .bt4 {
   color: #333;
-  background-color: #FFED00;
+  background-color: var(--primary-yellow);
   border: solid 2px #fff;
 }
 .sectionbt-intro .fa-brands, .sectionbt-intro .fa-solid, .sectionbt-intro .fa-regular {
-  margin-left: 2vh;;
+  margin-left: 2vh;
 }
 .logged-title {
   padding: 1vh 0 3vh;
@@ -302,7 +311,7 @@ img.img-lego {
 
 
 #signup {
-  padding: 12vh;
+  padding: 12vh 1vw;
 }
  .sign-login {
   padding: 2.5vh 2vw;
@@ -314,9 +323,10 @@ img.img-lego {
   flex-direction: column;
   align-items: center;
   padding: 9vh 0vw;
+  width: 90%;
  }
 
- #signup .display, #pageadmin .display {
+ #signup .display, #pageadmin .display, #details-storage .display, #details-bricks .display{
   display: none;
  } 
 
@@ -331,6 +341,7 @@ img.img-lego {
  .form-singup label  {
   font-size: 1.2rem;
   padding: 2vh 1vw 0;
+  font-weight: 600;
 }
 
 .form-singup input {
@@ -361,7 +372,7 @@ img.img-lego {
   width: 100%;
   position: fixed;
   bottom: 0px;
-  border-top: 4px solid #E3000B;
+  border-top: 4px solid var(--primary-red);
   padding: 4vh 2vw 4vh;
   background-color: #222;
 }
@@ -402,6 +413,7 @@ h2.login {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin: 0;
 }
 
 #pageadmin {
@@ -412,13 +424,11 @@ h2.login {
   bottom: 0px;
   width: 100%;
   background-color: #222;
-  bottom: 0px;
-  border-top: 4px solid #E3000B;
+  border-top: 4px solid var(--primary-red);
   padding: 2vh 2vw 8vh;
-  background-color: #222;
   height: 100px;
   position: fixed;
-  bottom: 0;
+ 
 }
 .top-button {
   display: flex;
@@ -488,6 +498,9 @@ select {
     padding: 1vh 1vw;
     width: 288px;
     margin-top: 1vh;
+    border-radius: 5px;
+    text-align: center;
+    color: blue;
 }
 
 .container-forms p {
@@ -499,6 +512,10 @@ select {
 
 #list-bricks .container-forms{ 
   padding: 14vh 1vw;
+}
+
+.pict-card img {
+  max-width: 330px;
 }
 
 .card, .pict-card, .info-list {
@@ -518,6 +535,8 @@ select {
 .card {
   border: solid 2px red;
   border-radius: 5px ;
+  margin-top: 4vh;
+  padding: 2vh 1vw;
 }
 
 .card img {
@@ -525,7 +544,7 @@ select {
 }
 
 .bottom-section-bt {
-  border-top: 4px solid #E3000B;
+  border-top: 4px solid var(--primary-red);
   padding: 2vh 2vw 5vh;
   background-color: #222;
   height: 0px;
@@ -555,7 +574,7 @@ div#error-page {
 }
 
 video.error-gif {
-  height: 230px;
+  height: 215px;
 }
 
 .video-section {
@@ -571,11 +590,11 @@ video.error-gif {
 }
 
 .container-error {
-  margin: 0;
+ 
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 9vh 0vw;
+  padding: 10vh 0vw;
 }
 
  /* ------------------Edit brick------------------ */
@@ -596,8 +615,21 @@ video.error-gif {
   align-items: center;
   padding: 0;
 }
-#list-storage {
-  padding: 14vh 2vw;
+
+.container-storage {
+  margin: 0vh auto 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh 0vw;
+}
+
+.container-storage {
+  margin: 0vh auto 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh 0vw;
 }
 
 .container-storage {
@@ -609,7 +641,8 @@ video.error-gif {
 }
 
 #list-storage {
-  padding: 14vh 2vw;
+  padding: 12vh 2vw;
+  margin: 4vh auto;
 }
 
 .container-storage {
@@ -620,22 +653,16 @@ video.error-gif {
   padding: 2vh 0vw;
 }
 
-.container-storage {
-  margin: 0vh auto 5vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2vh 0vw;
+div#details-storage {
+  padding: 1vh 0;
+  margin: 6vh auto;
 }
 
-#list-storage {
-  padding: 14vh 2vw;
+ /* ------------------brick details------------------ */
+
+div#details-bricks {
+  padding: 1vh 0;
+  margin: 6vh auto;
 }
 
-.container-storage {
-  margin: 0vh auto 5vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2vh 0vw;
-}
+

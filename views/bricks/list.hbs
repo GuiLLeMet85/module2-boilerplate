@@ -3,6 +3,10 @@
   <div class="container-forms">
     <h1>Bricks list</h1>
 
+  {{#unless brick}}
+    <h2>There isn't any brick to show</h2>
+  {{/unless}}
+
     {{#each brick}}
       <div class="card">    
         {{#if user}}
@@ -12,14 +16,10 @@
           <img src="{{brickCategoryId.picture}}">
         </div>
         <div class="info-list">          
-            <h3>Category: {{brickCategoryId.brickCategoryName}}</h3>
-            <p>Brick id: {{_id}}</p>
+            <h3>{{brickCategoryId.brickCategoryName}}</h3>
             <p>Status: {{status}}</p>
-            <p>Color: {{color}}</p>
             <p>Quantity: {{quantity}}</p>  
-             <p>Satorage name: {{storageName.boxname}}</p>
-
-            <button class="bt1" onclick="window.location.href='/brick/{{_id}}/brickdetails'">More info</button>
+            <button class="bt1" onclick="window.location.href='/brick/{{_id}}/details-brick'">More info</button>
         </div>
 
       </div>

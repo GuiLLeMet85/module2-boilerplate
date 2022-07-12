@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const Storage = require('../models/Storage');
-
 const Brick = require("../models/Brick");
+
 router.get("/storage", async(req, res, next) => {
+    const user = req.session.currentUser;
 
     try {
         //  db.brickmanagerdb.dropIndexes()
         const storage = await Storage.find({})  ;
-        res.render("storage/storage" , {storage})
+        res.render("storage/storage" , {storage, user})
     } catch (err) {
         next(err);
     }
@@ -21,7 +22,6 @@ router.get("/:id/edit", async(req, res, next) => {
          const storage = await Storage.findById(id) 
          
             const bricks = await Brick.find({}) 
-            console.log(brick)
             // quan recuperem l'array de bricks abans de mostrarlos farem un brick.filter(brick=> brick.status !== 'Stored' )
             // console.log(id , brick[0])
             
@@ -74,12 +74,13 @@ router.post("/:id/deleteBricks", async(req, res, next) => {
 
 });
 router.get('/:id/storagedetails', async (req, res, next) => {
+    const user = req.session.currentUser
     const {id} =req.params
     try{ 
       const storage = await Storage.findById(id)
       const bricks = await Brick.find({storageName: id}).populate("brickCategoryId")
 // console.log(storage)
-      res.render("storage/details",{storage, bricks})
+      res.render("storage/details",{storage, bricks, user})
   }
   catch(err) { 
       next(err)

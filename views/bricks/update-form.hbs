@@ -4,22 +4,22 @@
 <div class="container-forms">
 
 <div class="data-user">
+   {{#unless user}}
+  <h2>You need to be logged to see this page</h2>
+   {{/unless}}
 
-      <form  class="form-singup" method="POST" action="/brick/{{_id}}/edit">
+ {{#if user}}
+      <form  class="form-singup" method="POST" action="/brick/{{brick._id}}/edit">
 
-      <label>Name</label>
-      <input type="text" name="brickCategoryName" value='{{brickCategoryId.brickCategoryName}}'/>
+      <h2>{{brick.brickCategoryId.brickCategoryName}}</h2>
+      <img src="{{brick.brickCategoryId.picture}}">
 
       <label>Lego ID</label>
-      <input type="number" name="brickCategoryLegoId" value='{{brickCategoryId.brickCategoryLegoId}}'/>
+      <input type="number" name="brickCategoryLegoId" value='{{brick.brickCategoryId.brickCategoryLegoId}}'/>
 
       <label>Quantity</label>
-      <input type="number" name="quantity"  value='{{quantity}}'/>
+      <input type="number" name="quantity"  value='{{brick.quantity}}'/>
 
-      <label>Color:</label>
-      <input type="text" name="color" value='{{brickCategoryId.color}}'/>
-      <label>Picture:</label>
-      <input type="text" name="picture" value='{{brickCategoryId.picture}}'/>
 
       <label>Choose the status:</label>
       <select name="status" id="status" form="creation-form">
@@ -32,6 +32,7 @@
             <button type="submit" class="btn-green">Update <i class="fa-solid fa-rocket"></i></button>
         </div>
     </form>
+    {{/if}} 
   </div>
   
 </div>
