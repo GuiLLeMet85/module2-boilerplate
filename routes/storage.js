@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const Storage = require('../models/Storage');
-
 const Brick = require("../models/Brick");
+
 router.get("/storage", async(req, res, next) => {
+    const user = req.session.currentUser;
 
     try {
         const storage = await Storage.find({})  ;
-        res.render("storage/storage" , {storage})
+        res.render("storage/storage" , {storage, user})
     } catch (err) {
         next(err);
     }
@@ -20,7 +21,6 @@ router.get("/:id/edit", async(req, res, next) => {
          const storage = await Storage.findById(id) 
          
             const bricks = await Brick.find({}) 
-            console.log(brick)
             // quan recuperem l'array de bricks abans de mostrarlos farem un brick.filter(brick=> brick.status !== 'Stored' )
             // console.log(id , brick[0])
             

@@ -4,7 +4,11 @@
 <div class="container-forms">
 
 <div class="data-user">
+   {{#unless user}}
+  <h2>You need to be logged to see this page</h2>
+   {{/unless}}
 
+ {{#if user}}
       <form  class="form-singup" method="POST" action="/brick/{{_id}}/edit">
 
       <label>Name</label>
@@ -32,6 +36,7 @@
             <button type="submit" class="btn-green">Update <i class="fa-solid fa-rocket"></i></button>
         </div>
     </form>
+    {{/if}} 
   </div>
   
 </div>

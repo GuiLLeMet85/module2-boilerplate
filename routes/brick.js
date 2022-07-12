@@ -72,11 +72,12 @@ router.post("/create", async(req, res, next) => {
     }
 });
 router.get("/:id/edit", async(req, res, next) => {
+    const user = req.session.currentUser;
     const { id } = req.params;
     try {
-        const brick = await Brick.findById(id).populate("brickCategoryId storageName");
+        const brick = await Brick.findById(id).populate("brickCategoryId"); //removed storageName
         console.log(brick)
-        res.render("bricks/update-form", brick);
+        res.render("bricks/update-form",{brick, user});
     } catch (error) {
         next(error);
     }
@@ -117,7 +118,7 @@ router.get('/:id/details-brick', async (req, res, next) => {
     
     try{ 
         const brickpart = await Brick.findById(id).populate("brickCategoryId");
-        console.log(brickpart);
+        console.log("brickpart")
         res.render("bricks/details-brick",{brickpart, user})
         
   }

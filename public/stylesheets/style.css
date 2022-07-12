@@ -311,7 +311,7 @@ img.img-lego {
 
 
 #signup {
-  padding: 12vh;
+  padding: 12vh 1vw;
 }
  .sign-login {
   padding: 2.5vh 2vw;
@@ -514,6 +514,10 @@ select {
   padding: 14vh 1vw;
 }
 
+.pict-card img {
+  max-width: 330px;
+}
+
 .card, .pict-card, .info-list {
   display: flex;
   flex-direction: column;
@@ -531,6 +535,8 @@ select {
 .card {
   border: solid 2px red;
   border-radius: 5px ;
+  margin-top: 4vh;
+  padding: 2vh 1vw;
 }
 
 .card img {

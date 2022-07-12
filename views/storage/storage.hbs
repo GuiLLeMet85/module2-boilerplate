@@ -2,9 +2,11 @@
       <h1>Storage list</h1>
 
   <div class="container-storage">
-    {{#if user}}
-    <a class="action-btn" href="/storage/create"><h3>Create new storage</h3></a>
-    {{/if}}
+
+      {{#unless storage}}
+    <h2>There isn't any boxs to show</h2>
+    {{/unless}}
+  
 <div class="pageList">
     {{#each storage}}
         <div class="card">
