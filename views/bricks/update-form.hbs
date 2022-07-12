@@ -13,9 +13,7 @@
 
       <h2>{{brick.brickCategoryId.brickCategoryName}}</h2>
       <img src="{{brick.brickCategoryId.picture}}">
-
-      <label>Lego ID</label>
-      <input type="number" name="brickCategoryLegoId" value='{{brick.brickCategoryId.brickCategoryLegoId}}'/>
+      <p><strong>Lego ID: </strong>{{brick.brickCategoryId.brickCategoryLegoId}}</p>
 
       <label>Quantity</label>
       <input type="number" name="quantity"  value='{{brick.quantity}}'/>
@@ -23,10 +21,20 @@
 
       <label>Choose the status:</label>
       <select name="status" id="status" form="creation-form">
-        <option value="Using in a set">Using in a set</option>
-        <option value="Stored in a box">Stored in a box</option>
-        <option value="Unlocated">Unlocated</option>
+        <option value="Using">Using in a set</option>
+       <option 
+{{#if (ifEquals brick.status "Stored")}} selected {{/if}}value="Stored">Stored in a box</option>
+        <option value="Lost">Unlocated</option>
       </select>
+
+       
+
+       <select name="storageName">
+        <option>No box</option>
+            {{#each storage}}
+                <option value="{{_id}}">{{boxname}}</option>
+            {{/each}}
+        </select>
 
        <div class="bottom-signlogin">
             <button type="submit" class="btn-green">Update <i class="fa-solid fa-rocket"></i></button>

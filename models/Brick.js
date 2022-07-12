@@ -28,6 +28,11 @@ const brickSchema = new Schema(
         type: Schema.Types.ObjectId,
         ref: "Storage"
     },
+    boxName: {
+        type: Schema.Types.String,
+        ref: "Schema"
+    }  
+
 });
 
   const Brick = model('Brick', brickSchema);  

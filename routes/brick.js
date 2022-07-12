@@ -5,6 +5,11 @@ const BrickCategory = require("../models/BrickCategory");
 const Brick = require("../models/Brick");
 const Storage = require('../models/Storage');
 const session = require('express-session');
+const Handlebars = require("hbs");
+
+Handlebars.registerHelper('ifEquals', function(arg1, arg2) {
+    return arg1 == arg2;
+});
 
 router.get("/list", async(req, res, next) => {
 
