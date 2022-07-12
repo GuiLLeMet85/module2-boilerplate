@@ -5,8 +5,6 @@ const storageSchema = new Schema(
       boxname: {
         type: String,
         trim: true,
-        required: [true, 'Storage name is required.'],
-        unique: true
       },
       picture: {
         type: String,

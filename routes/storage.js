@@ -62,8 +62,8 @@ router.post("/:id/deleteBricks", async(req, res, next) => {
       const { id } = req.params;
     const {bricks } = req.body;
     try {
-        
-        await Brick.findOneAndRemove({storageName:id} ),{new:true};         
+        console.log({storageName:id})
+        await Brick.findOneAndDelete({storageName:id}),{new:true};         
        
         res.redirect(`/storage/storage`);
         return
@@ -73,8 +73,6 @@ router.post("/:id/deleteBricks", async(req, res, next) => {
     }
 
 });
-
-
 router.get('/:id/storagedetails', async (req, res, next) => {
     const {id} =req.params
     try{ 
@@ -87,7 +85,6 @@ router.get('/:id/storagedetails', async (req, res, next) => {
       next(err)
   }
 })
-
 
 router.get('/create', async (req, res, next) => {
     try{
@@ -113,9 +110,6 @@ router.post("/create", async(req, res, next) => {
     }
   
 });
-
-
-
 
 router.post("/:id/delete", async(req, res, next) => {
    

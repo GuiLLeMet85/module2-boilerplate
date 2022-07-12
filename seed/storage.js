@@ -23,7 +23,7 @@ const MONGO_URL = process.env.MONGO_URL
       return Storage.create(storage);
     })
      .catch(err => {
-    console.log(`An error occurred while getting storages from the DB: ${err}`);
+    console.log(`${err}`);
     })
     .finally(() => {
       mongoose.disconnect(); 
