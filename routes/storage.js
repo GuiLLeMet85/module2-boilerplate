@@ -8,7 +8,7 @@ router.get("/storage", async(req, res, next) => {
 
     try {
         //  db.brickmanagerdb.dropIndexes()
-        const storage = await Storage.find({})  ;
+        const storage = await Storage.find({userId:user._id})  ;
         res.render("storage/storage" , {storage, user})
     } catch (err) {
         next(err);
@@ -100,10 +100,10 @@ router.get('/create', async (req, res, next) => {
 router.post("/create", async(req, res, next) => {
     const {boxname, picture, bricks } =req.body
     try{
-      
-            await Storage.create({
-                boxname, picture,bricks
-            })
+        const user = req.session.currentUser._id;
+        await Storage.create({
+            boxname, picture,bricks, userId: user
+        })
           res.redirect("/storage/storage");
     }
     catch(err){
