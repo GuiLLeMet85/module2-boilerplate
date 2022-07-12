@@ -7,36 +7,32 @@
     <h2>There isn't any brick to show</h2>
 {{/unless}}
 
-     {{#each brickpart}}
+   
    
      <div class="pict-card">
-          <img src="{{brickCategoryId.picture}}">
+          <img src={{brickpart.brickCategoryId.picture}}>
     </div>
     <div class="info-list">
-            <h3>{{brickCategoryId.brickCategoryName}}</h3>
-            <p><strong>Brick ID:</strong> {{_id}}</p>
-            <p><strong>Status:</strong> {{status}}</p>
-            <p><strong>Color:</strong> {{color}}</p>
-            <p><strong>Quantity:</strong> {{quantity}}</p>
-            <p><strong>User ID:</strong> {{userId}}</p>
-            <p><strong>Storage name:</strong> {{storageName}}</p>
+            <h3>{{brickpart.brickCategoryId.brickCategoryName}}</h3>
+            <p><strong>Brick ID:</strong> {{brickpart._id}}</p>
+            <p><strong>Status:</strong> {{brickpart.status}}</p>
+            <p><strong>Color:</strong> {{brickpart.brickCategoryId.color}}</p>
+            <p><strong>Quantity:</strong> {{brickpart.quantity}}</p>
+            <p><strong>Storage name:</strong> {{brickpart.storageName}}</p>
     </div>
  
-    {{/each}}
 
  {{#if user}}
   
   <div class="bottom-section">
 
          <div class="sectionbt-bottom">
-            <button class="bt2" onclick="location.href='/brick/{{this._id}}/edit'">Edit brick 2</button>   
-             <a class="bt2" href="/brick/{{_id}}/edit">Edit brick 2</a>           
-     
-            <button onclick="history.back()" class="bt1">Go back</button>  
+          <button class="bt2" onclick=window.location.href="/brick/{{brickpart._id}}/edit">Edit brick</button>         
+          <button onclick="history.back()" class="bt1">Go back</button>  
          </div>
 
        <div class="sectionbt-bottom">
-            <button class="bt3" onclick="window.location.href='/brick/{{_id}}/delete">Delete brick</button>
+            <button class="bt3" onclick=window.location.href="/brick/{{_id}}/delete">Delete brick</button>
             <button  onclick="window.location.href='/brick/list'">Bricks list</button>  
         </div>  
   </div>
