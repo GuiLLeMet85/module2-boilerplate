@@ -1,0 +1,38 @@
+
+<div id="create-brick">
+
+<div class="container-forms">
+    <h1>Easy Brick Manager</h1>
+    <h2>Add a Lego part in your inventory</h2>
+
+    <form action="/brick/create-brick" method="post" class="form-singup">
+        <p>Select the Lego part name:</p>
+        <select name="brickCategoryId">
+            {{#each brickCategoriesFromDB}}
+                <option value="{{_id}}">{{brickCategoryName}}</option>
+            {{/each}}
+            </select>
+          
+        <p>Select number of units of this Lego part:</p>      
+        <input type="number" name="quantity" placeholder="Quantity" />
+        <p>Select their status:</p>  
+        <select name="status">
+            <option>Using</option>
+            <option>Stored</option>
+            <option>Lost</option>
+        </select>
+        <p>Select the storage:</p>  
+
+        <select name="storageName">
+            {{#each storageFromDB}}
+                <option value="{{_id}}">{{boxname}}</option>
+            {{/each}}
+        </select>
+        
+        <div class="bottom-signlogin">
+            <button type="submit" class="btn-green">¡Add a new brick! <i class="fa-solid fa-rocket"></i></button>
+        </div>
+    </form>  
+</div>
+
+</div>

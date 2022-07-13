@@ -1,0 +1,38 @@
+<h2>Add a new part to Brick Manager</h2>
+
+<div class="card">
+<form method="POST" action="/brick/create">
+
+  <label>Name</label>
+  <input type="text" name="brickCategoryName" id="brickCategoryName"/>
+
+  <label>Lego ID</label>
+  <input type="number" name="brickCategoryLegoId" id="brickCategoryLegoId"/>
+
+  <label>Picture:</label>
+  <input type="text" name="picture" id="picture"/>
+  <label>Color:</label>
+  <input type="text" name="color" id="color"/>
+
+  <label>Select status:</label>
+
+  <select name="status">
+    <option value="Using in a set">Using in a set</option>
+    <option value="Stored in a box">Stored in a box</option>
+    <option value="Unlocated">Unlocated</option>
+  </select>
+
+ <label>Select storage:</label>
+  <select name="storage">
+    <option value="Using in a set">Using in a set</option>
+    <option value="Stored in a box">Stored in a box</option>
+    <option value="Unlocated">Unlocated</option>
+  </select>
+
+
+   <div class="bottom-signlogin">
+            <button type="submit" class="btn-green">¡Add a new brick! <i class="fa-solid fa-rocket"></i></button>
+    </div>
+
+</form>
+</div>
