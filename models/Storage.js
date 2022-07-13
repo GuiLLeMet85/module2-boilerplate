@@ -8,7 +8,7 @@ const storageSchema = new Schema(
       },
       picture: {
         type: String,
-        default: "/pictures/bricks-img/default-storage.jpg"      
+        default: "/pictures/default-storage.jpg"      
       },
       userId: {
         type: Schema.Types.ObjectId,
