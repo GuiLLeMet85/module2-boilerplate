@@ -21,16 +21,9 @@
 
       <label>Choose the status:</label>
       <select name="status" id="status" form="creation-form">
-<<<<<<< HEAD
         <option value="Using">Using in a set</option>
-       <option 
-{{#if (ifEquals brick.status "Stored")}} selected {{/if}}value="Stored">Stored in a box</option>
+        <option {{#if (ifEquals brick.status "Stored")}} selected {{/if}}value="Stored">Stored in a box</option>
         <option value="Lost">Unlocated</option>
-=======
-        <option value="Stored">Stored</option>
-        <option value="Using">Using</option>
-        <option value="Lost">Lost</option>
->>>>>>> df7b267f8a95ddbf01f5974f39c1c7eb960f40d0
       </select>
 
        

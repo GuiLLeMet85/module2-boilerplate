@@ -15,7 +15,7 @@ router.get("/list", async(req, res, next) => {
 
     try {
       const  user = req.session.currentUser
-        const brick = await Brick.find({userId: user._id}).populate("brickCategoryId storageName")
+        const brick = await Brick.find({userId: user._id}).populate("brickCategoryId storageId")
         
 
         res.render("bricks/list" , { brick , user })
@@ -41,11 +41,11 @@ router.get('/create-brick', async (req, res, next) => {
 
 router.post('/create-brick',  async (req, res, next) => {  
 
-        const {brickCategoryId, quantity, status, storageName}=req.body
+        const {brickCategoryId, quantity, status, storageId, boxname}=req.body
 
     try{
    const user =req.session.currentUser._id;
-    const brick = await Brick.create({brickCategoryId, quantity, status, userId: user, storageName});
+    const brick = await Brick.create({brickCategoryId, quantity, status, userId: user, storageId, boxname});
     res.redirect('/brick/list');
  }
     catch(e){  
@@ -54,7 +54,7 @@ router.post('/create-brick',  async (req, res, next) => {
 });
 
 router.post("/create", async(req, res, next) => {
-    const { brickCategoryName, brickCategoryLegoId, quantity, picture, color, status } = req.body;
+    const { brickCategoryName, brickCategoryLegoId, quantity, picture, color, status,storageId, boxname } = req.body;
     const intBrickCategoryLegoId = parseInt(brickCategoryLegoId);
     const intQuantity = parseInt(quantity);
     let pictureTreated;
@@ -70,7 +70,8 @@ router.post("/create", async(req, res, next) => {
             picture: pictureTreated,
             color: "red",
             status,
-            storageName
+            storageId,
+            boxname
             //storageid i setid
         });
         res.redirect(`/brick/list`);
@@ -85,7 +86,7 @@ router.get("/:id/edit", async(req, res, next) => {
     const user = req.session.currentUser;
     const { id } = req.params;
     try {
-        const brick = await Brick.findById(id).populate("brickCategoryId"); //removed storageName
+        const brick = await Brick.findById(id).populate("brickCategoryId"); //removed storageId
         console.log(brick)
         res.render("bricks/update-form",{brick, user});
     } catch (error) {

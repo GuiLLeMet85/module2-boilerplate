@@ -24,13 +24,13 @@ const brickSchema = new Schema(
         enum: ["Using", "Stored", "Lost"],
         required: [true, "Status is required"],
     },
-    storageName: {
+    storageId: {
         type: Schema.Types.ObjectId,
         ref: "Storage"
     },
-    boxName: {
+    boxname: {
         type: Schema.Types.String,
-        ref: "Schema"
+        ref: "Storage"
     }  
 
 });
