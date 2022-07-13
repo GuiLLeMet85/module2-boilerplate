@@ -310,8 +310,8 @@ img.img-lego {
  /* ------------------Sign up page------------------ */
 
 
-#signup {
-  padding: 12vh 1vw;
+#signup, #login {
+  padding: 10vh 1vw;
 }
  .sign-login {
   padding: 2.5vh 2vw;
@@ -352,10 +352,12 @@ img.img-lego {
 }
 
 .form-singup  input[type="file"] {
-
   font-size: 0.8rem;
-  margin: 0 15% 0 40%;
+  margin-top: 1vh;
   text-align: center;
+  width: 288px;
+  padding: 1vh 1vw;
+  border-radius: 5px;
 }
 
 .form-singup .upload-file{
@@ -483,7 +485,7 @@ button.btn-green.width-300 {
 }
 
 #create-brick {
-  padding-top: 4vh;
+  padding-top: 8vh;
 }
 
 select {
@@ -634,19 +636,11 @@ video.error-gif {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2vh 0vw;
-}
-
-.container-storage {
-  margin: 0vh auto 5vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2vh 0vw;
+  padding: 0vh 1vw;
 }
 
 #list-storage {
-  padding: 12vh 2vw;
+  padding: 9vh 2vw;
   margin: 4vh auto;
 }
 
