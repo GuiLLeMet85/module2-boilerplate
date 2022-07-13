@@ -10,7 +10,7 @@ router.get("/storage", async(req, res, next) => {
     try {
         //  db.brickmanagerdb.dropIndexes()
         const storage = await Storage.find({userId:user._id})  ;
-        res.render("storage/storage" , {storage, user})
+        res.render("storage/storage" , {storage, user}) 
     } catch (err) {
         next(err);
     }
@@ -81,7 +81,7 @@ router.get('/:id/storagedetails', async (req, res, next) => {
       const storage = await Storage.findById(id)
       const bricks = await Brick.find({storageName: id}).populate("brickCategoryId")
 // console.log(storage)
-      res.render("storage/details",{storage, bricks, user})
+      res.render("storage/details",{storage, bricks, user}) 
   }
   catch(err) { 
       next(err)
