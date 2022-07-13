@@ -37,10 +37,11 @@ router.get('/create-brick', async (req, res, next) => {
 router.post('/create-brick',  async (req, res, next) => {  
 
         const {brickCategoryId, quantity, status, storageName}=req.body
+        const intQuantity = parseInt(quantity);
 
     try{
    const user =req.session.currentUser._id;
-    const brick = await Brick.create({brickCategoryId, quantity, status, userId: user, storageName});
+    const brick = await Brick.create({brickCategoryId, quantity: intQuantity, status, userId: user, storageName});
     res.redirect('/brick/list');
  }
     catch(e){  
@@ -48,32 +49,32 @@ router.post('/create-brick',  async (req, res, next) => {
     }
 });
 
-router.post("/create", async(req, res, next) => {
-    const { brickCategoryName, brickCategoryLegoId, quantity, picture, color, status } = req.body;
-    const intBrickCategoryLegoId = parseInt(brickCategoryLegoId);
-    const intQuantity = parseInt(quantity);
-    let pictureTreated;
-    if (picture !== "") {
-        pictureTreated = picture;
-    }
+// router.post("/create", async(req, res, next) => {
+//     const { brickCategoryName, brickCategoryLegoId, quantity, picture, color, status } = req.body;
+//     const intBrickCategoryLegoId = parseInt(brickCategoryLegoId);
+//     const intQuantity = parseInt(quantity);
+//     let pictureTreated;
+//     if (picture !== "") {
+//         pictureTreated = picture;
+//     }
 
-    try {
-        await BrickCategory.create({
-            brickCategoryName,
-            brickCategoryLegoId: intBrickCategoryLegoId,
-            //quantity: intQuantity,
-            picture: pictureTreated,
-            color: "red",
-            status,
-            storageName
-            //storageid i setid
-        });
-        res.redirect(`/brick/list`);
-    } catch (error) {
-        console.error("ERROR!!!", error);
-        res.render("bricks/create-form");
-    }
-});
+//     try {
+//         await BrickCategory.create({
+//             brickCategoryName,
+//             brickCategoryLegoId: intBrickCategoryLegoId,
+//             //quantity: intQuantity,
+//             picture: pictureTreated,
+//             color: "red",
+//             status,
+//             storageName
+//             //storageid i setid
+//         });
+//         res.redirect(`/brick/list`);
+//     } catch (error) {
+//         console.error("ERROR!!!", error);
+//         res.render("bricks/create-form");
+//     }
+// });
 
 
 router.get("/:id/edit", async(req, res, next) => {

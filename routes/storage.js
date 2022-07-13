@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Storage = require('../models/Storage');
 const Brick = require("../models/Brick");
+const fileUploader = require('../config/cloudinary.config');
 
 router.get("/storage", async(req, res, next) => {
     const user = req.session.currentUser;
@@ -97,7 +98,7 @@ router.get('/create', async (req, res, next) => {
     }
 })
 
-router.post("/create", async(req, res, next) => {
+router.post("/create",  async(req, res, next) => {
     const {boxname, picture, bricks } =req.body
     try{
         const user = req.session.currentUser._id;
