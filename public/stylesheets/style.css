@@ -186,7 +186,7 @@ img.img-lego {
  
  #menu ul ul li {
   float:none;
-  width:150px;
+  width:175px;
   border-bottom: 1px solid var(--primary-red);
   display: flex;
   flex-direction: row;
@@ -196,7 +196,6 @@ img.img-lego {
  /* enlaces de los items del menu desplegable */
  
  #menu ul ul a {
-    line-height: 120%;
     padding: 1vh 2vw;
  }
  
@@ -214,7 +213,7 @@ img.img-lego {
     
 }
 
-#menu ul ul li .fa-brands, #menu ul ul li .fa-solid, #menu ul ul li .fa-regular {
+#menu ul ul li .fa-brands, #menu ul ul li .fa-solid, #menu ul ul li .fa-regular, #menu ul ul li .fa-box {
     color: var(--primary-red);
     font-size: 1rem !important;
     margin-left: 5vw;

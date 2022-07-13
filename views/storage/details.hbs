@@ -7,6 +7,7 @@
 {{#unless storage}}
 <h2>There isn't any box to show</h2>
 {{/unless}}
+
 {{#unless bricks}}
 <h2>No bricks</h2>
 {{/unless}}
@@ -39,7 +40,7 @@
        <div class="sectionbt-bottom">
 
           <form  method="POST" action="/storage/{{storage._id}}/deleteBricks">
-            <button type="submit" >Delete brick</button>
+            <button type="submit" >Delete box</button>
            </form>
 
 
