@@ -24,8 +24,6 @@ router.get("/list", async(req, res, next) => {
 });
 
 
-
-
 router.get("/create-brick", async(req, res, next) => {
     const user = req.session.currentUser;
     try{
