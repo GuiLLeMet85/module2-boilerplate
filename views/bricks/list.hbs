@@ -2,7 +2,6 @@
 
   <div class="container-forms">
     <h1>Bricks list</h1>
-
   {{#unless brick}}
     <h2>There isn't any brick to show</h2>
   {{/unless}}
@@ -19,6 +18,9 @@
             <h3>{{brickCategoryId.brickCategoryName}}</h3>
             <p>Status: {{status}}</p>
             <p>Quantity: {{quantity}}</p>  
+            <p>storageName:{{storageName.boxname}}</p>
+
+
             <button class="bt1" onclick="window.location.href='/brick/{{_id}}/details-brick'">More info</button>
         </div>
 
