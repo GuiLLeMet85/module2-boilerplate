@@ -5,25 +5,28 @@ const BrickCategory = require("../models/BrickCategory");
 const Brick = require("../models/Brick");
 const Storage = require('../models/Storage');
 const session = require('express-session');
+const Handlebars = require("hbs");
+
+Handlebars.registerHelper('ifEquals', function(arg1, arg2) {
+    return arg1 == arg2;
+});
 
 router.get("/list", async(req, res, next) => {
 
     try {
-      const  user = req.session.currentUser
-        const brick = await Brick.find({userId: user._id}).populate("brickCategoryId storageName")
+        const  user = req.session.currentUser;
+        const brick = await Brick.find({userId: user._id}).populate("brickCategoryId storageId")
         
-
         res.render("bricks/list" , { brick , user })
     } catch (err) {
         next(err);
     }
 });
 
-router.get("/create", (req, res, next) => {
-    res.render("bricks/create-form");
-});
 
-router.get('/create-brick', async (req, res, next) => {
+
+
+router.get("/create-brick", async(req, res, next) => {
     const user = req.session.currentUser;
     try{
         const brickCategoriesFromDB =await BrickCategory.find({});
@@ -49,39 +52,11 @@ router.post('/create-brick',  async (req, res, next) => {
     }
 });
 
-// router.post("/create", async(req, res, next) => {
-//     const { brickCategoryName, brickCategoryLegoId, quantity, picture, color, status } = req.body;
-//     const intBrickCategoryLegoId = parseInt(brickCategoryLegoId);
-//     const intQuantity = parseInt(quantity);
-//     let pictureTreated;
-//     if (picture !== "") {
-//         pictureTreated = picture;
-//     }
-
-//     try {
-//         await BrickCategory.create({
-//             brickCategoryName,
-//             brickCategoryLegoId: intBrickCategoryLegoId,
-//             //quantity: intQuantity,
-//             picture: pictureTreated,
-//             color: "red",
-//             status,
-//             storageName
-//             //storageid i setid
-//         });
-//         res.redirect(`/brick/list`);
-//     } catch (error) {
-//         console.error("ERROR!!!", error);
-//         res.render("bricks/create-form");
-//     }
-// });
-
-
 router.get("/:id/edit", async(req, res, next) => {
     const user = req.session.currentUser;
     const { id } = req.params;
     try {
-        const brick = await Brick.findById(id).populate("brickCategoryId"); //removed storageName
+        const brick = await Brick.findById(id).populate("brickCategoryId"); //removed storageId
         console.log(brick)
         res.render("bricks/update-form",{brick, user});
     } catch (error) {
@@ -105,6 +80,10 @@ router.post("/:id/edit", async(req, res, next) => {
         res.redirect(`/brick/${id}/edit`);
     }
 });
+
+
+
+
 router.post("/:id/delete", async(req, res, next) => {
    
     const { id } = req.params;

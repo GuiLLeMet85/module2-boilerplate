@@ -322,7 +322,7 @@ img.img-lego {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 9vh 0vw;
+  padding: 5vh 0vw;
   width: 90%;
  }
 
@@ -417,7 +417,7 @@ h2.login {
 }
 
 #pageadmin {
-  padding: 3vh 1vw;
+  padding: 7vh 1vw;
 }
 
 .bottom-section {
@@ -487,10 +487,13 @@ button.btn-green.width-300 {
 }
 
 select {
-  width: 300px;
+  width: 310px;
   font-size: 1rem;
-  padding: 1vh 3vw;
+  padding: 1vh 1vw;
   margin-top: 1vh;
+  background-color: blanchedalmond;
+  font-size: 1.2rem;
+  border-radius: 5px;
 }
 
 .container-forms input {
@@ -501,6 +504,8 @@ select {
     border-radius: 5px;
     text-align: center;
     color: blue;
+    background: blanchedalmond;
+
 }
 
 .container-forms p {

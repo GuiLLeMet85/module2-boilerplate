@@ -10,7 +10,7 @@ const brickSchema = new Schema(
       brickCategoryName: {
            type: Schema.Types.ObjectId,
         ref: "BrickCategory"
-      },
+    },
     quantity: {
         type: Number,
         required: [true, 'Quantity stock is required.'],
@@ -24,10 +24,15 @@ const brickSchema = new Schema(
         enum: ["Using", "Stored", "Lost"],
         required: [true, "Status is required"],
     },
-    storageName: {
+    storageId: {
         type: Schema.Types.ObjectId,
         ref: "Storage"
     },
+    boxname: {
+        type: Schema.Types.String,
+        ref: "Storage"
+    }  
+
 });
 
   const Brick = model('Brick', brickSchema);  

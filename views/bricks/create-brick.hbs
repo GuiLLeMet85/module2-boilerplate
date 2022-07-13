@@ -12,7 +12,7 @@
                 <option value="{{_id}}">{{brickCategoryName}}</option>
             {{/each}}
             </select>
-
+          
         <p>Select number of units of this Lego part:</p>      
         <input type="number" name="quantity" placeholder="Quantity" />
         <p>Select their status:</p>  
@@ -22,11 +22,13 @@
             <option>Lost</option>
         </select>
         <p>Select the storage:</p>  
+
         <select name="storageName">
-            {{#each storagesFromDB}}
+            {{#each storageFromDB}}
                 <option value="{{_id}}">{{boxname}}</option>
             {{/each}}
         </select>
+        
         <div class="bottom-signlogin">
             <button type="submit" class="btn-green">¡Add a new brick! <i class="fa-solid fa-rocket"></i></button>
         </div>
