@@ -1,21 +1,29 @@
 <div id="list-storage">
-      <h1>Storage list</h1>
-
-  <div class="container-storage">
-
+   
+  <div class="container-forms">
+       <h1>Storage list</h1>
       {{#unless storage}}
-    <h2>There isn't any boxs to show</h2>
-    {{/unless}}
+        <h2>There isn't any boxs to show</h2>
+      {{/unless}}
   
-<div class="pageList">
+  <div class="list">
+
     {{#each storage}}
         <div class="card">
-        <p>Name box: {{boxname}}</p>
+         <div class="pict-card">
+       
+             <a href='/brick/{{_id}}/details-brick'"> <img src="{{picture}}" alt="box"></a>
+        </div>
+      <div class="info-list">   
+         <h3>{{boxname}}</h3>
         
-        <img src="{{picture}}" alt="box">  
-          <button class="bt1" onclick="window.location.href='/storage/{{_id}}/storagedetails'">More info</button>
-
-          </form>      
+        <a class="more-info" href='/storage/{{_id}}/storagedetails'">
+         <div class="div-more">
+            <i class="fa-solid fa-circle-info"></i>
+        </div>
+        </a>
+      </div>
+        
         </div>
     {{/each}} 
 </div>

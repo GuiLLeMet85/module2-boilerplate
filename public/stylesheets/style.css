@@ -426,7 +426,7 @@ h2.login {
   width: 100%;
   background-color: #222;
   border-top: 4px solid var(--primary-red);
-  padding: 2vh 2vw 8vh;
+  padding: 2vh 0vw 8vh;
   height: 100px;
   position: fixed;
  
@@ -509,6 +509,12 @@ select {
 
 }
 
+.list {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+
 .container-forms p {
   font-size: 1rem;
   color: #333;
@@ -524,13 +530,18 @@ select {
   max-width: 330px;
 }
 
+.pict-card a {
+  /* margin: 0 auto; */
+  text-align: center;
+}
+
 .card, .pict-card, .info-list {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin: 1vh auto;
-  width: 330px;
+  margin: 1vh 2vw 0vh;
+  width: 150px;
   padding: 1vh 0;
 }
 
@@ -539,13 +550,15 @@ select {
 }
 
 .card {
+  border: solid 2px #E3000B;
   border-radius: 5px ;
-  margin-top: 4vh;
-  padding: 2vh 1vw;
+  margin-top: 2vh;
+  padding: 2vh 1vw 0vh;
 }
 
 .card img {
-  width: 40%;
+  width: 65%;
+  padding: 2vh 0vw;
 }
 
 .bottom-section-bt {
@@ -638,7 +651,7 @@ video.error-gif {
 }
 
 #list-storage {
-  padding: 9vh 2vw;
+  padding: 9vh 0vw;
   margin: 4vh auto;
 }
 
@@ -662,4 +675,27 @@ div#details-bricks {
   margin: 6vh auto;
 }
 
+#details-bricks .info-list {
+  width: 300px;
+}
 
+i.fa-solid.fa-circle-info {
+  font-size: 30px;
+  color: var(--primary-red);
+}
+
+.more-info {
+  width: 100%;
+  margin: 2vh auto 0;
+  position: static;
+  bottom: 0;
+  background-color: var(--primary-yellow);
+  border-radius: 5px;
+}
+
+.div-more {
+  height: 35px;
+  padding: 2vh 1vw 1vh;
+  display: flex;
+  justify-content: center;
+}
