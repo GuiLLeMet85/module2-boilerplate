@@ -14,21 +14,19 @@ Handlebars.registerHelper('ifEquals', function(arg1, arg2) {
 router.get("/list", async(req, res, next) => {
 
     try {
-      const  user = req.session.currentUser
+        const  user = req.session.currentUser;
         const brick = await Brick.find({userId: user._id}).populate("brickCategoryId storageId")
         
-
         res.render("bricks/list" , { brick , user })
     } catch (err) {
         next(err);
     }
 });
 
-router.get("/create", (req, res, next) => {
-    res.render("bricks/create-form");
-});
 
-router.get('/create-brick', async (req, res, next) => {
+
+
+router.get("/create-brick", async(req, res, next) => {
     const user = req.session.currentUser;
     try{
         const brickCategoriesFromDB =await BrickCategory.find({});
@@ -41,46 +39,17 @@ router.get('/create-brick', async (req, res, next) => {
 
 router.post('/create-brick',  async (req, res, next) => {  
 
-        const {brickCategoryId, quantity, status, storageId, boxname}=req.body
+        const {brickCategoryId, quantity, status, storageName}=req.body
 
     try{
    const user =req.session.currentUser._id;
-    const brick = await Brick.create({brickCategoryId, quantity, status, userId: user, storageId, boxname});
+    const brick = await Brick.create({brickCategoryId, quantity, status, userId: user, storageName});
     res.redirect('/brick/list');
  }
     catch(e){  
     console.log(e)
     }
 });
-
-router.post("/create", async(req, res, next) => {
-    const { brickCategoryName, brickCategoryLegoId, quantity, picture, color, status,storageId, boxname } = req.body;
-    const intBrickCategoryLegoId = parseInt(brickCategoryLegoId);
-    const intQuantity = parseInt(quantity);
-    let pictureTreated;
-    if (picture !== "") {
-        pictureTreated = picture;
-    }
-
-    try {
-        await BrickCategory.create({
-            brickCategoryName,
-            brickCategoryLegoId: intBrickCategoryLegoId,
-            //quantity: intQuantity,
-            picture: pictureTreated,
-            color: "red",
-            status,
-            storageId,
-            boxname
-            //storageid i setid
-        });
-        res.redirect(`/brick/list`);
-    } catch (error) {
-        console.error("ERROR!!!", error);
-        res.render("bricks/create-form");
-    }
-});
-
 
 router.get("/:id/edit", async(req, res, next) => {
     const user = req.session.currentUser;
@@ -110,6 +79,10 @@ router.post("/:id/edit", async(req, res, next) => {
         res.redirect(`/brick/${id}/edit`);
     }
 });
+
+
+
+
 router.post("/:id/delete", async(req, res, next) => {
    
     const { id } = req.params;

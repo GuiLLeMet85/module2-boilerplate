@@ -10,7 +10,7 @@ const brickSchema = new Schema(
       brickCategoryName: {
            type: Schema.Types.ObjectId,
         ref: "BrickCategory"
-      },
+    },
     quantity: {
         type: Number,
         required: [true, 'Quantity stock is required.'],
