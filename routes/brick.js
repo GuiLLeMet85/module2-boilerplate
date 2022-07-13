@@ -14,10 +14,7 @@ Handlebars.registerHelper('ifEquals', function(arg1, arg2) {
 router.get("/list", async(req, res, next) => {
 
     try {
-      const  user = req.session.currentUser
-      
-        
-      
+        const  user = req.session.currentUser
         const brick = await Brick.find({userId: user._id}).populate("brickCategoryId storageName")
         const storage= await Storage.find({userId: user._id})
         console.log(storage)
@@ -40,6 +37,7 @@ router.get("/create-brick", async(req, res, next) => {
     }
 });
 
+
 router.post('/create-brick',  async (req, res, next) => {  
 
         const {brickCategoryId, quantity, status, storageName}=req.body
@@ -54,6 +52,8 @@ router.post('/create-brick',  async (req, res, next) => {
     console.log(e)
     }
 });
+
+
 
 router.get("/:id/edit", async(req, res, next) => {
     const user = req.session.currentUser;
@@ -83,8 +83,6 @@ router.post("/:id/edit", async(req, res, next) => {
         res.redirect(`/brick/${id}/edit`);
     }
 });
-
-
 
 
 router.post("/:id/delete", async(req, res, next) => {
