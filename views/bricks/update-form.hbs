@@ -22,11 +22,17 @@
 
 
       <label>Choose the status:</label>
-      <select name="status" id="status" form="creation-form">
-        <option value="Stored">Stored</option>
-        <option value="Using">Using</option>
-        <option value="Lost">Lost</option>
+      <select name="status">
+        <option>Stored</option>
+        <option >Using</option>
+        <option>Lost</option>
       </select>
+           <p>Select the storage:</p>  
+        <select name="storageName">
+            {{#each storagesFromDB}}
+                <option value="{{_id}}">{{boxname}}</option> 
+            {{/each}}
+        </select>
 
        <div class="bottom-signlogin">
             <button type="submit" class="btn-green">Update <i class="fa-solid fa-rocket"></i></button>

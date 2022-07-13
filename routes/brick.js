@@ -84,10 +84,13 @@ router.post('/create-brick',  async (req, res, next) => {
 router.get("/:id/edit", async(req, res, next) => {
     const user = req.session.currentUser;
     const { id } = req.params;
+    const brickCategoriesFromDB =await BrickCategory.find({});
+    const storagesFromDB =await  Storage.find({userId:user._id});
+  
     try {
         const brick = await Brick.findById(id).populate("brickCategoryId"); //removed storageName
         console.log(brick)
-        res.render("bricks/update-form",{brick, user});
+        res.render("bricks/update-form",{brick, user,brickCategoriesFromDB, storagesFromDB});
     } catch (error) {
         next(error);
     }
@@ -96,11 +99,11 @@ router.get("/:id/edit", async(req, res, next) => {
 router.post("/:id/edit", async(req, res, next) => {
     
     const { id } = req.params;
-    const { quantity, status } = req.body;
+    const { quantity, status ,storageName} = req.body;
     const intQuantity = parseInt(quantity);
     try { 
        const updatedbrick = await Brick.findByIdAndUpdate(
-            id, { quantity: intQuantity, status }, { new: true }
+            id, { quantity: intQuantity, status ,storageName}, { new: true }
         );
         console.log(updatedbrick)
         res.redirect('/brick/list');
