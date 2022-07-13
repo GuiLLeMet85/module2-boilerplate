@@ -28,10 +28,10 @@ const brickSchema = new Schema(
         type: Schema.Types.ObjectId,
         ref: "Storage"
     },
-    boxname: {
-        type: Schema.Types.String,
+    storageName: {
+        type: Schema.Types.ObjectId,
         ref: "Storage"
-    }  
+    },
 
 });
 
