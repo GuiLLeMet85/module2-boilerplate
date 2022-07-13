@@ -1,23 +1,30 @@
-<div class="cards" >
-<h1>User update</h1>
+<div class="container-update-user">
+    <h1>Edit data user:</h1>
+      <h2>Change your profile settings</h2>
+    <div class="data-user">
 
-  <form  class="cardsAuth" action="/auth/{{id}}/update" method="POST" enctype="multipart/form-data">
- 
-    <label>Username</label>
-      <input type="text" name="username" value="{{username}}" />
- 
-    <label>Email</label>
-      <input type="email" name="email" value="{{email}}" />
-    
-    <label>Choose profile picture</label>
-    <input type="file" name="imageUrl">
-    <input type="text" name="existingImage" hidden value="{{userFromDB.imageUrl}}">
-    
-      {{#if error}}
-      <p style="color: red;">{{error}}</p>
-      {{/if}}
- 
-    <button type="submit">Update</button>
- 
-  </form>
+    <form  class="form-singup" action="/auth/{{id}}/update" method="POST" enctype="multipart/form-data">
+  
+      <label>Username</label>
+        <input type="text" name="username" value="{{username}}" />
+  
+      <label>Email</label>
+        <input type="email" name="email" value="{{email}}" />
+      
+      <div class="upload-file"></div>
+        <label>Choose profile picture</label>
+        <input type="file" name="imageUrl">
+        <input type="text" name="existingImage" hidden value="{{userFromDB.imageUrl}}">
+      </div>
+        {{#if error}}
+        <p style="color: red;">{{error}}</p>
+        {{/if}}
+  
+      <button type="submit" class="btn-green width-300">Update <i class="fa-solid fa-arrows-rotate"></i></button>
+  
+    </form>
+        <div class="bottom-section-bt">
+        <button onclick="history.back()" class="bt3"><i class="fa-solid fa-backward"></i> </button>  
+      </div>
+  </div>
 </div>

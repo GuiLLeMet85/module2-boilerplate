@@ -1,20 +1,34 @@
-<h2>Add a new storage</h2>
+<div id="create-brick">
 
-<div class="card">
-<form method="POST" action="/storage/create">
+<div class="container-forms">
+<h1>Add a new box</h1>
+<h2>to storage your Lego parts</h2>
+
+
+
+<form action="/storage/create" method="post" class="form-singup">
 
   <label>Name</label>
   <input type="text" name="boxname"/>
 
-  <label>Picture</label>
+  <label>Picture URL</label>
   <input type="text" name="picture" />
-
+    <label>Bricks</label>
   
+  <select name="bricks" multiple>
+      {{#each bricks}}                    
+          <option value="{{_id}}">{{brickCategoryName}}</option>                 
+      {{/each}}
+  </select>
 
- 
- 
-
-  <button type="submit">Add a new storage</button>
+   <div class="bottom-signlogin">
+            <button type="submit" class="btn-green">¡Add a new box! <i class="fa-solid fa-rocket"></i></button>
+    </div>
 
 </form>
 </div>
+
+
+
+
+

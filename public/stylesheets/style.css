@@ -1,65 +1,4 @@
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-font,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-sub,
-sup,
-tt,
-var,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-header,
-section,
-footer,
-article,
-details {
+* {
     margin: 0;
     padding: 0;
     border: 0;
@@ -74,9 +13,18 @@ details {
 
 /* Basic styles, change according to your style */
 
+
+:root {
+  --primary-yellow: #FFED00;
+  --primary-red: #E3000B;
+  --light-blue: blue;
+  --basic-green: green;
+
+}
+
 *{
   font-family: 'Readex Pro', sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   margin: 0;
   list-style: none;
 }
@@ -96,21 +44,31 @@ p {
 }
 
 h1 {
-  font-size: 3rem;
-  margin-bottom: 5vw;
+  font-size: 2.7rem;
+  padding: 1vh 1vw 3vh;
   font-weight: 600;
   text-align: center;
+  font-family: 'Russo One', sans-serif;
+  line-height: 0.9;
 }
 
 h2 {
-  font-size: 2rem;
-  margin-top: 2vw;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 200;
   text-align: center;
+  font-family: 'Russo One', sans-serif;
+  color: blue;
+  margin-bottom: 0px;
 }
 
 h3 {
   font-size: 1.3rem;
+  font-weight: 200;
+  text-align: center;
+  font-family: 'Russo One', sans-serif;
+  color: var(--primary-red);
+  text-align: center;
+  margin-bottom: 0px;
 }
 
 h4 {
@@ -121,13 +79,28 @@ h5 {
   font-size: 1.1rem;
 }
 
+button {
+  width: 175px;
+  padding: 1.5vh 1vw;
+  margin-top: 2vh;
+  border-radius: 10px;
+  border-style: solid 2px;
+  font-size: 1rem;
+  font-weight: 300;
+}
+.btn-green {
+  background-color: green ;
+  color: white;
+}
+
+
 nav#menu {
-  background-color:#FFED00;
-  max-width: 1000%;
+  background-color:var(--primary-yellow);
+  max-width: 100%;
+  width: 680px;
+  border-bottom: 4px solid var(--primary-red);
   position: fixed;
-  width: 100%;
-  border-bottom: 5px solid #E3000B;
-  
+  top: 0;
 }
 
 #menu .right {
@@ -152,7 +125,7 @@ nav#menu {
  /* items del menu */
  
  #menu ul li {
-  background-color:#FFED00;
+  background-color:var(--primary-yellow);
  }
  
  /* enlaces del menu */
@@ -186,7 +159,7 @@ img.img-lego {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
   font-size: 1.4rem;
-  margin-top: 0.6vh;
+  margin-top: 0.5vh;
 }
 
 
@@ -213,8 +186,8 @@ img.img-lego {
  
  #menu ul ul li {
   float:none;
-  width:150px;
-  border-bottom: 1px solid #E3000B;
+  width:175px;
+  border-bottom: 1px solid var(--primary-red);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -223,7 +196,6 @@ img.img-lego {
  /* enlaces de los items del menu desplegable */
  
  #menu ul ul a {
-    line-height: 120%;
     padding: 1vh 2vw;
  }
  
@@ -231,7 +203,7 @@ img.img-lego {
  
  #menu ul li:hover > ul {
   display: block;
-  margin-top: 0.6vh;
+  margin-top: 0.5vh;
 }
 
 
@@ -241,8 +213,453 @@ img.img-lego {
     
 }
 
-#menu ul ul li .fa-brands, #menu ul ul li .fa-solid, #menu ul ul li .fa-regular {
-    color: #E3000B;
+#menu ul ul li .fa-brands, #menu ul ul li .fa-solid, #menu ul ul li .fa-regular, #menu ul ul li .fa-box {
+    color: var(--primary-red);
     font-size: 1rem !important;
     margin-left: 5vw;
 }
+
+.return-bt {
+  margin-top: 2vh;
+  padding: 0;
+  margin: 0 auto;
+  width: auto;
+}
+
+ /* ------------------Home page------------------ */
+
+#home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 14vh 2vw;
+}
+
+#home h1{
+    z-index: 1;
+} 
+
+.headers-intro {
+    max-width: 90%;
+    margin: 1vh auto;
+}
+
+.gif-intro {
+    padding: 0;
+    margin: 0 auto;
+}
+
+.gif-intro img{
+    max-width: 100%;
+    margin-top: -4vh;
+    z-index: 999;
+}
+
+.sectionbt-intro {
+    border-top: 4px solid var(--primary-red);
+    padding: 2vh 2vw 8vh;
+    background-color: #222;
+    height: 100px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.bt1 {
+  background-color: blue;
+  color: white;
+  border: solid 2px #fff;
+}
+
+.bt2 {
+  color: white;
+  background-color: green;
+  border: solid 2px #fff;
+}
+
+.bt3 {
+  color: white;
+  background-color: var(--primary-red);
+  border: solid 2px #fff;
+}
+
+.bt4 {
+  color: #333;
+  background-color: var(--primary-yellow);
+  border: solid 2px #fff;
+}
+.sectionbt-intro .fa-brands, .sectionbt-intro .fa-solid, .sectionbt-intro .fa-regular {
+  margin-left: 2vh;
+}
+.logged-title {
+  padding: 1vh 0 3vh;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 2vh;
+}
+
+#home .display {
+  display: none;
+ }
+
+ /* ------------------Sign up page------------------ */
+
+
+#signup, #login {
+  padding: 10vh 1vw;
+}
+ .sign-login {
+  padding: 2.5vh 2vw;
+ }
+
+ .container-forms {
+  margin: 0vh auto 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vh 0vw;
+  width: 90%;
+ }
+
+ #signup .display, #pageadmin .display, #details-storage .display, #details-bricks .display{
+  display: none;
+ } 
+
+ .form-singup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5vh 2vw;
+  font-family: 'Readex Pro', sans-serif;
+ }
+
+ .form-singup label  {
+  font-size: 1.2rem;
+  padding: 2vh 1vw 0;
+  font-weight: 600;
+}
+
+.form-singup input {
+  font-size: 1.2rem;
+  padding: 1vh 1vw;
+  width: 300px;
+;
+}
+
+.form-singup  input[type="file"] {
+  font-size: 0.8rem;
+  margin-top: 1vh;
+  text-align: center;
+  width: 288px;
+  padding: 1vh 1vw;
+  border-radius: 5px;
+}
+
+.form-singup .upload-file{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sect-options-bt {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  border-top: 4px solid var(--primary-red);
+  padding: 4vh 2vw 4vh;
+  background-color: #222;
+}
+
+.sectionbt-intro-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2vh;
+}
+
+.sectionbt-intro button {
+  width: 175px;
+  margin: 0vh 2vw;
+}
+
+.bottom-signlogin {
+  padding: 2vh 1vh;
+}
+
+.picture-profile {
+  width: 250px;
+  padding: 1vh 1vw 2vh;
+}
+
+.column {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+h2.login {
+  position: absolute;
+  bottom: 35vh;
+}
+
+.sectionbt-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0;
+}
+
+#pageadmin {
+  padding: 7vh 1vw;
+}
+
+.bottom-section {
+  bottom: 0px;
+  width: 100%;
+  background-color: #222;
+  border-top: 4px solid var(--primary-red);
+  padding: 2vh 2vw 8vh;
+  height: 100px;
+  position: fixed;
+ 
+}
+.top-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-usprofile { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5vh 1vw;
+}
+
+.container-usprofile .picture-profile {
+  margin-top: 2vh;
+}
+
+.data-use {
+  text-align: left;
+}
+
+.data-user strong {
+  color:blue;
+  font-size: 1.1rem;
+}
+
+.container-usprofile h3 {
+  position: absolute;
+  bottom: 25vh;
+}
+
+.container-update-user {
+  margin: 0vh auto 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14vh 1vw;
+}
+
+#guestuser {
+  margin: 0vh auto 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14vh 1vw;
+}
+
+button.btn-green.width-300 {
+  width: 300px;
+}
+
+#create-brick {
+  padding-top: 8vh;
+}
+
+select {
+  width: 310px;
+  font-size: 1rem;
+  padding: 1vh 1vw;
+  margin-top: 1vh;
+  background-color: blanchedalmond;
+  font-size: 1.2rem;
+  border-radius: 5px;
+}
+
+.container-forms input {
+    font-size: 1.2rem;
+    padding: 1vh 1vw;
+    width: 288px;
+    margin-top: 1vh;
+    border-radius: 5px;
+    text-align: center;
+    color: blue;
+    background: blanchedalmond;
+
+}
+
+.container-forms p {
+  font-size: 1rem;
+  color: #333;
+  padding: 1vh 1vw 0vh;
+}
+
+
+#list-bricks .container-forms{ 
+  padding: 14vh 1vw;
+}
+
+.pict-card img {
+  max-width: 330px;
+}
+
+.card, .pict-card, .info-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1vh auto;
+  width: 330px;
+  padding: 1vh 0;
+}
+
+.info-list h3 {
+  font-size: 1.2rem;
+}
+
+.card {
+  border-radius: 5px ;
+  margin-top: 4vh;
+  padding: 2vh 1vw;
+}
+
+.card img {
+  width: 40%;
+}
+
+.bottom-section-bt {
+  border-top: 4px solid var(--primary-red);
+  padding: 2vh 2vw 5vh;
+  background-color: #222;
+  height: 0px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+
+.bottom-section-bt .bt3 {
+  margin-bottom: 2vh;
+  margin-top: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  font-size: 1.2rem;
+}
+
+ /* ------------------Error page------------------ */
+
+
+div#error-page {
+  padding: 5vh 0 0;
+}
+
+video.error-gif {
+  height: 215px;
+}
+
+.video-section {
+  margin-top: 10vh;
+  margin-bottom: -35vh;
+  padding-bottom: 0vh;
+}
+.with-90 {
+  width: 90%;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.container-error {
+ 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 0vw;
+}
+
+ /* ------------------Edit brick------------------ */
+
+ #edit-brick {
+  padding: 14vh 0 2vh;
+ }
+
+
+ #edit-brick .container-forms{
+  padding: 0;
+ }
+
+ .container-guest {
+  margin: 0vh auto 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+.container-storage {
+  margin: 0vh auto 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh 0vw;
+}
+
+.container-storage {
+  margin: 0vh auto 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0vh 1vw;
+}
+
+#list-storage {
+  padding: 9vh 2vw;
+  margin: 4vh auto;
+}
+
+.container-storage {
+  margin: 0vh auto 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh 0vw;
+}
+
+div#details-storage {
+  padding: 1vh 0;
+  margin: 6vh auto;
+}
+
+ /* ------------------brick details------------------ */
+
+div#details-bricks {
+  padding: 1vh 0;
+  margin: 6vh auto;
+}
+
+

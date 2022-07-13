@@ -5,7 +5,10 @@ const brickSchema = new Schema(
 {
     brickCategoryId: {
         type: Schema.Types.ObjectId,
-        required: [true, 'BrickCategoryId name is required.'],
+        ref: "BrickCategory"
+    },
+      brickCategoryName: {
+           type: Schema.Types.ObjectId,
         ref: "BrickCategory"
     },
     quantity: {
@@ -21,13 +24,17 @@ const brickSchema = new Schema(
         enum: ["Using", "Stored", "Lost"],
         required: [true, "Status is required"],
     },
+    storageId: {
+        type: Schema.Types.ObjectId,
+        ref: "Storage"
+    },
     storageName: {
         type: Schema.Types.ObjectId,
         ref: "Storage"
     },
+
 });
 
-  const Brick = model('Brick', brickSchema);
-  
+  const Brick = model('Brick', brickSchema);  
   module.exports = Brick;
 
