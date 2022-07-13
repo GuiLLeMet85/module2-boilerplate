@@ -213,7 +213,7 @@ img.img-lego {
     
 }
 
-#menu ul ul li .fa-brands, #menu ul ul li .fa-solid, #menu ul ul li .fa-regular, #menu ul ul li .fa-box {
+#menu ul ul li .fa-brands, #menu ul ul li .fa-solid, #menu ul ul li .fa-regular {
     color: var(--primary-red);
     font-size: 1rem !important;
     margin-left: 5vw;
@@ -426,7 +426,7 @@ h2.login {
   width: 100%;
   background-color: #222;
   border-top: 4px solid var(--primary-red);
-  padding: 2vh 2vw 8vh;
+  padding: 2vh 0vw 8vh;
   height: 100px;
   position: fixed;
  
@@ -539,13 +539,15 @@ select {
 }
 
 .card {
+  border: solid 2px #E3000B;
   border-radius: 5px ;
-  margin-top: 4vh;
+  margin-top: 2vh;
   padding: 2vh 1vw;
 }
 
 .card img {
   width: 40%;
+  padding: 3vh 1vw;
 }
 
 .bottom-section-bt {
@@ -638,7 +640,7 @@ video.error-gif {
 }
 
 #list-storage {
-  padding: 9vh 2vw;
+  padding: 9vh 0vw;
   margin: 4vh auto;
 }
 

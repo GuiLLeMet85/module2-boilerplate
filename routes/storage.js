@@ -13,8 +13,8 @@ router.get("/storage", async(req, res, next) => {
     try {
         //  db.brickmanagerdb.dropIndexes()
         const user = req.session.currentUser;
-        const storage = await Storage.find({userId:user._id})  ;
-        res.render("storage/storage" , {storage, user})
+        const storage = await Storage.find({userId:user._id});
+        res.render("storage/storage" , {storage, user}) 
     } catch (err) {
         next(err);
     }

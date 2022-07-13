@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&family=Russo+One&display=swap" rel="stylesheet">
   <title>Easy Brick Manager App</title>
 </head>
-
+<!--
 <header>
 
 <!-- start nav -->
@@ -24,6 +24,7 @@
               <ul class="sub-menu">
                   <li><a href="/brick/list">Bricks <i class="fa-solid fa-puzzle-piece"></i></a></li>
                   <li><a href="/storage/storage">Storage <i class="fa-solid fa-box-archive"></i></a></li>
+                  <li><a href="/auth/logout">Sets <i class="fa-brands fa-fort-awesome"></i></a> </li>
                 </ul>
               </li>
               <li><a href="/"><img src="/pictures/logo.png" alt="logo easy brick manager"  class="img-lego"></a></li>
@@ -35,15 +36,7 @@
               </ul>
         <!-- end menu desplegable -->
           </li>
-        <li><a href="#"><img src="/pictures/add-item.png" alt="figure lego"  class="img-lego"></a>
-            <ul class="sub-menu">        
-                  <li><a href="/brick/create-brick">Add brick <i class="fa-solid fa-boxes-stacked"></i></a></li>
-                  <li><a href="/storage/create">Add storage <i class="fa-solid fa-box-archive"></i></a></li>
-            </ul>
-          
-        </li>
-
-
+        <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
          {{#unless user}}
           <li><a href="#"><img src="/pictures/user.png" alt="figure lego"  class="img-lego"></a>
          {{/unless}}

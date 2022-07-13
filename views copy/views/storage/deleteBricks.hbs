@@ -1,0 +1,13 @@
+
+<br><br><br><br>
+
+<form action="/storage/{{storage._id}}/deleteBricks" method="post">
+<select name="" id="">
+    {{#each brick}}
+        <option value=""><p>{{brickCategoryId.brickCategoryName}}</p></option>
+    {{/each}}
+</select>
+<button type="submit">Delete brick</button>
+
+
+</form>

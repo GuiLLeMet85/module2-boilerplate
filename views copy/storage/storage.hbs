@@ -1,0 +1,22 @@
+<div id="list-storage">
+      <h1>Storage list</h1>
+
+  <div class="container-storage">
+
+      {{#unless storage}}
+    <h2>There isn't any boxs to show</h2>
+    {{/unless}}
+  
+<div class="pageList">
+    {{#each storage}}
+        <div class="card">
+        <p>Name box: {{boxname}}</p>
+        
+        <img src="{{picture}}" alt="box">  
+          <button class="bt1" onclick="window.location.href='/storage/{{_id}}/storagedetails'">More info</button>
+
+          </form>      
+        </div>
+    {{/each}} 
+</div>
+</div>

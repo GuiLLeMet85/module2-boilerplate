@@ -25,14 +25,15 @@
         <option {{#if (ifEquals brick.status "Stored")}} selected {{/if}}value="Stored">Stored in a box</option>
         <option value="Lost">Unlocated</option>
       </select>
-           <p>Select the storage:</p>  
-        <select name="storageName">
-            {{#each storagesFromDB}}
-                <option value="{{_id}}">{{boxname}}</option> 
-            {{/each}}
-        </select>
 
        
+
+       <select name="storageName">
+        <option>No box</option>
+            {{#each storage}}
+                <option value="{{_id}}">{{boxname}}</option>
+            {{/each}}
+        </select>
 
        <div class="bottom-signlogin">
             <button type="submit" class="btn-green">Update <i class="fa-solid fa-rocket"></i></button>
