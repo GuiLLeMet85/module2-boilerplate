@@ -119,7 +119,7 @@ router.post("/create",  async(req, res, next) => {
 });
 
 router.post("/:id/delete", async(req, res, next) => {
-   
+    
     const { id } = req.params;
     try {
         await Storage.findByIdAndDelete(id);

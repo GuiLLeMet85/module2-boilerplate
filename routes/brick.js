@@ -107,7 +107,6 @@ router.get('/:id/details-brick', async (req, res, next) => {
         const storage= await Storage.find({userI: user._id}) 
    
         const brickpart = await Brick.findById(id).populate("brickCategoryId");
-             console.log(brickpart)
         res.render("bricks/details-brick",{brickpart, user,storage})     
   }
   catch(err) { 
