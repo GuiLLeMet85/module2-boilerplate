@@ -21,9 +21,9 @@
 
       <label>Choose the status:</label>
       <select name="status" id="status">
-        <option value="Using">Using in a set</option>
-        <option {{#if (ifEquals brick.status "Stored")}} selected {{/if}}value="Stored">Stored in a box</option>
-        <option value="Lost">Unlocated</option>
+        <option {{#if (ifEquals brick.status "Stored")}} selected {{/if}} value="Using">Using in a set</option>
+        <option {{#if (ifEquals brick.status "Stored")}} selected {{/if}} value="Stored">Stored in a box</option>
+        <option {{#if (ifEquals brick.status "Stored")}} selected {{/if}} value="Lost">Unlocated</option>
       </select> 
            <p>Select the storage:</p>  
         <select name="storageName">
