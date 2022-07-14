@@ -63,7 +63,6 @@ router.get("/:id/edit", async(req, res, next) => {
   
     try {
         const brick = await Brick.findById(id).populate("brickCategoryId"); //removed storageId
-        console.log(brick)
         res.render("bricks/update-form",{brick, user,brickCategoriesFromDB, storagesFromDB});
     } catch (error) {
         next(error);
@@ -71,7 +70,6 @@ router.get("/:id/edit", async(req, res, next) => {
 });
 
 router.post("/:id/edit", async(req, res, next) => {
-    
     const { id } = req.params;
     const { quantity, status ,storageName} = req.body;
     const intQuantity = parseInt(quantity);
@@ -79,7 +77,6 @@ router.post("/:id/edit", async(req, res, next) => {
        const updatedbrick = await Brick.findByIdAndUpdate(
             id, { quantity: intQuantity, status ,storageName}, { new: true }
         );
-        console.log(updatedbrick)
         res.redirect('/brick/list');
     } catch (error) {
         console.error("ERROR!!!", error);
@@ -103,11 +100,9 @@ router.get('/:id/details-brick', async (req, res, next) => {
     const user = req.session.currentUser;
     const { id } = req.params;
     
-    try{ 
-        const storage= await Storage.find({userI: user._id}) 
-   
-        const brickpart = await Brick.findById(id).populate("brickCategoryId");
-        res.render("bricks/details-brick",{brickpart, user,storage})     
+    try{
+        const brickpart = await Brick.findById(id).populate("brickCategoryId storageName");
+        res.render("bricks/details-brick",{brickpart, user})     
   }
   catch(err) { 
       next(err)

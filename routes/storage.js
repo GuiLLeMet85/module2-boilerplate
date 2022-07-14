@@ -26,11 +26,7 @@ router.get("/:id/edit", async(req, res, next) => {
     try{
         const user = req.session.currentUser;
         const storage = await Storage.findById(id) 
-        const bricks = await Brick.find({}) 
-            // quan recuperem l'array de bricks abans de mostrarlos farem un brick.filter(brick=> brick.status !== 'Stored' )
-            // console.log(id , brick[0])
-            
-        res.render("storage/edit-storage" ,{storage, bricks, userId: user} );
+        res.render("storage/edit-storage" ,{storage, user} );
     }   
     catch(err){
         next (err)
@@ -38,10 +34,10 @@ router.get("/:id/edit", async(req, res, next) => {
 });
 router.post("/:id/edit", async(req, res, next) => {    
     const { id } = req.params;
-    const {boxname, picture,bricks } = req.body;
+    const {boxname, picture } = req.body;
     try {
          
-        await Storage.findByIdAndUpdate(id, {boxname, picture, bricks} );         
+        await Storage.findByIdAndUpdate(id, {boxname, picture} );         
        
         res.redirect(`/storage/${id}/storagedetails`);
         return
@@ -86,7 +82,7 @@ router.get('/:id/storagedetails', async (req, res, next) => {
       const storage = await Storage.findById(id)
       const bricks = await Brick.find({storageName: id}).populate("brickCategoryId")
 // console.log(storage)
-      res.render("storage/details",{storage, bricks, userId: user})
+      res.render("storage/details",{storage, bricks,  user})
   }
   catch(err) { 
       next(err)
@@ -95,8 +91,7 @@ router.get('/:id/storagedetails', async (req, res, next) => {
 
 router.get('/create', async (req, res, next) => {
     try{
-        const bricks =await Brick.find({});
-        res.render("storage/new-storage", bricks);
+        res.render("storage/new-storage");
     } catch(e){
 
         console.log(e)
@@ -104,11 +99,11 @@ router.get('/create', async (req, res, next) => {
 })
 
 router.post("/create",  async(req, res, next) => {
-    const {boxname, picture, bricks } =req.body
+    const {boxname, picture } =req.body
     try{
         const user = req.session.currentUser._id;
         await Storage.create({
-            boxname, picture,bricks, userId: user
+            boxname, picture, userId: user
         })
           res.redirect("/storage/storage");
     }
