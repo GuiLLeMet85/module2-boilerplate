@@ -8,11 +8,16 @@
       <img src ="/pictures/bricks.gif">
 
     </div> 
+    {{#if user}}
+     <div class="logged-title">
+             <h3>Logged {{user.username}} </h3>  
+        </div> 
+     {{/if }}  
 
 <!-- buttons -->
     
-    <div class="sectionbt-intro">
-        {{#unless user}}
+        {{!--<div class="sectionbt-intro">
+     {{#unless user}}
         <div class="flex-row">
         <button class="bt1" onclick="window.location.href='/auth/signup'">Sign up  <i class="fa-solid fa-rocket"></i></button>
         <button class="bt2" onclick="window.location.href='/auth/login'">Log in <i class="fa-solid fa-user-astronaut"></i></button><br>
@@ -20,8 +25,9 @@
       <div class="sectionbt-intro-bottom">
         <button class="bt3" onclick="window.location.href='/guestUser/pageGuest'">Guest user <i class="fa-solid fa-user-ninja"></i></button>
       </div>
-        {{/unless}}
-         {{#if user}}
+        {{/unless}} --}}
+
+         {{!-- {{#if user}}
          <div class="logged-title">
              <h3>Logged {{user.username}} </h3>  
         </div>
@@ -31,6 +37,33 @@
           </form>
             <button class="bt1" onclick="window.location.href='/pageAdmin/pageAdmin'">Page admin</button>
           </div>
-        {{/if}}
+        {{/if}} --}}
 
-      </div>
+  
+
+      <!--new bottom -->
+<div class="bottom-section-index-bt">
+      {{#unless user}}
+         <div class="col flex-row with100vw">     
+             <button class="bt5 with60px" onclick="window.location.href='/auth/signup'"><i class="fa-solid fa-rocket"></i><br>Sign up  </button> 
+             <button class="bt6 with60px" onclick="window.location.href='/auth/login'"><i class="fa-solid fa-user-astronaut"></i><br>Log in </button> 
+            <button onclick="history.back()" class="bt7" onclick="window.location.href='/guestUser/pageGuest'"><i class="fa-solid fa-user-secret"></i><br>Guest user</button>  
+      
+         </div>
+      {{/unless}}
+
+      {{#if user}}
+         <div class="col flex-row with100vw">  
+        <div class="flex-row-space">
+   
+              <form action="/auth/logout" method="post">       
+                <button type="submit" class="bt8"><i class="fa-solid fa-right-from-bracket"></i><br>Log out </button> 
+              </form>
+  
+
+            <button class="bt6 with60px" onclick="window.location.href='/pageAdmin/pageAdmin'"><i class="fa-solid fa-user-astronaut"></i><br>Page admin</button>
+
+          </div>
+         </div>
+        {{/if}}
+</div>

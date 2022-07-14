@@ -44,7 +44,7 @@ p {
 }
 
 h1 {
-  font-size: 2.7rem;
+  font-size: 2.4rem;
   padding: 1vh 1vw 3vh;
   font-weight: 600;
   text-align: center;
@@ -110,6 +110,18 @@ nav#menu {
 #menu .left {
   float: left;
 }
+
+/* Flex */
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
 
 /* menu */
 
@@ -251,8 +263,7 @@ img.img-lego {
 
 .gif-intro img{
     max-width: 100%;
-    margin-top: -4vh;
-    z-index: 999;
+
 }
 
 .sectionbt-intro {
@@ -288,6 +299,39 @@ img.img-lego {
   background-color: var(--primary-yellow);
   border: solid 2px #fff;
 }
+
+button.bt5 {
+  width: 60px;
+  background-color: green;
+  border: solid 2px #fff;
+  color: #fff;
+}
+
+button.bt6 {
+  width: 60px;
+  background-color: blue;
+  border: solid 2px #fff;
+  color: #fff;
+}
+
+button.bt7 {
+  width: 60px;
+  border: solid 2px var(--primary-red);
+}
+button.bt8 {
+  background-color: var(--primary-red);
+  width: 100px;
+  border: solid 2px #fff;
+  font-size: 0.8rem;
+  color: #fff;
+} 
+
+button.with60px{
+  width: 60px;
+}
+
+
+
 .sectionbt-intro .fa-brands, .sectionbt-intro .fa-solid, .sectionbt-intro .fa-regular {
   margin-left: 2vh;
 }
@@ -328,7 +372,9 @@ img.img-lego {
  #signup .display, #pageadmin .display, #details-storage .display, #details-bricks .display{
   display: none;
  } 
-
+ p.welcome {
+  font-size: 1.2rem;
+ }
  .form-singup {
   display: flex;
   flex-direction: column;
@@ -431,6 +477,9 @@ h2.login {
   position: fixed;
  
 }
+
+
+
 .top-button {
   display: flex;
   flex-direction: column;
@@ -575,6 +624,22 @@ select {
   align-content: center;
 }
 
+.bottom-section-admin-bt {
+  border-top: 4px solid var(--primary-red);
+  padding: 3.5vh 2vw 5vh;
+  background-color: #222;
+  height: 40px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+}
+
+
 .bottom-section-bt .bt3 {
   margin-bottom: 2vh;
   margin-top: 0;
@@ -698,4 +763,57 @@ i.fa-solid.fa-circle-info {
   padding: 2vh 1vw 1vh;
   display: flex;
   justify-content: center;
+}
+
+
+
+.bottom-section-admin-bt .col {
+  padding: 1vh 1vw;
+}
+
+.bottom-section-admin-bt p {
+  color:#fff;
+  font-weight: 100;
+}
+
+.bottom-section-admin-bt .bt5, .bottom-section-admin-bt .bt6, .bottom-section-admin-bt .bt7, .bottom-section-admin-bt .bt8{
+  font-size: 0.8rem;
+}
+
+.flex-row{
+  flex-direction: row;
+  display: flex;
+  justify-content: space-around;
+}
+
+.with100vw {
+  width: 100vw;
+}
+
+.bottom-section-index-bt .bt5, .bottom-section-index-bt .bt6, .bottom-section-index-bt .bt7 {
+  font-size: 0.8rem;
+  width: 100px;
+}
+
+.bottom-section-index-bt {
+  border-top: 4px solid var(--primary-red);
+  padding: 1.5vh 2vw 5vh;
+  background-color: #222;
+  height: 40px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+}
+
+.flex-row-space {
+  flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+    justify-content: space-evenly;
+    width: 100vw;
 }
