@@ -1,4 +1,4 @@
-<div id="signup" >
+<div id="data-user" >
   <div class="headers-intro">
     <h1>Data user:</h1>
 
@@ -9,10 +9,12 @@
         <p><strong>{{user.username}}</strong></p>
         <p><strong>{{user.email}}</strong></p>
     </div>
-     <img src="{{user.imageUrl}}" alt="profile picture"class="picture-profile"><br>
+     <img src="{{user.imageUrl}}" alt="profile picture" onerror="this.remove()" class="picture-profile"><br>
+     <button class="bt2" onclick="window.location.href='/auth/{{user._id}}/update'"><i class="fa-solid fa-user-astronaut"></i> Update profile</button> 
+   {{!--  <h3>About your user data</h3> --}}
 
-    <h3>About your user data</h3>
-    <div class="bottom-section">
+
+    {{!-- <div class="bottom-section">
 
          <div class="sectionbt-bottom">
 
@@ -29,5 +31,34 @@
                 <button type="submit" class="bt3">Remove account</button>
             </form>
         </div>    
-    </div>   
+    </div>    --}}
+
+     <div class="bottom-section-admin-bt">
+         <div class="col flex-column">
+             <p>Session:</p>
+             <div class="bottons-admin">
+             <form action="/auth/logout" method="post">
+                    <button type="submit" class="bt7">Logout</button>   
+              </form> 
+             </div>
+         </div>
+         <div class="column-center flex-column">
+            <p></p>
+            <button onclick="history.back()" class="bt7"><i class="fa-solid fa-backward"></i></button>  
+        </div>
+        <div class="col flex-column">
+             <p>Account:</p>
+             <div class="bottons-admin">
+           
+              <form method="POST" action="/auth/{{user._id}}/removeAccount">
+                <button type="submit" class="bt6">Remove</button>
+            </form>
+             </div>
+         </div>
+        </div>
+    </div>
+      
+
+
+
 </div>

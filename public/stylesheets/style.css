@@ -459,7 +459,7 @@ button.with60px{
 
 h2.login {
   position: absolute;
-  bottom: 25vh;
+  bottom: 20vh;
 }
 
 .sectionbt-bottom {
@@ -606,7 +606,7 @@ select {
 }
 
 .card {
-  border: solid 2px #E3000B;
+  border: solid 2px blue;
   border-radius: 5px ;
   margin-top: 2vh;
   padding: 2vh 1vw 0vh;
@@ -754,7 +754,7 @@ div#details-bricks {
 
 i.fa-solid.fa-circle-info {
   font-size: 30px;
-  color: var(--primary-red);
+  color: blue
 }
 
 .more-info {
@@ -839,3 +839,11 @@ i.fa-solid.fa-circle-info {
 #list-storage .container-forms { 
   padding: 1vh 1vw;
 } 
+
+ /* ---------------- Data User ------------------ */
+
+ #data-user {
+  margin-top: 4vh; 
+  padding: 10vh 1vw;
+
+ }
