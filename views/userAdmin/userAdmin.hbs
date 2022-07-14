@@ -1,20 +1,34 @@
 <div id="pageadmin" >
 
   <div class="container-forms">
-        <h1>Welcome<br> {{user.username}}</h1>
+            <p class="welcome">Welcome</p>
+        <h1>{{user.username}}</h1>
       <img src="{{user.imageUrl}}" alt="profile picture"class="picture-profile"><br>
+      <button class="bt3" onclick="window.location.href='/profiles/{{user._id}}/userProfile'"><i class="fa-solid fa-user-astronaut"></i> Admin profile</button> 
+       
          <h2 class="login">¿Do you sort or create?</h2>
-        <div class="sect-options-bt">
-            <div class="column">
-                <button class="bt1" onclick="window.location.href='/brick/list'">Bricks list</button> 
-                <button class="bt2" onclick="window.location.href='/brick/create-brick'">Add a brick</button> 
-                <button class="bt4" onclick="window.location.href='/auth/pageFind'">Search</button> 
-            </div>
+        
 
-             <div class="column">  
-                <button class="bt1" onclick="window.location.href='/storage/storage'">Storage list</button>
-                <button class="bt2" onclick="window.location.href='/storage/create'">Add a storage</button>
-                <button class="bt3" onclick="window.location.href='/profiles/{{user._id}}/userProfile'">Admin profile</button> 
-            </div> 
+
+        <div class="bottom-section-admin-bt">
+         <div class="col flex-column">
+             <p>Bricks:</p>
+             <div class="bottons-admin">
+             <button class="bt5" onclick="window.location.href='/brick/create-brick'">Add <i class="fa-solid fa-plus"></i></button> 
+             <button class="bt6" onclick="window.location.href='/brick/list'">List <i class="fa-solid fa-table-list"></i></button> 
+             </div>
+         </div>
+         <div class="column-center flex-column">
+            <p></p>
+            <button onclick="history.back()" class="bt7"><i class="fa-solid fa-backward"></i></button>  
+        </div>
+        <div class="col flex-column">
+             <p>Storages:</p>
+             <div class="bottons-admin">
+             <button class="bt5" onclick="window.location.href='/storage/create'">Add <i class="fa-solid fa-plus"></i></button> 
+             <button class="bt6" onclick="window.location.href='/storage/storage'">List <i class="fa-solid fa-table-list"></i></button> 
+             </div>
+         </div>
         </div>
     </div>
+      
