@@ -305,18 +305,24 @@ button.bt5 {
   background-color: green;
   border: solid 2px #fff;
   color: #fff;
+  margin-left: 1.5vw;
+  margin-right: 1.5vw;
 }
 
 button.bt6 {
   width: 60px;
   background-color: blue;
   border: solid 2px #fff;
+  margin-left: 1.5vw;
+  margin-right: 1.5vw;
   color: #fff;
 }
 
 button.bt7 {
   width: 60px;
   border: solid 2px var(--primary-red);
+  margin-left: 1.5vw;
+  margin-right: 1.5vw;
 }
 button.bt8 {
   background-color: var(--primary-red);
@@ -324,12 +330,12 @@ button.bt8 {
   border: solid 2px #fff;
   font-size: 0.8rem;
   color: #fff;
+  
 } 
 
 button.with60px{
   width: 60px;
 }
-
 
 
 .sectionbt-intro .fa-brands, .sectionbt-intro .fa-solid, .sectionbt-intro .fa-regular {
@@ -571,9 +577,10 @@ select {
 }
 
 
-#list-bricks .container-forms{ 
+#list-bricks .container-forms { 
   padding: 14vh 1vw;
 }
+
 
 .pict-card img {
   max-width: 330px;
@@ -637,6 +644,7 @@ select {
   align-items: center;
   align-content: center;
   justify-content: space-around;
+  z-index: 1;
 }
 
 
@@ -736,7 +744,7 @@ div#details-storage {
  /* ------------------brick details------------------ */
 
 div#details-bricks {
-  padding: 1vh 0;
+  padding: 3vh 0;
   margin: 6vh auto;
 }
 
@@ -774,6 +782,7 @@ i.fa-solid.fa-circle-info {
 .bottom-section-admin-bt p {
   color:#fff;
   font-weight: 100;
+  font-size: 0.8rem;
 }
 
 .bottom-section-admin-bt .bt5, .bottom-section-admin-bt .bt6, .bottom-section-admin-bt .bt7, .bottom-section-admin-bt .bt8{
@@ -788,6 +797,10 @@ i.fa-solid.fa-circle-info {
 
 .with100vw {
   width: 100vw;
+}
+
+.with60 {
+  width: 60px !important;
 }
 
 .bottom-section-index-bt .bt5, .bottom-section-index-bt .bt6, .bottom-section-index-bt .bt7 {
@@ -817,3 +830,12 @@ i.fa-solid.fa-circle-info {
     justify-content: space-evenly;
     width: 100vw;
 }
+
+.bottons-admin {
+  display: flex;
+  flex-direction: row;
+}
+
+#list-storage .container-forms { 
+  padding: 1vh 1vw;
+} 
