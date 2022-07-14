@@ -93,6 +93,21 @@ button {
   color: white;
 }
 
+button.logoutmenu {
+  background-color: transparent;
+  font-weight: 400;
+  display: block;
+  color: #333;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0vh 2vw 1vh;
+  text-align: left;
+}
+
 
 nav#menu {
   background-color:var(--primary-yellow);
@@ -167,7 +182,7 @@ img.img-lego {
   width: 2rem;
 }
 
-#menu .fa-solid, .fas {
+#menu .fa-solid, #menu .fas {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
   font-size: 1.4rem;
@@ -225,8 +240,7 @@ img.img-lego {
     
 }
 
-#menu ul ul li .fa-brands, #menu ul ul li .fa-solid, #menu ul ul li .fa-regular, #menu ul ul li .fa-box {
-    color: var(--primary-red);
+#menu ul ul li .fa-brands, #menu ul ul li .fa-solid, #menu ul ul li .fa-regular, #menu ul ul li .fa-box,  #menu ul ul li .fa-sign-out {
     font-size: 1rem !important;
     margin-left: 5vw;
 }
@@ -497,7 +511,7 @@ h2.login {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5vh 1vw;
+  padding: 0 1vw 2vh;
 }
 
 .container-usprofile .picture-profile {
