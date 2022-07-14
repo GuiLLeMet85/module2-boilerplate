@@ -99,14 +99,16 @@ router.post("/:id/delete", async(req, res, next) => {
     }
 });
 
-
 router.get('/:id/details-brick', async (req, res, next) => {
     const user = req.session.currentUser;
     const { id } = req.params;
     
     try{ 
+        const storage= await Storage.find({userI: user._id}) 
+   
         const brickpart = await Brick.findById(id).populate("brickCategoryId");
-        res.render("bricks/details-brick",{brickpart, user})     
+             console.log(brickpart)
+        res.render("bricks/details-brick",{brickpart, user,storage})     
   }
   catch(err) { 
       next(err)
