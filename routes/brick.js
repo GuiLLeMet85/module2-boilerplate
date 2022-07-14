@@ -105,7 +105,7 @@ router.get('/:id/details-brick', async (req, res, next) => {
     
     try{ 
         const brickpart = await Brick.findById(id).populate("brickCategoryId");
-        res.render("bricks/details-brick",{brickpart, user})     
+        res.render("bricks/details-brick",{brickpart, user})      
   }
   catch(err) { 
       next(err)
