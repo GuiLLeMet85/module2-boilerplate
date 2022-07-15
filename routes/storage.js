@@ -117,6 +117,8 @@ router.post("/:id/delete", async(req, res, next) => {
     
     const { id } = req.params;
     try {
+        const bricksFromDB = await Brick.find({storageName:id})
+        bricksFromDB.forEach(async(brick)=>await Brick.findByIdAndDelete(brick_id))
         await Storage.findByIdAndDelete(id);
           
         res.redirect("/storage/storage");
