@@ -10,6 +10,10 @@ Easy Brick Manager is a responsive App to create, admin and delete inventories o
 
 ## Wireframes
 ![](docs/wireframe-brick-manager.png)
+---
+
+## Final syles
+
 ![](docs/easy-brick.manager.png)
 ---
 
