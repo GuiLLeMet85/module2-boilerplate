@@ -1,12 +1,10 @@
 # App name
 
-Brick Manager
+Easy Brick Manager
 
 ## Description
 
-This is a project developed by Dani Pérez and Guillem Baracco as the project for the second module at Ironhack. 
-
-With Brick Manager the user can check the information about each brick or Lego Set in the house (prev added). If the user has been registered in the app, may be add, modify or delete the information.
+Easy Brick Manager is a responsive App to create, admin and delete inventories of Lego parts. Each user has to be registered on the App to have to access his own inventory. The user can create boxes and assign them to his Lego Parts.
 
 ---
 
@@ -14,8 +12,6 @@ With Brick Manager the user can check the information about each brick or Lego S
 ![](docs/wireframe-brick-manager.png)
 
 ---
-Hello Marina
-good bie Marina
 
 ## Instructions
 
@@ -40,15 +36,15 @@ npm run start
 ## User stories (MVP)
 
 What can the user do with the app?
-- User can sign up and create and account
-- User can login
-- User can log ou
-- User can create ...
+- User can sign up, create and delete an account
+- User can login and log ouy
+- User can create/admin/delete a box storage
+- User can create/admin/delete a Lego Part and assign to a box storage.
 
 ## User stories (Backlog)
 
 - User can upload a profile picture
-- User can ...
+- User can add a box picture with a url image.
 
 ---
 
@@ -59,12 +55,13 @@ What can the user do with the app?
 User:
 
 ```js
+
 const userSchema = new Schema(
   {
     username: {
       type: String,
       trim: true,
-      required: [true, 'Username is required.'],
+      required: [true, 'Username is required.'],  
       unique: true
     },
     email: {
@@ -74,127 +71,123 @@ const userSchema = new Schema(
       lowercase: true,
       trim: true
     },
+    userIsAdmin: {
+      type: Boolean,
+      default: false,
+      required: [true, 'Is required.']
+    },    
     usertype: {
         type: String,
-        requiered: true,
-    }
-    profilepicture: {
+        // requiered: true,
+    },
+    imageUrl: {
         type: String,
-        requiered: true,
-    }
+    },
     hashedPassword: {
       type: String,
       required: [true, 'Password is required.']
-    }
-  }
-);
+   }
 
-const brick = new Schema(
-  {
-    brickname: {
-      type: String,
-      trim: true,
-      required: [true, 'brick name is required.'],
-      unique: true
+  }
+
+const brickSchema = new Schema(
+{
+    brickCategoryId: {
+        type: Schema.Types.ObjectId,
+        ref: "BrickCategory"
+    },
+      brickCategoryName: {
+           type: Schema.Types.ObjectId,
+        ref: "BrickCategory"
     },
     quantity: {
-      type: Number,
-      required: [true, 'Quantity is required.'],
-      
+        type: Number,
+        required: [true, 'Quantity stock is required.'],
     },
-    picture: {
-      type: String   
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
     },
-    color: {
-       type: String,
-       required: [true, 'Color is required.'], 
-    },
-    setId: {
-        type: String
-    }
-    ,
     status: {
-        status: String,
-        required: [true, 'Color is required.']
+        type: String,
+        enum: ["Using", "Stored", "Lost"],
+        required: [true, "Status is required"],
     },
-    boxId: {
-        status: String,
-        required: [true, 'box ID is required.']
-    }
-    
-}
-);  
+    storageId: {
+        type: Schema.Types.ObjectId,
+        ref: "Storage"
+    },
+    storageName: {
+        type: Schema.Types.ObjectId,
+        ref: "Storage"
+    },
 
-const set = new Schema(
-  {
-    setname: {
-      type: String,
-      trim: true,
-      required: [true, 'brick name is required.'],
-      unique: true
-    },
-    quantity: {
-      type: Number,
-      required: [true, 'Quantity is required.'],
-      
-    },
-    picture: {
-      type: String   
-    },
-    brickId: {
-        type: String
-    }  
-}  
-);
+});
 
-const box = new Schema(
-  {
-    boxname: {
-      type: String,
-      trim: true,
-      required: [true, 'brick name is required.'],
-      unique: true
+const brickCategorySchema = new Schema(
+    {
+      brickCategoryName: {
+        type: String,
+        trim: true,
+        required: [true, 'brick name is required.'],
+        unique: true
+      },
+      brickCategoryLegoId: {
+        type: String,
+        unique: true
+      },
+      picture: {
+        type: String,
+        default: "/pictures/default-brick.png"
+      },
+      color: {
+         type: String,
+         required: [true, 'Color is required.'], 
+      },
+      setId: {
+        type: [String]
+      },
+      userId: {
+        type: [Schema.Types.ObjectId],
+        ref: "User"
     },
-    brickId: {
-        type: String
-    }
-    picture: {
-      type: String   
-    }    
   }
-);
+  );  
 
+const storageSchema = new Schema( 
+    {
+      boxname: {
+        type: String,
+        trim: true,
+      },
+      picture: {
+        type: String,
+        default: "/pictures/default-storage.jpg"      
+      },
+      userId: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+      }
+    }
+  );
 ```
 
 ---
 
 ## Routes
 
+
 | Name  | Method | Endpoint    | Protected | Req.body            | Redirects |
 |-------|--------|-------------|------|---------------------|-----------|
-| Home  | GET   | /           | No   |                     |           |
+| Home  | GET   | /index           | No   |                     |           |
 | Login | GET    | /auth/login | No |                      |           |
 | Login | POST | /auth/login   | No | { email, password }  | /         |
 | Signup | GET    | /auth/signup | No |                      |           |
 | Signup | POST | /auth/signup   | No | { username, email, password }  | /auth/login  |
-| New movie  | GET    | /movies/new | Yes |                      |           |
-| New movie | POST | /movies/new   | Yes | { title, cast, genre }  | /movies/:movieId   |
-
----
-
-| Name  | Method | Endpoint    | Protected | Req.body            | Redirects |
-|-------|--------|-------------|------|---------------------|-----------|
-| Home  | GET   | /           | No   |                     |           |
-| Login | GET    | /auth/login | No |                      |           |
-| Login | POST | /auth/login   | No | { email, password }  | /         |
-| Signup | GET    | /auth/signup | No |                      |           |
-| Signup | POST | /auth/signup   | No | { username, email, password }  | /auth/login  |
-| New brick  | GET    | /bricks/new | Yes |                      |           |
-| New brick | POST | /bricks/new   | Yes | { title, cast, genre }  | /bricks/:brickId   |
-| New set  | GET    | /sets/new | Yes |                      |           |
-| New set | POST | /sets/new   | Yes | { title, cast, genre }  | /sets/:setId   |
-| New box  | GET    | /sets/new | Yes |                      |           |
-| New box | POST | /sets/new   | Yes | { title, cast, genre }  | /box/:boxId   |
+| New brick  | GET   | /create-brick | Yes |                      |bricks/create-brick
+| New brick | POST | /create-brick  | Yes | { title, cast, genre }  | /brick/list   |
+| New box  | GET    | /create | Yes |                      |        storage/new-storage   |
+| New box | POST | /create  | Yes | { title, cast, genre }  | /storage/storage  |
 ​
 
 
@@ -202,8 +195,8 @@ const box = new Schema(
 
 ## Useful links
 
-- [Github Repo](https://github.com/alebausa/module2-boilerplate)
-- [Deployed version]()
-- [Presentation slides](https://www.slides.com)
+- [Github Repo](https://github.com/GuiLLeMet85/module2-boilerplate)
+- [Deployed version](https://brickmanager.herokuapp.com/)
+- [Presentation slides](https://slides.com/guillemb/palette)
 
 
