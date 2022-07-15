@@ -11,17 +11,17 @@
  
       <div class="card">    
         <div class="pict-card">
-        <a href='/brick/{{_id}}/details-brick'"> <img src="{{brickCategoryId.picture}}" onerror="this.remove()" ></a>
+            <a href='/brick/{{_id}}/details-brick'> <img src="{{brickCategoryId.picture}}" onerror="this.remove()"></a>
         </div>
         <div class="info-list">          
-            <h3>{{brickCategoryId.brickCategoryName}}</h3>
-            <p>Quantity: {{quantity}}</p>  
-            <p>storageName:{{storageName.boxname}}</p>
-         <a class="more-info" href='/brick/{{_id}}/details-brick'">
-         <div class="div-more">
-            <i class="fa-solid fa-circle-info"></i>
-        </div>
-        </a>
+                <h3>{{brickCategoryId.brickCategoryName}}</h3>
+                <p>Quantity: {{quantity}}</p>  
+                <p>In: {{storageName.boxname}}</p>
+            <a class="more-info" href="/brick/{{_id}}/details-brick">
+                <div class="div-more">
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+            </a>
         </div> 
 
       </div>

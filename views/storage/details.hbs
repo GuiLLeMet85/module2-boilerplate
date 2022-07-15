@@ -3,38 +3,56 @@
 
   <div class="container-forms">
     <h1>Edit the Storage</h1>
-       <h2>Name box: {{storage.boxname}}</h2>
-{{#unless storage}}
-<h2>There isn't any box to show</h2>
-{{/unless}}
-
-{{#unless bricks}}
-<h2>No bricks</h2>
-{{/unless}}
-
-  <h3></h3>
-    <div class="pageList">
-
-        <div class="card">
-          <img src="{{storage.picture}}">
-          {{#each bricks}}
-<img src="{{this.brickCategoryId.picture}}" />
-<p>{{this.brickCategoryId.brickCategoryName}}</p>
-<p>{{this.quantity}} units</p>
-{{/each}}
+           <h2>Name box: {{storage.boxname}}</h2>
+       <div class="box-img">
+           <img src="{{storage.picture}}"  alt="storage box" onerror="this.remove()">
         </div>
+  {{#unless storage}}
+      <h2>There isn't any box to show</h2>
+  {{/unless}}
 
-    </div>
-       
-</ul>
+  {{#unless bricks}}
+      <h2>No bricks</h2>
+  {{/unless}}
 
+         <div class="list">
+   
+            {{#each bricks}}
+              <div class="card">    
+                <div class="pict-card">
+                 <a href='/brick/{{_id}}/details-brick'> <img src="{{this.brickCategoryId.picture}}" onerror="this.remove()"/></a>
+                </div> 
+                  <div class="info-list">       
+                      <h3>{{this.brickCategoryId.brickCategoryName}}</h3>
+                      <p>{{this.quantity}} units</p>
+                      <div class="more-info">
+                            <div class="div-more">
+                              <a href="/brick/{{_id}}/details-brick"><i class="fa-solid fa-circle-info"></i></a>
+                          
+                               <form method="POST" action="/storage/{{storage._id}}/delete" class="zeropx">
+                                  <button class="bt9 with60" type="submit"> <i class="fas fa-trash-alt"></i></button>
+                              </form>   
 
+                              <form method="POST" action="/brick/{{brickpart._id}}/delete">
+                                 <button class="bt8 with60" type="submit">Erase <i class="fa-solid fa-trash-can"></i></button>
+                              </form>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            {{/each}}
+        
+        
+         </div>
 <div class="bottom-section-admin-bt">
          <div class="col flex-column">
              <p>Storage:</p>
              <div class="bottons-admin"> 
              <button class="bt5" onclick="window.location.href='/storage/{{storage._id}}/edit'">Edit <i class="fa-solid fa-pen"></i></button> 
-             <button class="bt6" onclick="window.location.href='/storage/storage'">List <i class="fa-solid fa-table-list"></i></button> 
+              <form  method="POST" action="/storage/{{storage._id}}/delete">
+                <button class="bt8 with60" type="submit">Erase <i class="fa-solid fa-trash-can"></i></button>
+              </form>
              </div>
          </div>
          <div class="column-center flex-column">
@@ -42,11 +60,9 @@
             <button onclick="history.back()" class="bt7"><i class="fa-solid fa-backward"></i></button>  
         </div>
         <div class="col flex-column">
-              <p>Storage:</p>
+              <p>Brick:</p>
              <div class="bottons-admin">
-               <form  method="POST" action="/storage/{{storage._id}}/deleteBricks">
-                <button class="bt8 with60" type="submit">Erase <i class="fa-solid fa-trash-can"></i></button>
-              </form>
+               <button class="bt6" onclick="window.location.href='/storage/storage'">List <i class="fa-solid fa-table-list"></i></button> 
              <button class="bt5" onclick="window.location.href='/brick/create-brick'">Add <i class="fa-solid fa-plus"></i></button> 
              </div>
         </div>

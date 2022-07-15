@@ -344,7 +344,13 @@ button.bt8 {
   border: solid 2px #fff;
   font-size: 0.8rem;
   color: #fff;
-  
+} 
+
+button.bt9 {
+  color: var(--primary-red);
+  font-size: 0.8rem;
+  background-color: transparent;
+  padding: 0;
 } 
 
 button.with60px{
@@ -616,7 +622,8 @@ select {
 }
 
 .info-list h3 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  color: green;
 }
 
 .card {
@@ -647,7 +654,7 @@ select {
 
 .bottom-section-admin-bt {
   border-top: 4px solid var(--primary-red);
-  padding: 3.5vh 2vw 5vh;
+  padding: 4vh 2vw 5vh;
   background-color: #222;
   height: 40px;
   position: fixed;
@@ -661,6 +668,9 @@ select {
   z-index: 1;
 }
 
+#list-bricks .bottom-section-admin-bt {
+  padding: 4vh 0vw 5vh;
+}
 
 .bottom-section-bt .bt3 {
   margin-bottom: 2vh;
@@ -755,6 +765,18 @@ div#details-storage {
   margin: 8vh auto;
 }
 
+div.box-img {
+  padding: 3vh 1vw;
+  margin: 1vh auto;
+}
+
+.box-img img{
+  max-width: 150px;
+}
+
+
+
+
  /* ------------------brick details------------------ */
 
 div#details-bricks {
@@ -768,10 +790,18 @@ div#details-bricks {
 
 i.fa-solid.fa-circle-info {
   font-size: 30px;
-  color: blue
+  color: blue;
 }
 
-.more-info {
+i.fa-trash-alt {
+  font-size: 27px;
+  color: red;
+  margin-bottom: 2vh;
+  
+}
+
+
+.more-info, div.more-info {
   width: 100%;
   margin: 2vh auto 0;
   position: static;
@@ -780,14 +810,23 @@ i.fa-solid.fa-circle-info {
   border-radius: 5px;
 }
 
+
+
 .div-more {
   height: 35px;
   padding: 2vh 1vw 1vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+ 
 }
 
-
+form.zeropx {
+  padding: 0;
+  margin: 0 12vw 0 2vw;
+  width: 0;
+}
 
 .bottom-section-admin-bt .col {
   padding: 1vh 1vw;
