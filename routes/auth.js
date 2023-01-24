@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const isLoggedIn = require('../middlewares');
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -40,9 +39,8 @@ router.post('/signup', async (req, res, next) => {
 // @access  Public
 router.post('/login', async (req, res, next) => {
   const { email, password } = req.body;
-  // ⚠️ Add more validations!
+  // ⚠️ Add validations!
   try {
-    // Remember to assign user to session cookie:
     const user = await User.findOne({ email: email });
     if (!user) {
       res.render('auth/login', { error: "User not found" });
@@ -50,6 +48,7 @@ router.post('/login', async (req, res, next) => {
     } else {
       const match = await bcrypt.compare(password, user.hashedPassword);
       if (match) {
+        // Remember to assign user to session cookie:
         req.session.currentUser = user;
         res.redirect('/');
       } else {
@@ -63,8 +62,8 @@ router.post('/login', async (req, res, next) => {
 
 // @desc    Destroy user session and log out
 // @route   POST /auth/logout
-// @access  Private
-router.post('/logout', isLoggedIn, (req, res, next) => {
+// @access  Private 
+router.post('/logout', (req, res, next) => {
   req.session.destroy((err) => {
     if (err) {
       next(err)

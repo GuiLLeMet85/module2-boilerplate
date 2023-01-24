@@ -2,13 +2,7 @@
 
 ## Description
 
-This is a project developed by XXX and YYY as the project for the second module at Ironhack. The application...
-
----
-
-## Wireframes
-> Substitute this image with an image of your own app wireframes or designs
-![](docs/wireframes.png)
+This is a project developed by XXX and YYY as the project for the second module at Ironhack. The purpose of the application is...
 
 ---
 
@@ -17,7 +11,7 @@ This is a project developed by XXX and YYY as the project for the second module 
 When cloning the project, change the <code>sample.env</code> for an <code>.env</code> with the values you consider:
 ```js
 PORT=3000
-MONGO_URL='mongodb://localhost/dbName'
+MONGO_URL='mongodb://localhost:27017/app-name'
 SESSION_SECRET='SecretOfYourOwnChoosing'
 NODE_ENV='development'
 ```
@@ -30,6 +24,17 @@ To start the project run:
 npm run start
 ```
 
+To work on the project and have it listen for changes:
+```bash
+npm run dev
+```
+
+---
+
+## Wireframes
+> Substitute this image with an image of your own app wireframes or designs
+![](docs/wireframes.png)
+
 ---
 
 ## User stories (MVP)
@@ -37,7 +42,7 @@ npm run start
 What can the user do with the app?
 - User can sign up and create and account
 - User can login
-- User can log ou
+- User can log out
 - User can create ...
 
 ## User stories (Backlog)
@@ -48,8 +53,6 @@ What can the user do with the app?
 ---
 
 ## Models
-
-
 
 User:
 
