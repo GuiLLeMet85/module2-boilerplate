@@ -102,7 +102,8 @@ const userSchema = new Schema(
 
 ## Useful links
 
-- [Github Repo](https://github.com/alebausa/module2-boilerplate)
+- [Github Repo]()
+- [Trello kanban]()
 - [Deployed version]()
 - [Presentation slides](https://www.slides.com)
 
