@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('trust proxy', 1);
 app.use(
   session({
-    name: 'project2-cookie',
+    name: 'kebab-lovers',
     secret: process.env.SESSION_SECRET,
     resave: true,
     saveUninitialized: false,
@@ -38,7 +38,7 @@ app.use(
     store: MongoStore.create({
       mongoUrl: process.env.MONGO_URL
     })
-  }) 
+  })
 )
 
 // view engine setup
@@ -50,12 +50,12 @@ app.use('/', indexRouter);
 app.use('/auth', authRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
